@@ -1,8 +1,6 @@
 # aerocenter.site
 
-This is a project I built back in 2018 while attending the Federal Aviation Administration's ATC Academy. It turns out that I enjoy programming a bit more than doing ATC work. The quality of the code is a bit rough as this was my first project built in JavaScript. 
-
-AeroCenter Site has four parts: 
+This is a project I built back in 2018 while attending the Federal Aviation Administration's ATC Academy. It turns out that I enjoy programming a bit more than doing ATC work. The quality of the code is a bit rough as this was my first project built in JavaScript. At time of writing (10/2020), AeroCenter Site receives around 200 unique users per month.
 
 # Map
 
