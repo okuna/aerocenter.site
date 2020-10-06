@@ -1,0 +1,15 @@
+{
+  "name": "Aero Center",
+  "theme_color": "#9e9e9e",
+  "background_color": "#9E9E9E",
+  "start_url": "index.php",
+  "display": "standalone",
+  "icons":[
+	  {
+		  "src":"/apple-touch-icon.png",
+		  "sizes": "600x600",
+		  "type": "image/png"
+	  }
+  ]
+}
+

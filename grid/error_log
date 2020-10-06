@@ -1,0 +1,2 @@
+[13-May-2018 00:06:17 America/New_York] PHP Parse error:  syntax error, unexpected 'backgroundColor' (T_STRING), expecting ',' or ';' in /home/okunslpw/aerocenter.site/grid/index.php on line 71
+[13-May-2018 17:14:12 America/New_York] PHP Parse error:  syntax error, unexpected ';' in /home/okunslpw/aerocenter.site/grid/dev.php on line 112
