@@ -1,2 +1,0 @@
-[10-Apr-2018 18:29:04 America/New_York] PHP Warning:  file_get_contents(map.svg): failed to open stream: No such file or directory in /home/okunslpw/public_html/map/archive/index.php on line 104
-[28-May-2018 01:00:22 America/New_York] PHP Warning:  file_get_contents(map.svg): failed to open stream: No such file or directory in /home/okunslpw/aerocenter.site/map/archive/index.php on line 104
