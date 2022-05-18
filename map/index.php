@@ -26,7 +26,7 @@
 			stroke: blue;
 		}
 		
-		.vorJAN {
+		.vorMHZ {
 			position: absolute;
 			left: 548px;
 			top: 500px;
@@ -162,8 +162,8 @@
 		134.1 - 334.1
 	</div>
 	<div style = "position: absolute; left: 470; top: 1030;" class = "sectorText">
-		H30<br>
-		HMU LO<br>
+		H27<br>
+		PCU LO<br>
 		133.1 - 333.1
 	</div>
 	<div style = "position: absolute; left: 850; top: 1030;" class = "sectorText">
@@ -199,8 +199,7 @@
 		260.2
 	</div>
 	<div style = "position: absolute; left: 800; top: 360; color: red;" class = "sectorText">
-		<u>R931A</u> &#x21A7 9000 MSL<br>
-		<u>R931B</u> 9001 MSL to but not including FL180 
+		<u>Meridian 1 West</u> MOA 8000 TO BUT NOT INCLUDING FL180<br>
 	</div>
 	<div style = "position: absolute; left: 800; top: 230; color: red;" class = "sectorText">
 		<u>Columbus 3 MOA</u><br>
@@ -215,14 +214,14 @@
 
 
 <?php
-	echo file_get_contents("map.svg");
+	echo file_get_contents("map-3-2021.svg");
 ?>		
 
 
 		<div id = "labels">
 		</div>		
 		
-		<script src = "archive/src-9-1.js">
+		<script src = "src.js">
 		</script>
 	</body>
 </html>
