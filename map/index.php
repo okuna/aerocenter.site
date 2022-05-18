@@ -214,7 +214,7 @@
 
 
 <?php
-	echo file_get_contents("map-3-2021.svg");
+	echo file_get_contents("map.svg");
 ?>		
 
 
