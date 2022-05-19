@@ -1,18 +1,24 @@
 # aerocenter.site
 
-This is a project I built back in 2018 while attending the Federal Aviation Administration's ATC Academy. It turns out that I enjoy programming a bit more than doing ATC work. The quality of the code is a bit rough as this was my first project built in JavaScript. At time of writing (10/2020), AeroCenter Site receives around 200 unique users per month.
+Aerocenter Site is a project I built back in 2018 while attending the Federal Aviation Administration's ATC Academy. The quality of the code is a bit rough as it was the first time I'd built anything in JavaScript. In 2021, AeroCenter Site received around 200 unique users per month, probably making it the most popular online training tool for ATC Academy attendees. 
 
 # Map
 
 ![Map Screenshot](/images/map.png)
 
-The interactive map is the first app that was built. In order to pass the Academy, students have to memorize all of the numbers on the map and then draw it from memory. Since there are so many numbers to memorize (over a hundred, I think), I wanted an easier way of studying rather than using a whiteboard or piece of paper. The itself is an SVG that I drew in the open source app InkScape. The main challenge was finding a way to easily keep track of over a hundred input fields with a position, value, and rotation. Most of the inputs are directly attached to SVG elements, which takes care of position and rotation. The input's value was encoded into the id of the SVG element. 
+The interactive map was the first Aerocenter Site app that I built. The Academy requires students to memorize nearly everything on the map and redraw it from memory. The map contains well over a hundred different attributes that must be memorized, and my goal was to develop a tool easier to use than a whiteboard or stacks of paper that my peers were using. 
+
+The map itself is an SVG that I drew in the open source app InkScape. The main challenge was finding a way to easily keep track of over a hundred `<input>` fields with a position, value, and rotation. My solution was to dynamically generate `<input>` tags that inherit position and rotation values from rectangles drawn on the map in InkScape. This solved the issue of having to manually place all of the `<input>` tags. 
+
+The map supports autocorrect, which immediately highlights incorrect answers with red text and a yellow highlight. If a wrong answer is corrected, the red text is removed, but the highlight remains, which should help the user remember which inputs were forgotten. 
 
 # Clock
 
 ![Clock Screenshot](/images/clock.png)
 
-A large part of training involves rehearsing ATC scenarios against a clock. In order to practice, some students would resort to resetting their phone's system time to align with the scenario clock. This was messy and problematic, especially when trying to pause the scenario. I developed this clock app to help in this situation. The goal was to make the clock very easy to set, reset, and pause. 
+A large part of training involved rehearsing ATC scenarios against a clock. In order to practice, some students would resort to resetting their phone's system time to align with the scenario clock. This was messy and problematic, especially when attempting to pause a scenario. I developed this clock app with the goals of making it easy to set and pause. 
+
+The table of text below the clock is represents METAR weather data for airports within the Aerocenter airspace. The altimeter values randomly update each time the clock's hour changes. 
 
 # Grid
 
@@ -20,8 +26,16 @@ A large part of training involves rehearsing ATC scenarios against a clock. In o
 
 Students are required to memorize a selection of aircraft characteristics. The grid is a simple flash card game with the added benefit of pictures to help with memorization.
 
+Aircraft are sorted into columns indicating their speed (in knots, at the top row), and type (1 P S = single engine, piston, small).
+
 # Radar
 
 ![Radar Screenshot](/images/radar.png)
 
-The most ambitious and complex app in the AeroCenter Site suite. It is an interactive ERAM radar simulation which uses requestAnimationFrame() to update at 60 fps. Rather than use canvas, I went for a vector-based approach. To control the targets, I wrote a basic command line interpreter that uses real ERAM commands. Multiple ERAM commands can be saved into a script which can then be used to create entire scenarios. 
+The radar simulator is the most ambitious and complex app in the AeroCenter Site suite. It is an interactive ERAM radar simulation which uses `requestAnimationFrame()` to update at 60 frames per second. 
+
+This app contains a basic command line interpreter which is modeled after real ERAM commands. For instance, the user can enter a `fp` command to generate a target with a flight plan and speed, which will appear on the map and fly to the points provided in the flight plan. Other commands can adjust a plane's altitude or simulate a point out to adjacent sectors. 
+
+One challenge was mapping the screen coordinate space (in pixels) to real world coordinates. The map's real world location was determined using the location of JAN VORTAC (in the center of the screen). The app contains a database of all airports and navigation fixes in the country, which allows targets to actually "fly" to any airport offscreen in the correct direction. 
+
+Multiple commands can be saved as a script which are activated according to the clock. This allows the user to generate scenarios with airplanes that automatically take off or fly through the sector. 
