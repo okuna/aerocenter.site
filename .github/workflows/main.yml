@@ -14,3 +14,4 @@ jobs:
         server: ftp.aerocenter.site
         username: aeronrwz
         password: ${{ secrets.ftp_password }}
+        server-dir: public_html/
