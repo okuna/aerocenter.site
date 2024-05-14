@@ -5,7 +5,7 @@
    version="1.1"
    id="svg764"
    sodipodi:docname="map.svg"
-   inkscape:version="1.2 (dc2aedaf03, 2022-05-15)"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -35,15 +35,15 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1858"
-     inkscape:window-height="1057"
+     inkscape:window-width="1728"
+     inkscape:window-height="1051"
      id="namedview766"
      showgrid="false"
-     inkscape:zoom="1"
-     inkscape:cx="308"
-     inkscape:cy="354"
-     inkscape:window-x="54"
-     inkscape:window-y="-8"
+     inkscape:zoom="0.63203486"
+     inkscape:cx="510.25666"
+     inkscape:cy="704.07509"
+     inkscape:window-x="374"
+     inkscape:window-y="1478"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer2"
      borderlayer="true"
@@ -9717,7 +9717,7 @@
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
     <g
-       id="ble"
+       id="0m8"
        style="stroke:#00801f;stroke-opacity:1"
        transform="translate(63.23481,-376.42381)">
       <circle
@@ -9908,12 +9908,12 @@
        inkscape:transform-center-y="-208.3426"
        transform="matrix(0.31197608,0,0,0.35683923,605.78987,422.38762)" />
     <path
-       transform="translate(109.04238,163.53621)"
        style="fill:none;stroke:#008000;stroke-dasharray:20, 10, 2, 5, 2, 10"
        d="M 500,400 H 700 L 835.59322,540.36017 771.29237,701.48305 556.99153,709.74576 445.55085,564.32203 500,400"
        id="polyline678"
        inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ccccccc" />
+       sodipodi:nodetypes="ccccccc"
+       transform="translate(109.04238,163.53621)" />
     <path
        sodipodi:type="star"
        id="v427-14"
@@ -15252,5 +15252,14 @@
        x="-531.3161"
        y="809.23584"
        transform="rotate(-52.879866)" />
+    <path
+       style="fill:#000000"
+       d="m 943.90855,748.23922 18.35576,-0.4477"
+       id="v417"
+       inkscape:label="" />
+    <path
+       style="fill:#000000"
+       d="m 321.04735,555.34519 h 22.39176 v 0"
+       id="aaaaaa" />
   </g>
 </svg>
