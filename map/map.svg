@@ -39,9 +39,9 @@
      inkscape:window-height="1051"
      id="namedview766"
      showgrid="false"
-     inkscape:zoom="4.2178924"
-     inkscape:cx="326.34782"
-     inkscape:cy="539.84307"
+     inkscape:zoom="1.1279055"
+     inkscape:cx="355.96954"
+     inkscape:cy="270.41273"
      inkscape:window-x="374"
      inkscape:window-y="1478"
      inkscape:window-maximized="1"
@@ -15145,53 +15145,53 @@
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:16px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-opacity:1"
        x="18.384779"
-       y="108.93427"
+       y="130.93427"
        id="text3748"><tspan
          sodipodi:role="line"
          id="tspan3746"
          x="18.384779"
-         y="108.93427">ZAE Aero Center</tspan><tspan
+         y="130.93427">ZAE Aero Center</tspan><tspan
          sodipodi:role="line"
          x="18.384779"
-         y="128.93427"
+         y="150.93427"
          id="tspan3750">Sector 66, Jackson Low</tspan><tspan
          sodipodi:role="line"
          x="18.384779"
-         y="148.93427"
+         y="170.93427"
          id="tspan3756"
          style="font-size:10.6667px;line-height:1">Use map at own risk!</tspan><tspan
          sodipodi:role="line"
          x="18.384779"
-         y="168.93427"
+         y="190.93427"
          style="font-size:10.6667px;line-height:1"
          id="tspan3877">Map is missing MEAs and MIAs.</tspan><tspan
          sodipodi:role="line"
          x="18.384779"
-         y="188.93427"
+         y="210.93427"
          style="font-size:10.6667px;line-height:1"
-         id="tspan3804">99 indicates total airway length</tspan><tspan
+         id="tspan3804">99  indicates total airway length</tspan><tspan
          sodipodi:role="line"
          x="18.384779"
-         y="208.93427"
+         y="230.93427"
          style="font-size:10.6667px;line-height:1"
-         id="tspan3833">99 indicates distance to boundry </tspan><tspan
+         id="tspan3833">99  indicates distance to boundry </tspan><tspan
          sodipodi:role="line"
          x="18.384779"
-         y="228.93427"
+         y="250.93427"
          id="tspan3825"
          style="font-size:10.6667px;line-height:1" /><tspan
          sodipodi:role="line"
          x="18.384779"
-         y="248.93427"
+         y="270.93427"
          style="font-size:5.33333px;line-height:0"
          id="tspan3763">v0.9.2 (Sourced from map V.2022-02)</tspan></text>
     <rect
-       style="opacity:0.93999999;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.98541659;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="opacity:0.94;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.985417;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect3766"
        width="250.43039"
        height="176.89128"
        x="9.1350965"
-       y="88.370872" />
+       y="110.37087" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:5.33333349px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
@@ -15212,7 +15212,7 @@
        id="rect3800"
        style="opacity:0.93999999;fill:#000000;fill-opacity:0.01960784;stroke:none;stroke-width:1.16876316;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.64562589;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:none;stroke:#000000;stroke-width:0.645626;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="M 24.062014,217.44546 12.280056,205.6635 24.062013,193.88154 35.843971,205.6635 Z"
        inkscape:randomized="0"
        inkscape:rounded="0"
@@ -15225,7 +15225,8 @@
        sodipodi:cx="24.062014"
        sodipodi:sides="4"
        id="path3821"
-       sodipodi:type="star" />
+       sodipodi:type="star"
+       transform="translate(0,22)" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:13.33333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
@@ -15238,12 +15239,12 @@
          y="226.45757"
          style="font-size:10.66666698px" /></text>
     <rect
-       style="opacity:0.93999999;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.9767856;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="opacity:0.94;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.976786;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect3881"
        width="21.21534"
        height="16.595877"
        x="13.925982"
-       y="176.4091" />
+       y="198.4091" />
     <rect
        style="opacity:0.94;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.16876;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect3763"
