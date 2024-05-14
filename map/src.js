@@ -47,7 +47,7 @@ var vorArray = [
 	"vorHEZ_026",
 	"vorHEZ_044",
 	"ubaby_UBABY",
-	"deski_DESKI",
+	"deske_DESKE",
 	"yazoo_YAZOO",
 	"kgwo_KGWO",
 	"hater_HATER",

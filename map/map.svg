@@ -9410,7 +9410,7 @@
        sodipodi:cy="415.67557"
        sodipodi:cx="297.85947"
        sodipodi:sides="3"
-       id="deski"
+       id="deske"
        sodipodi:type="star"
        style="fill:none;stroke:#000000;stroke-width:2.99711251;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     <path
@@ -15184,7 +15184,7 @@
          x="18.384779"
          y="248.93427"
          style="font-size:5.33333px;line-height:0"
-         id="tspan3763">v0.9.1 (Sourced from map V.2021-08)</tspan></text>
+         id="tspan3763">v0.9.2 (Sourced from map V.2022-02)</tspan></text>
     <rect
        style="opacity:0.93999999;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.98541659;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect3766"
