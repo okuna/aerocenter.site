@@ -66,7 +66,8 @@ var vorArray = [
 	"khks_KHKS",
 	"kjvw_KJVW",
 	"kvks_KVKS",
-	"ble_0M8",
+	"ble_BLE",
+	"0m8_0M8",
 	"ktvr_KTVR",
 	"v427-14_14",
 	"v18-15_15",
@@ -108,7 +109,7 @@ var vorArray = [
 	"path4830_V74",
 	"path4489_V245",
 	"path4511_V245",
-	"path4493_V417",
+	"v417_V417",
 	"path4469_V417",
 	"path4461_V427",
 	"path4459_V427",
@@ -212,7 +213,7 @@ function addInput() {
 
 		node.addEventListener('keyup', function () { doInput(this) });
 		//airports, NAVAIDS, intersections
-		if (isNaN(vorDegree) || vorName == "ble") {
+		if (isNaN(vorDegree) || vorName == "ble" || vorName == "0m8") {
 			node.setAttribute('placeholder', "ABC");
 			node.setAttribute("type", "text");
 			//airway names starting with V
