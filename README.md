@@ -12,6 +12,22 @@ The map itself is an SVG that I drew in the open source app InkScape. The main c
 
 The map supports autocorrect, which immediately highlights incorrect answers with red text and a yellow highlight. If a wrong answer is corrected, the red text is removed, but the highlight remains, which should help the user remember which inputs were forgotten. 
 
+## Contributing to the map
+
+If you want to create a new text box on the map, you need to use an SVG editor like [inkscape](https://inkscape.org) (free) to edit `map/map.svg`.
+
+From there, create a new shape or path on the map. Using the object inspector, note the `id` of the shape or path you created. 
+
+Next, update the array variable `vorArray` in `map/src.js`. The format is `"id_answer"`. For instance, the entry `"rect3800_5000"` in the array means, "find the object on the map with id `rect3800` and put a text box on top of it with the correct answer of 5000". 
+
+Finally update line 224 of `map/index.php`: 
+
+    		<script src="src.js?id=202405141">
+
+You need to change the number after `?id=` to a new value. It can be anything, but using the current date makes sense. This is just to force the user's browser to download your new changes to `src.js` rather than using a cached value. 
+
+Once you've done these steps, test your changes and submit a pull request! I've got a very basic deployment pipeline that will automatically publish your changes once the PR is accepted. 
+
 # Clock
 
 ![Clock Screenshot](/images/clock.png)
