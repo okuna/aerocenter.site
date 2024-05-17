@@ -26,7 +26,7 @@ Finally update line 224 of `map/index.php`:
 
 You need to change the number after `?id=` to a new value. It can be anything, but using the current date makes sense. This is just to force the user's browser to download your new changes to `src.js` rather than using a cached value. 
 
-Once you've done these steps, test your changes and submit a pull request! I've got a very basic deployment pipeline that will automatically publish your changes once the PR is accepted. 
+Once you've done these steps, test your changes and submit a pull request! Your PR should have three files changed: (1) map.svg, (2) the array in src.js, and (3) the number after `?id=` in index.php. I've got a very basic deployment pipeline that will automatically publish your changes once the PR is accepted. 
 
 # Clock
 
