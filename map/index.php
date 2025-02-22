@@ -151,7 +151,7 @@
 		EWA LO<br>
 		129.0 - 329.0
 	</div>
-	<div style="position: absolute; left: 15; top: 400;" class="sectorText">
+	<div style="position: absolute; left: 35; top: 500;" class="sectorText">
 		F30<br>
 		MLU LO<br>
 		135.1 - 335.1
@@ -199,10 +199,15 @@
 		260.2
 	</div>
 	<div style="position: absolute; left: 800; top: 360; color: red;" class="sectorText">
-		<u>Meridian 1 West</u> MOA 8000 TO BUT NOT INCLUDING FL180<br>
+		<u>Meridian 1 West</u><br>
+		8000 MSL to but not including FL180
 	</div>
 	<div style="position: absolute; left: 800; top: 230; color: red;" class="sectorText">
 		<u>Columbus 3 MOA</u><br>
+		8000 MSL to but not including FL180
+	</div>
+	<div style="position: absolute; left: 820; top: 900; color: red;" class="sectorText">
+		<u>Meridian 2 West</u><br>
 		8000 MSL to but not including FL180
 	</div>
 </div>
@@ -221,7 +226,7 @@
 		<div id="labels">
 		</div>		
 		
-		<script src="src.js?id=202405141">
+		<script src="src.js?id=2025022201">
 		</script>
 	</body>
 </html>
