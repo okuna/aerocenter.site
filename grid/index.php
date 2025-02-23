@@ -23,26 +23,37 @@
 				padding: 10 px;
 				width: 100%;
 			}
+
 			th, td {
 			    padding: 0px;
 			    border: 1px solid black;
 			    text-align: center;
-			    width: 8.3333333333%;
+			    width: 7.69230769%;
 			    height: 60px;
-			    background-size: cover;
-			    background-position: center center; 
-			    opacity: 1;
 			    
 			}			
-			
-			td {
-				vertical-align: top;
-			}
 			
 			td > div {
 			  position: relative;
 			  height: 60px;
 			  padding: 0;
+			}
+
+			.cell {
+				opacity: 1;
+			}
+
+			.blank-cell {
+				background-color: gray;
+			}
+
+			.airplane-cell {
+				background-size: cover;
+				background-position: center center;
+			}
+
+			.hidden {
+				opacity: 0;
 			}
 
 			.highlight {
@@ -54,7 +65,8 @@
 				right: 1px;
 				bottom: 1px;
 				font-size: x-small;
-			}		
+			}
+			
 			.speed {
 				position: absolute;
 				left: 1px;
@@ -69,7 +81,6 @@
 			.red {
 				background: rgba(255, 94, 94, 0.72);
 			}
-
 			
 			th {
 				background-color: #29b6f6;
@@ -78,36 +89,27 @@
 
 			}
 			
-			
-			
 			.btn-group {
-				width: 33.4%;	
+				display: flex;
+				width: 100%;	
 			}
 			
 			.btn-group button {
-				width: 50%;
-		    border: 1px solid black; /* Green border */
-		    border-top: none;
-
-		    height: 60px;
-		    
-		    background-color: #ab47bc;
-
-		    cursor: pointer; /* Pointer/hand icon */
-		    float: left; /* Float the buttons side by side */
+				flex: 1;
+				border: 1px solid black;
+				border-top: none;
+				height: 60px;
+				background-color: #ab47bc;
+				cursor: pointer;
 			}
 			
-.btn-group button:not(:last-child) {
-    border-right: none; /* Prevent double borders */
-}
+			.btn-group button:not(:last-child) {
+				border-right: none;
+			}
 
-/* Clear floats (clearfix hack) */
-
-/* Add a background color on hover */
-.btn-group button:active {
-    background-color: #7905ff;
-}			
-
+			.btn-group button:active {
+				background-color: #7905ff;
+			}
 			
 		</style>
 	</head>
@@ -116,82 +118,75 @@
 <?php
 	error_reporting(0);
 	$airplanes = array(
-		array("160", "1 P S", "C172.6.12", "C182.8.12", "C210.8", "PA32.8", "PA24.10.12", "BE36.10", "SR22.10", "PA46.11"),
-		array("160", "2 P S", "PA34.11", "PA31.14", "BE58.14", "C421.14.20"),
-		array("200", "1 TP S", "C208.11.16", "PC12.15"),
-		array("240", "2 TP S", "BE9T.18.20", "B190.18", "SW4.18", "B350.27.27", "C441.27"),
-		array("240", "2 TP L", "DH8.14", "SF34.18", "DH8D.24.27"),
-		array("300", "4 TP L", "C130.14"),
-		array("460+", "1 J L", "F16.80"),
-		array("320", "2 J S", "C510.20", "EA50.20", "T37.30", "BE40.30.43", "C750.35.46", "LJ55.40.43", "T38.80.46"),
-		array("430", "2 J L", "CRJ2.20.40", "E190.20", "E145.20", "CRJ9.20", "B712.20", "B753.20.46", "B738.30", "A320.30", "MD82.30", "GLF4.40.46"),
-		array("460+", "2 J H", "B772.20", "B763.30"),
-		array("460+", "4 J H", "C17.20.43", "C5.20", "E3TF.30.43", "A388.30", "A343.30", "B1.30", "B2.30", "B742.30", "K35R.40.43"),
-		array("460+", "8 J H", "B52.30")
+		array("160", "1 P S", "C172.6.8.12", "C182.8.10.12", "C210.8.10", "PA32.8.10", "BE36.10.12", "PA24.10.12.12", "SR22.10.12", "PA46.11.14"),
+		array("160", "2 P S", "PA34.11.14", "BE58.14.17", "C421.14.17.20", "PA31.14.17"),
+		array("200", "1 TP S", "C208.11.14.16", "PC12.15.20"),
+		array("240", "2 TP S", "BE9T.18.24.20", "B190.18.24", "SW4.18.24", "B350.27.30.27", "C441.27.42"),
+		array("240", "2 TP L", "DH8.14.17", "SF34.18.24", "DH8D.24.26.27"),
+		array("300", "4 TP L", "C130.14.17"),
+		array("460+", "1 J L", "F16.80.100"),
+		array("320", "2 J S", "C510.20.30", "EA50.20.30", "T37.30.35", "BE40.30.35.43", "C750.35.40.46", "LJ55.40.50.43", "T38.80.100.46"),
+		array("430", "2 J L", "B712.20.30", "B753.20.30.46", "CRJ2.20.25.40", "CRJ9.20.30", "E145.20.30", "E190.20.25", "A320.30.35", "B738.30.35", "MD82.30.35", "GLF4.40.50.46"),
+		array("460+", "2 J H", "B772.20.30", "B763.30.35"),
+		array("460+", "4 J H", "C5.20.30", "C17.20.30.43", "A343.30.35", "E3TF.30.35.43", "B1.30.35", "B2.30.35", "B742.30.35", "K35R.40.45.43"),
+		array("460+", "4 J J", "A388.30.35"),
+		array("460+", "8 J H", "B52.30.35")
 	);
 	
 	echo "<table id = 'planeTable'>";
-	for ($i = 0; $i < 12; $i++) {
+	$maxRows = max(array_map('count', $airplanes));
+	for ($i = 0; $i < $maxRows; $i++) {
 		echo "<tr>";		
-		for ($j = 0; $j < 12; $j++) {
+		for ($j = 0; $j < count($airplanes); $j++) {
 			$id = $j . "." . $i;			
 			if ($i < 2) {
 				$airplane = $airplanes[$j][$i];
-				
-				echo "<th id = '$id' onclick = 'flip(this);'>$airplane</th>";
+				echo "<th id = '$id' class='cell' onclick='flip(this);'>$airplane</th>";
 			}
-			else if (array_key_exists($i, $airplanes[$j])) {
-				$averageSpeed = $airplanes[$j][0];
-				$string = $airplanes[$j][$i];
-				//from beginning to first period
-				$airplane = substr($string, 0, strpos($string, "."));
-				//from after first period to end
-				$string = substr($string, strpos($string, ".") + 1);
-				//string has period? go to period OR use whole string 
-				if (strpos($string, ".")) {
-					$climbRate = substr($string, 0, strpos($string, "."));
-					$speed = substr($string, strpos($string, ".") + 1);
-					$speed *= 10;
-					if ($speed == 460) $speed = $speed . "+";
-				}	
-				else {
-					$climbRate = $string; 
-					$speed = "";
-				}
-				$color = getColor($climbRate);
-				$climbRate *= 100;				
-				$averageSpeed > $speed ? $highlight = "red" : $highlight = "green";
-				
+			else if ($i >= 2 && isset($airplanes[$j][$i])) {
+				$averageSpeed = (int)$airplanes[$j][0];
+				$parts = explode('.', $airplanes[$j][$i]);
+				$airplane = $parts[0];
+				$minClimbRate = (int)$parts[1] * 100;
+				$maxClimbRate = (int)$parts[2] * 100;
+				$speed = isset($parts[3]) ? (int)$parts[3] * 10 : "";
+				if ($speed == 460) $speed .= "+";
+				$speedValue = (int)str_replace("+", "", $speed);
+				$highlight = ($averageSpeed > $speedValue) ? "red" : "green";
+				$color = getColor($minClimbRate / 100);			
 				$photo = $airplane . ".jpg";
-				echo "<td id = '$id' style = 'background-image: url(airplanes/$photo);' onclick = 'flip(this);'><div class = 'tdArea'><span class = 'highlight'>$airplane</span><span class = 'speed $highlight'>$speed</span><span class = 'climbRate highlight'>$climbRate</span></div></td>";
+				$climbRateDisplay = "$minClimbRate - $maxClimbRate";
+				echo "<td id = '$id' class='cell airplane-cell' style='background-image: url(airplanes/$photo);' onclick = 'flip(this);'><div class = 'tdArea'><span class = 'highlight'>$airplane</span><span class = 'speed $highlight'>$speed</span><span class = 'climbRate' style='background-color: $color;'>$climbRateDisplay</span></div></td>";
 			}
 			else {
-				echo "<td id = '$id' style = 'background-color: grey;' onclick = 'flip(this);'></td>";
+				echo "<td id = '$id' class='cell blank-cell'></td>";
+				//Remove flip function from blank cells. They should be left grey to more accurately represent number of cards in each column.
 			}
-
 						
 		}
 		echo "</tr>";
 	}
 	echo "</table>";
 	
+	//Returns a color based on the climb rate so similar climb rates are visually grouped.
 	function getColor($climbRate) {
-		switch($climbRate) {
-			case 6: return "#00ff92";
-			case 8: return "#00c7ff";
-			case 10: return "#00afff";
-			case 11: return "#0082ff";
-			case 14: return "#0053ff"; 
-			case 15: return "#002eff";
-			case 18: return "#002bff";
-			case 20: return "#7d00ff"; 
-			case 24: return "#b400ff";
-			case 27: return "#ff00fc";
-			case 30: return "#ff009b";
-			case 35: return "#ff004f";
-			case 40: return "#ff5900";
-			case 80: return "#ffc400";
-		}
+		$colors = [
+			6 => "#00ff92",
+			8 => "#00c7ff",
+			10 => "#00afff",
+			11 => "#0082ff",
+			14 => "#0053ff", 
+			15 => "#002eff",
+			18 => "#002bff",
+			20 => "#7d00ff", 
+			24 => "#b400ff",
+			27 => "#ff00fc",
+			30 => "#ff009b",
+			35 => "#ff004f",
+			40 => "#ff5900",
+			80 => "#ffc400"
+		];
+		return $colors[$climbRate] ?? '#cccccc'; //Default color for unexpected rates
 	}
 	
 ?>
@@ -205,77 +200,53 @@
 
 	</div>	
 	<script>
-		
-		function flip(ele) {
-			console.log("1");
-			if (ele.style.opacity != "0") {
-				hide(ele);
-			}
-			else {
-				reveal(ele);
-			}
-		}
-		
-		function reveal(ele) {
-			ele.style.opacity = "1";
-			var yPos = ele.id.substring(ele.id.indexOf(".") + 1, ele.id.length);
-			var xPos = ele.id.substring(0, ele.id.indexOf("."));
-			if (ele.innerHTML == "") {
-				for (i = yPos; i < 12; i++) {
-					var id = xPos + "." + i;
-					var blank = document.getElementById(id);
-					blank.style.opacity = "1";
-				}
-			}
-		}
-		
-		function hide(ele) {
-			ele.style.opacity = "0";
-			var yPos = ele.id.substring(ele.id.indexOf(".") + 1, ele.id.length);
-			var xPos = ele.id.substring(0, ele.id.indexOf("."));
-			if (ele.innerHTML == "") {
-				for (i = yPos; i < 12; i++) {
-					var id = xPos + "." + i;
-					var blank = document.getElementById(id);
-					blank.style.opacity = "0";
-				}
-			}
-			
-		}
-		
-		function showAll() {
-			showPlanes();
-			table = document.getElementsByTagName("th");
-			for (i = 0; i < table.length; i++) {
-				table[i].style.opacity = "1";
-			}
 
+	const ths = document.getElementsByTagName("th");
+	const tds = document.getElementsByTagName("td");
+
+	//Toggle visibility of grid elements by flipping the 'hidden' class
+    function flip(ele) {
+		ele.classList.toggle('hidden');
+	}
+
+    function showAll() {
+        for (let i = 0; i < ths.length; i++) {
+			ths[i].classList.remove('hidden');
 		}
-		
-		function hideAll() {
-			hidePlanes();
-			table = document.getElementsByTagName("th");
-			for (i = 0; i < table.length; i++) {
-				table[i].style.opacity = "0";
-			}	
-		}
-		
-		function showPlanes() {
-			table = document.getElementsByTagName("td");
-			for (i = 0; i < table.length; i++) {
-				table[i].style.opacity = "1";
+		for (let i = 0; i < tds.length; i++) {
+			if (tds[i].innerHTML !== "") {
+				tds[i].classList.remove('hidden');
 			}
 		}
-		function hidePlanes() {
-			table = document.getElementsByTagName("td");
-			for (i = 0; i < table.length; i++) {
-				table[i].style.opacity = "0";
-			}
-			
+    }
+
+    function hideAll() {
+        for (let i = 0; i < ths.length; i++) {
+			ths[i].classList.add('hidden');
 		}
-		
-	
-	</script>
+		for (let i = 0; i < tds.length; i++) {
+			if (tds[i].innerHTML !== "") { //Prevents blank (gray) spaces from being flipped
+				tds[i].classList.add('hidden');
+			}
+		}
+    }
+
+    function showPlanes() {
+        for (let i = 0; i < tds.length; i++) {
+			if (tds[i].innerHTML !== "") {
+				tds[i].classList.remove('hidden');
+			}
+		}
+    }
+
+    function hidePlanes() {
+        for (let i = 0; i < tds.length; i++) {
+			if (tds[i].innerHTML !== "") {
+				tds[i].classList.add('hidden');
+			}
+		}
+	}
+</script>
 
 		
 	</body>	
