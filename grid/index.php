@@ -1,120 +1,142 @@
 <html>
-	<head>
+<head>
 		
-		<title>Grid</title>
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">		
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-116666952-2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+	<title>Grid</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">		
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="format-detection" content="telephone=no">
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-116666952-2"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'UA-116666952-2');
+	</script>
 
-  gtag('config', 'UA-116666952-2');
-</script>
+	<style>
+		html {
+			touch-action: manipulation; /* Prevents double tap zoom on mobile */
+		}			
 
+		table {
+			width: 100%;
+			border-collapse: collapse;
+		}
 		
-		<style>
-			html {
-			  touch-action: manipulation;
-			}			
-			
-			table {
-				padding: 10 px;
-				width: 100%;
-			}
+		.cell {
+			padding: 0;
+			border: 1px solid black;
+			text-align: center;
+			min-width: 90px;
+			height: 60px;
+			box-sizing: border-box;
+		}
 
-			th, td {
-			    padding: 0px;
-			    border: 1px solid black;
-			    text-align: center;
-			    width: 7.69230769%;
-			    height: 60px;
-			    
-			}			
-			
-			td > div {
-			  position: relative;
-			  height: 60px;
-			  padding: 0;
-			}
+		th.cell {
+			background-color: #29b6f6;
+			height: 30px;
+		}
 
+		td.cell {
+			position: relative;
+		}
+
+		.airplane-cell {
+			background-size: cover;
+			background-position: center;
+		}
+
+		.blank-cell {
+			background-color: gray;
+		}
+
+		.tdArea {
+			height: 100%;
+		}
+
+		.speed, .climbRate {
+			position: absolute;
+			bottom: 1px;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+			
+		.speed {
+			left: 1px;
+			width: 25%;
+		}
+
+		.climbRate {
+			right: 1px;
+			width: 50%;
+		}	
+
+		.hidden {
+			opacity: 0;
+		}
+
+		.highlight {
+			background: rgba(255, 255, 255, 0.71); 
+		}	
+			
+		.green {
+			background: rgba(53, 255, 100, 0.72);
+		}
+			
+		.red {
+			background: rgba(255, 94, 94, 0.72);
+		}
+			
+		.btn-group {
+			display: flex;
+			width: 100%;	
+		}
+			
+		.btn-group button {
+			flex: 1;
+			border: 1px solid black;
+			border-top: none;
+			height: 60px;
+			background-color: #ab47bc;
+			cursor: pointer;
+		}
+			
+		.btn-group button:not(:last-child) {
+			border-right: none;
+		}
+
+		.btn-group button:active {
+			background-color: #7905ff;
+		}
+
+		@media (max-width: 768px) {
+			#planeTable {
+				display: block;
+				overflow-x: auto; /* Enables horizontal scrolling on mobile */
+				white-space: nowrap;
+				max-width: 100%; /* Prevents overflow beyond viewport */
+			}
 			.cell {
-				opacity: 1;
+				min-width: 80px;  /* Slightly smaller for mobile */
+				height: 55px;
 			}
-
-			.blank-cell {
-				background-color: gray;
-			}
-
-			.airplane-cell {
-				background-size: cover;
-				background-position: center center;
-			}
-
-			.hidden {
-				opacity: 0;
-			}
-
-			.highlight {
-				background: rgba(255, 255, 255, 0.71); 
-			}
-
-			.climbRate {
-				position: absolute;
-				right: 1px;
-				bottom: 1px;
-				font-size: x-small;
-			}
-			
 			.speed {
-				position: absolute;
-				left: 1px;
-				bottom: 1px;
-				font-size: x-small;
-			}		
-			
-			.green {
-				background: rgba(53, 255, 100, 0.72);
+				width: 30%;
 			}
-			
-			.red {
-				background: rgba(255, 94, 94, 0.72);
+			.climbRate {
+				width: 60%;
 			}
+			.highlight {
+				font-size: 10px;
+			}
+		}
 			
-			th {
-				background-color: #29b6f6;
-				padding: 0px;
-				height: 30px;
+	</style>
+</head>
 
-			}
-			
-			.btn-group {
-				display: flex;
-				width: 100%;	
-			}
-			
-			.btn-group button {
-				flex: 1;
-				border: 1px solid black;
-				border-top: none;
-				height: 60px;
-				background-color: #ab47bc;
-				cursor: pointer;
-			}
-			
-			.btn-group button:not(:last-child) {
-				border-right: none;
-			}
-
-			.btn-group button:active {
-				background-color: #7905ff;
-			}
-			
-		</style>
-	</head>
-	
-	<body>
+<body>
 <?php
 	error_reporting(0);
 	$airplanes = array(
@@ -133,36 +155,40 @@
 		array("460+", "8 J H", "B52.30.35")
 	);
 	
+	function renderCell($id, $content, $isHeader = false, $attributes = '') {
+		$tag = $isHeader ? 'th' : 'td';
+		$class = $isHeader ? 'cell' : ($content ? 'cell airplane-cell' : 'cell blank-cell');
+		return "<$tag id='$id' class='$class' $attributes>$content</$tag>";
+	}
+
 	echo "<table id = 'planeTable'>";
-	$maxRows = max(array_map('count', $airplanes));
+	$maxRows = max(array_map('count', $airplanes)); //Dynamically calculate rows
 	for ($i = 0; $i < $maxRows; $i++) {
 		echo "<tr>";		
 		for ($j = 0; $j < count($airplanes); $j++) {
-			$id = $j . "." . $i;			
-			if ($i < 2) {
-				$airplane = $airplanes[$j][$i];
-				echo "<th id = '$id' class='cell' onclick='flip(this);'>$airplane</th>";
+			$id = "$j.$i";			
+			if (!isset($airplanes[$j][$i])) {
+				echo renderCell($id, '');
+				continue;
 			}
-			else if ($i >= 2 && isset($airplanes[$j][$i])) {
+			$airplaneData = $airplanes[$j][$i];
+			if ($i < 2) {
+				echo renderCell($id, $airplaneData, true, "onclick='flip(this);'");
+			} else {
 				$averageSpeed = (int)$airplanes[$j][0];
-				$parts = explode('.', $airplanes[$j][$i]);
+				$parts = explode('.', $airplaneData);
 				$airplane = $parts[0];
 				$minClimbRate = (int)$parts[1] * 100;
 				$maxClimbRate = (int)$parts[2] * 100;
-				$speed = isset($parts[3]) ? (int)$parts[3] * 10 : "";
-				if ($speed == 460) $speed .= "+";
-				$speedValue = (int)str_replace("+", "", $speed);
-				$highlight = ($averageSpeed > $speedValue) ? "red" : "green";
-				$color = getColor($minClimbRate / 100);			
-				$photo = $airplane . ".jpg";
-				$climbRateDisplay = "$minClimbRate - $maxClimbRate";
-				echo "<td id = '$id' class='cell airplane-cell' style='background-image: url(airplanes/$photo);' onclick = 'flip(this);'><div class = 'tdArea'><span class = 'highlight'>$airplane</span><span class = 'speed $highlight'>$speed</span><span class = 'climbRate' style='background-color: $color;'>$climbRateDisplay</span></div></td>";
+				$speed = isset($parts[3]) ? (int)$parts[3] * 10 : '';
+				if ($speed == 460) $speed .= '+';
+				$speedValue = (int)str_replace('+', '', $speed);
+				$highlight = $averageSpeed > $speedValue ? 'red' : 'green';
+				$color = getColor($minClimbRate / 100);
+				$photo = "$airplane.jpg";
+				$content = "<div class='tdArea'><span class='highlight'>$airplane</span><span class='speed $highlight'>$speed</span><span class='climbRate' style='background-color: $color;'>$minClimbRate-$maxClimbRate</span></div>";
+				echo renderCell($id, $content, false, "style='background-image: url(airplanes/$photo);' onclick='flip(this);'");
 			}
-			else {
-				echo "<td id = '$id' class='cell blank-cell'></td>";
-				//Remove flip function from blank cells. They should be left grey to more accurately represent number of cards in each column.
-			}
-						
 		}
 		echo "</tr>";
 	}
@@ -191,7 +217,6 @@
 	
 ?>
 
-
 	<div class = "btn-group">
 		<button onclick = "showAll()">Show All</button>
 		<button onclick = "hideAll()">Hide All</button>
@@ -201,55 +226,59 @@
 	</div>	
 	<script>
 
-	const ths = document.getElementsByTagName("th");
-	const tds = document.getElementsByTagName("td");
-
 	//Toggle visibility of grid elements by flipping the 'hidden' class
     function flip(ele) {
 		ele.classList.toggle('hidden');
 	}
 
-    function showAll() {
-        for (let i = 0; i < ths.length; i++) {
-			ths[i].classList.remove('hidden');
-		}
-		for (let i = 0; i < tds.length; i++) {
-			if (tds[i].innerHTML !== "") {
-				tds[i].classList.remove('hidden');
-			}
-		}
-    }
+	const ths = document.querySelectorAll("th");
+	const tds = document.querySelectorAll("td");
 
-    function hideAll() {
-        for (let i = 0; i < ths.length; i++) {
-			ths[i].classList.add('hidden');
-		}
-		for (let i = 0; i < tds.length; i++) {
-			if (tds[i].innerHTML !== "") { //Prevents blank (gray) spaces from being flipped
-				tds[i].classList.add('hidden');
+    function toggleCells(showHeaders, showPlanes) {
+		ths.forEach(th => {
+			if (showHeaders) {
+				th.classList.remove('hidden');
+			} else if (showHeaders !== null) {
+				th.classList.add('hidden');
 			}
-		}
-    }
-
-    function showPlanes() {
-        for (let i = 0; i < tds.length; i++) {
-			if (tds[i].innerHTML !== "") {
-				tds[i].classList.remove('hidden');
+		});
+		tds.forEach(td => {
+			if (td.innerHTML.trim() !== '') {
+				if (showPlanes) {
+					td.classList.remove('hidden');
+				} else {
+					td.classList.add('hidden');
+				}
 			}
-		}
-    }
-
-    function hidePlanes() {
-        for (let i = 0; i < tds.length; i++) {
-			if (tds[i].innerHTML !== "") {
-				tds[i].classList.add('hidden');
-			}
-		}
+		});
 	}
+
+	const showAll = () => toggleCells(true, true);
+	const hideAll = () => toggleCells(false, false);
+	const showPlanes = () => toggleCells(null, true);
+	const hidePlanes = () => toggleCells(null, false);
+
+	//Resizes speed and climb rate text sizes to always remain readable
+	function adjustFontSizes() {
+		const boxes = document.querySelectorAll('.speed, .climbRate');
+		boxes.forEach(box => {
+			const containerWidth = box.parentElement.offsetWidth;
+			const fontSize = Math.min(Math.max(6, containerWidth * 0.094), 12);
+			box.style.fontSize = `${fontSize}px`;
+		});
+	}
+
+	function debounce(func, wait) {
+		let timeout;
+		return function (...args) {
+			clearTimeout(timeout);
+			timeout = setTimeout(() => func.apply(this, args), wait);
+		};
+	}
+
+	adjustFontSizes();
+	window.addEventListener('resize', debounce(adjustFontSizes, 100));
+
 </script>
-
-		
-	</body>	
+</body>	
 </html>
-
-	
