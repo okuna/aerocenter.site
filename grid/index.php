@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
 		
 	<title>Grid</title>
@@ -17,7 +18,7 @@
 	<style>
 		html {
 			touch-action: manipulation; /* Prevents double tap zoom on mobile */
-		}			
+		}
 
 		table {
 			width: 100%;
@@ -59,18 +60,20 @@
 			position: absolute;
 			bottom: 1px;
 			white-space: nowrap;
+			max-height: 14px;
+			width: auto;
 			overflow: hidden;
 			text-overflow: ellipsis;
 		}
 			
 		.speed {
 			left: 1px;
-			width: 25%;
+			max-width: 25%;
 		}
 
 		.climbRate {
 			right: 1px;
-			width: 50%;
+			max-width: 50%;
 		}	
 
 		.hidden {
@@ -92,25 +95,27 @@
 		.btn-group {
 			display: flex;
 			width: 100%;	
+			flex-wrap: nowrap;
+			justify-content: space-around;
 		}
-			
+
 		.btn-group button {
-			flex: 1;
-			border: 1px solid black;
-			border-top: none;
+			flex: 1 0 16%;
+			margin: 2px;
 			height: 60px;
 			background-color: #ab47bc;
 			cursor: pointer;
-		}
-			
-		.btn-group button:not(:last-child) {
-			border-right: none;
+			border: 1px solid black;
+			color: black;
+			outline: none;
+			box-shadow: 0 0 0 2px #000;
 		}
 
 		.btn-group button:active {
 			background-color: #7905ff;
 		}
 
+		/* Adjustments for mobile devices */
 		@media (max-width: 768px) {
 			#planeTable {
 				display: block;
@@ -119,18 +124,33 @@
 				max-width: 100%; /* Prevents overflow beyond viewport */
 			}
 			.cell {
-				min-width: 80px;  /* Slightly smaller for mobile */
+				min-width: 80px;
 				height: 55px;
 			}
 			.speed {
-				width: 30%;
+				width: auto;
+				max-width: 30%;
 			}
 			.climbRate {
-				width: 60%;
+				width: auto;
+				max-width: 60%;
 			}
 			.highlight {
 				font-size: 10px;
 			}
+			.btn-group {
+				flex-wrap: wrap;
+			}
+			.btn-group button {
+				flex: 1 0 calc(33.33% - 4px);
+			}
+
+			.btn-group button:nth-child(1) { order: 1; } /* Show All */
+			.btn-group button:nth-child(2) { order: 4; } /* Hide All */
+			.btn-group button:nth-child(3) { order: 2; } /* Show Planes */
+			.btn-group button:nth-child(4) { order: 5; } /* Hide Planes */
+			.btn-group button:nth-child(5) { order: 3; } /* Show Headers */
+			.btn-group button:nth-child(6) { order: 6; } /* Hide Headers */
 		}
 			
 	</style>
@@ -139,30 +159,33 @@
 <body>
 <?php
 	error_reporting(0);
-	$airplanes = array(
-		array("160", "1 P S", "C172.6.8.12", "C182.8.10.12", "C210.8.10", "PA32.8.10", "BE36.10.12", "PA24.10.12.12", "SR22.10.12", "PA46.11.14"),
-		array("160", "2 P S", "PA34.11.14", "BE58.14.17", "C421.14.17.20", "PA31.14.17"),
-		array("200", "1 TP S", "C208.11.14.16", "PC12.15.20"),
-		array("240", "2 TP S", "BE9T.18.24.20", "B190.18.24", "SW4.18.24", "B350.27.30.27", "C441.27.42"),
-		array("240", "2 TP L", "DH8.14.17", "SF34.18.24", "DH8D.24.26.27"),
-		array("300", "4 TP L", "C130.14.17"),
-		array("460+", "1 J L", "F16.80.100"),
-		array("320", "2 J S", "C510.20.30", "EA50.20.30", "T37.30.35", "BE40.30.35.43", "C750.35.40.46", "LJ55.40.50.43", "T38.80.100.46"),
-		array("430", "2 J L", "B712.20.30", "B753.20.30.46", "CRJ2.20.25.40", "CRJ9.20.30", "E145.20.30", "E190.20.25", "A320.30.35", "B738.30.35", "MD82.30.35", "GLF4.40.50.46"),
-		array("460+", "2 J H", "B772.20.30", "B763.30.35"),
-		array("460+", "4 J H", "C5.20.30", "C17.20.30.43", "A343.30.35", "E3TF.30.35.43", "B1.30.35", "B2.30.35", "B742.30.35", "K35R.40.45.43"),
-		array("460+", "4 J J", "A388.30.35"),
-		array("460+", "8 J H", "B52.30.35")
-	);
+	//Airplane data entry
+	$airplanes = [
+		["160", "1 P S", "C172.6.8.12", "C182.8.10.12", "C210.8.10", "PA32.8.10", "BE36.10.12", "PA24.10.12.12", "SR22.10.12", "PA46.11.14"],
+		["160", "2 P S", "PA34.11.14", "BE58.14.17", "C421.14.17.20", "PA31.14.17"],
+		["200", "1 TP S", "C208.11.14.16", "PC12.15.20"],
+		["240", "2 TP S", "BE9T.18.24.20", "B190.18.24", "SW4.18.24", "B350.27.30.27", "C441.27.42"],
+		["240", "2 TP L", "DH8.14.17", "SF34.18.24", "DH8D.24.26.27"],
+		["300", "4 TP L", "C130.14.17"],
+		["460+", "1 J L", "F16.80.100"],
+		["320", "2 J S", "C510.20.30", "EA50.20.30", "T37.30.35", "BE40.30.35.43", "C750.35.40.46", "LJ55.40.50.43", "T38.80.100.46"],
+		["430", "2 J L", "B712.20.30", "B753.20.30.46", "CRJ2.20.25.40", "CRJ9.20.30", "E145.20.30", "E190.20.25", "A320.30.35", "B738.30.35", "MD82.30.35", "GLF4.40.50.46"],
+		["460+", "2 J H", "B772.20.30", "B763.30.35"],
+		["460+", "4 J H", "C5.20.30", "C17.20.30.43", "A343.30.35", "E3TF.30.35.43", "B1.30.35", "B2.30.35", "B742.30.35", "K35R.40.45.43"],
+		["460+", "4 J J", "A388.30.35"],
+		["460+", "8 J H", "B52.30.35"]
+	];
 	
+	//Render tables cells with dynamic attributes
 	function renderCell($id, $content, $isHeader = false, $attributes = '') {
 		$tag = $isHeader ? 'th' : 'td';
 		$class = $isHeader ? 'cell' : ($content ? 'cell airplane-cell' : 'cell blank-cell');
 		return "<$tag id='$id' class='$class' $attributes>$content</$tag>";
 	}
 
+	//Dynamic table generation
 	echo "<table id = 'planeTable'>";
-	$maxRows = max(array_map('count', $airplanes)); //Dynamically calculate rows
+	$maxRows = max(array_map('count', $airplanes));
 	for ($i = 0; $i < $maxRows; $i++) {
 		echo "<tr>";		
 		for ($j = 0; $j < count($airplanes); $j++) {
@@ -178,8 +201,8 @@
 				$averageSpeed = (int)$airplanes[$j][0];
 				$parts = explode('.', $airplaneData);
 				$airplane = $parts[0];
-				$minClimbRate = (int)$parts[1] * 100;
-				$maxClimbRate = (int)$parts[2] * 100;
+				$minClimbRate = (int)($parts[1] ?? 0) * 100; //Fallback for missing parts
+				$maxClimbRate = (int)($parts[2] ?? 0) * 100;
 				$speed = isset($parts[3]) ? (int)$parts[3] * 10 : '';
 				if ($speed == 460) $speed .= '+';
 				$speedValue = (int)str_replace('+', '', $speed);
@@ -197,24 +220,23 @@
 	//Returns a color based on the climb rate so similar climb rates are visually grouped.
 	function getColor($climbRate) {
 		$colors = [
-			6 => "#00ff92",
-			8 => "#00c7ff",
-			10 => "#00afff",
-			11 => "#0082ff",
-			14 => "#0053ff", 
-			15 => "#002eff",
-			18 => "#002bff",
-			20 => "#7d00ff", 
-			24 => "#b400ff",
-			27 => "#ff00fc",
-			30 => "#ff009b",
-			35 => "#ff004f",
-			40 => "#ff5900",
-			80 => "#ffc400"
+			6 => "#FFFF99",
+			8 => "#E6FF99",
+			10 => "#CCFF99",
+			11 => "#B3FF99",
+			14 => "#99FFCC", 
+			15 => "#99FFFF",
+			18 => "#99E6FF",
+			20 => "#99CCFF", 
+			24 => "#CCB3FF",
+			27 => "#E6CCFF",
+			30 => "#FFB3E6",
+			35 => "#FFCCE6",
+			40 => "#FFE6F2",
+			80 => "#FFF2CC"
 		];
 		return $colors[$climbRate] ?? '#cccccc'; //Default color for unexpected rates
 	}
-	
 ?>
 
 	<div class = "btn-group">
@@ -222,33 +244,30 @@
 		<button onclick = "hideAll()">Hide All</button>
 		<button onclick = "showPlanes()">Show Planes</button>
 		<button onclick = "hidePlanes()">Hide Planes</button>
-
+		<button onclick = "showHeaders()">Show Headers</button>
+		<button onclick = "hideHeaders()">Hide Headers</button>
 	</div>	
 	<script>
 
-	//Toggle visibility of grid elements by flipping the 'hidden' class
+	//Toggle visibility of grid elements by adding/removing the 'hidden' class
     function flip(ele) {
 		ele.classList.toggle('hidden');
 	}
 
+	//Select all header and data cells
 	const ths = document.querySelectorAll("th");
 	const tds = document.querySelectorAll("td");
 
+	//Master function for toggle buttons
     function toggleCells(showHeaders, showPlanes) {
 		ths.forEach(th => {
-			if (showHeaders) {
-				th.classList.remove('hidden');
-			} else if (showHeaders !== null) {
-				th.classList.add('hidden');
-			}
+			if (showHeaders) th.classList.remove('hidden');
+			else if (showHeaders !== null) th.classList.add('hidden');
 		});
 		tds.forEach(td => {
 			if (td.innerHTML.trim() !== '') {
-				if (showPlanes) {
-					td.classList.remove('hidden');
-				} else {
-					td.classList.add('hidden');
-				}
+				if (showPlanes) td.classList.remove('hidden');
+				else if (showPlanes !== null) td.classList.add('hidden');
 			}
 		});
 	}
@@ -257,27 +276,37 @@
 	const hideAll = () => toggleCells(false, false);
 	const showPlanes = () => toggleCells(null, true);
 	const hidePlanes = () => toggleCells(null, false);
+	const showHeaders = () => toggleCells(true, null);
+	const hideHeaders = () => toggleCells(false, null);
 
-	//Resizes speed and climb rate text sizes to always remain readable
+	//Dynamically resizes speed and climb rate text sizes for readability
 	function adjustFontSizes() {
 		const boxes = document.querySelectorAll('.speed, .climbRate');
 		boxes.forEach(box => {
 			const containerWidth = box.parentElement.offsetWidth;
-			const fontSize = Math.min(Math.max(6, containerWidth * 0.094), 12);
+			const fontSize = Math.min(Math.max(5, containerWidth * 0.094), 12);
 			box.style.fontSize = `${fontSize}px`;
 		});
 	}
 
-	function debounce(func, wait) {
+	//Throttles resize events
+	function throttle(func, wait) {
 		let timeout;
 		return function (...args) {
-			clearTimeout(timeout);
-			timeout = setTimeout(() => func.apply(this, args), wait);
+			if (!timeout) {
+				timeout = setTimeout(() => {
+					timeout = null;
+					func.apply(this, args);
+				}, wait);
+			}
 		};
 	}
 
+	window.addEventListener('resize', throttle(() => {
+		requestAnimationFrame(adjustFontSizes);
+	}, 250));
+
 	adjustFontSizes();
-	window.addEventListener('resize', debounce(adjustFontSizes, 100));
 
 </script>
 </body>	
