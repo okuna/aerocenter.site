@@ -20,6 +20,14 @@
 			touch-action: manipulation; /* Prevents double tap zoom on mobile */
 		}
 
+		body {
+			display: flex;
+			flex-direction: column;
+			height: 100vh;
+			margin: 0;
+			padding: 0;
+		}
+
 		table {
 			width: 100%;
 			border-collapse: collapse;
@@ -62,8 +70,8 @@
 			white-space: nowrap;
 			max-height: 14px;
 			width: auto;
-			overflow: hidden;
-			text-overflow: ellipsis;
+			overflow: visible;
+			text-overflow: none;
 		}
 			
 		.speed {
@@ -73,7 +81,6 @@
 
 		.climbRate {
 			right: 1px;
-			max-width: 50%;
 		}	
 
 		.hidden {
@@ -95,14 +102,14 @@
 		.btn-group {
 			display: flex;
 			width: 100%;	
-			flex-wrap: nowrap;
+			flex-wrap: wrap;
 			justify-content: space-around;
 		}
 
 		.btn-group button {
 			flex: 1 0 16%;
 			margin: 2px;
-			height: 60px;
+			height: 50px;
 			background-color: #ab47bc;
 			cursor: pointer;
 			border: 1px solid black;
@@ -116,10 +123,11 @@
 		}
 
 		/* Adjustments for mobile devices */
-		@media (max-width: 768px) {
+		@media (max-width: 1024px) {
 			#planeTable {
 				display: block;
 				overflow-x: auto; /* Enables horizontal scrolling on mobile */
+				overflow-y: auto;
 				white-space: nowrap;
 				max-width: 100%; /* Prevents overflow beyond viewport */
 			}
@@ -133,16 +141,21 @@
 			}
 			.climbRate {
 				width: auto;
-				max-width: 60%;
+				overflow: visible;
+				text-overflow: none;
 			}
 			.highlight {
 				font-size: 10px;
 			}
 			.btn-group {
 				flex-wrap: wrap;
+				padding: 1px;
 			}
 			.btn-group button {
 				flex: 1 0 calc(33.33% - 4px);
+				height: 35px;
+				margin: 1px;
+				font-size: 14px;
 			}
 
 			.btn-group button:nth-child(1) { order: 1; } /* Show All */
