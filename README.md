@@ -1,6 +1,6 @@
 # aerocenter.site
 
-Aerocenter Site is a project I built back in 2018 while attending the Federal Aviation Administration's ATC Academy. The quality of the code is a bit rough as it was the first time I'd built anything in JavaScript. In 2021, AeroCenter Site received around 200 unique users per month, probably making it the most popular online training tool for ATC Academy attendees. 
+Aerocenter Site is a project I built back in 2018 while attending the Federal Aviation Administration's ATC Academy. The quality of the code is a bit rough as it was the first time I'd built anything in JavaScript. In 2021, AeroCenter Site received around 200 unique users per month, probably making it the most popular online training tool for ATC Academy attendees. In 2025, this has increased to around 400 users per month! 
 
 # Map
 
@@ -26,7 +26,7 @@ Finally update line 224 of `map/index.php`:
 
 You need to change the number after `?id=` to a new value. It can be anything, but using the current date makes sense. This is just to force the user's browser to download your new changes to `src.js` rather than using a cached value. 
 
-Once you've done these steps, test your changes and submit a pull request! Your PR should have three files changed: (1) map.svg, (2) the array in src.js, and (3) the number after `?id=` in index.php. I've got a very basic deployment pipeline that will automatically publish your changes once the PR is accepted. 
+Once you've done these steps, test your changes and submit a pull request (PR)! Your PR should have three files changed: (1) map.svg, (2) the array in src.js, and (3) the number after `?id=` in index.php. Please attach a screenshot to the PR of what your changes look like. Once I review and accept your PR, your changes will be automatically deployed onto the live site. Thank you for helping to keep Aerocenter Site up to date! 
 
 # Clock
 
