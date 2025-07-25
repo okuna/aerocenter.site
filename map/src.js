@@ -1,4 +1,4 @@
-var vorArray = [
+const vorArray = [
 	"vorMHZ_MHZ",
 	"vorMHZ_005",
 	"vorMHZ_049",
@@ -175,12 +175,11 @@ var vorArray = [
 	"rect3800_5000"
 ];
 
-var errorCount = 0;
-
-var autocorrect = false;
+let errorCount = 0;
+let autocorrect = false;
 
 function setAutocorrect() {
-	checkbox = document.getElementById("enableAutocorrect");
+	const checkbox = document.getElementById("enableAutocorrect");
 	checkButton = document.getElementById("checkAnswers");
 	if (checkbox.checked) {
 		autocorrect = true;
@@ -196,23 +195,24 @@ function setAutocorrect() {
 function addInput() {
 
 
-	var radius = 50;
+	let radius = 50;
 
 
-	for (var i = 0; i < vorArray.length; i++) {
-		var vorName = vorArray[i].substring(0, vorArray[i].indexOf("_"));
-		var vorData = vorArray[i].substring(vorArray[i].indexOf("_") + 1, vorArray[i].length);
-		var vorDegree = parseInt(vorData);
-		var vorElement = document.getElementById(vorName);
+	for (let i = 0; i < vorArray.length; i++) {
+		let vorName = vorArray[i].substring(0, vorArray[i].indexOf("_"));
+		let vorData = vorArray[i].substring(vorArray[i].indexOf("_") + 1, vorArray[i].length);
+		let vorDegree = parseInt(vorData);
+		let vorElement = document.getElementById(vorName);
 		if (!vorElement) continue;
-		var coords = getCoords(vorElement);
+		let coords = getCoords(vorElement);
 
-		var node = document.createElement("input");
+		let node = document.createElement("input");
 		node.style.position = "absolute";
 		node.id = vorArray[i];
 		node.className = "vorDegree";
 
 		node.addEventListener('keyup', function () { doInput(this) });
+
 		//airports, NAVAIDS, intersections
 		if (isNaN(vorDegree) || vorName == "ble" || vorName == "0m8") {
 			node.setAttribute('placeholder', "ABC");
@@ -228,12 +228,9 @@ function addInput() {
 			node.style.left = coords.left;
 			node.style.top = coords.top - 15;
 		}
+
 		//degrees around VOR circle 
 		else if (vorName.substring(0, 3) == "vor") {
-
-			//var rectNode = document.createElementNS("http://www.w3.org/2000/svg","circle");
-			//rectNode.setAttribute("r", "3");
-
 			node.setAttribute('type', 'tel');
 			node.setAttribute('inputmode', 'numeric');
 			node.setAttribute('placeholder', "000");
@@ -246,14 +243,12 @@ function addInput() {
 			}
 			node.style.left = coords.left + (Math.sin(vorDegree * (Math.PI / 180)) * radius);
 			node.style.top = coords.top - (Math.cos(vorDegree * (Math.PI / 180)) * radius);
-			//rectNode.setAttribute("cx", parseInt(node.style.left) + 18);
-			//rectNode.setAttribute("cy", parseInt(node.style.top));			
 		}
 		//boundary numbers (diamond box)
 		else {
 			if (vorName.substring(0, 4) == "rect") {
 
-				var rotation = document.getElementById(vorName).getAttribute("transform");
+				let rotation = document.getElementById(vorName).getAttribute("transform");
 				if (rotation !== null) {
 					rotation = rotation.substring(0, rotation.length - 1);
 
@@ -269,12 +264,10 @@ function addInput() {
 			node.style.top = coords.top;
 		}
 
-
 		document.getElementById("labels").appendChild(node);
 
-
-		var node = document.getElementById(node.id);
-		var box = node.getBoundingClientRect();
+		node = document.getElementById(node.id);
+		let box = node.getBoundingClientRect();
 
 		node.style.left = parseFloat(node.style.left) - (node.offsetWidth / 2);
 		node.style.top = parseFloat(node.style.top) - (node.offsetHeight / 2);
@@ -283,7 +276,7 @@ function addInput() {
 }
 
 function fillBoxes() {
-	for (var i = 0; i < vorArray.length; i++) {
+	for (let i = 0; i < vorArray.length; i++) {
 		vorID = vorArray[i].substring(0, vorArray[i].indexOf("_"));
 		vorDegree = vorArray[i].substring(vorArray[i].indexOf("_") + 1, vorArray[i].length);
 		ele = document.getElementById(vorArray[i]);
@@ -297,7 +290,7 @@ function fillBoxes() {
 }
 
 function hintBoxes() {
-	for (var i = 0; i < vorArray.length; i++) {
+	for (let i = 0; i < vorArray.length; i++) {
 		vorID = vorArray[i].substring(0, vorArray[i].indexOf("_"));
 		vorDegree = vorArray[i].substring(vorArray[i].indexOf("_") + 1, vorArray[i].length);
 		ele = document.getElementById(vorArray[i]);
@@ -309,9 +302,8 @@ function hintBoxes() {
 	}
 }
 
-
 function clearBoxes() {
-	for (var i = 0; i < vorArray.length; i++) {
+	for (let i = 0; i < vorArray.length; i++) {
 		ele = document.getElementById(vorArray[i]);
 		ele.defaultValue = "";
 		ele.style.color = "black";
@@ -320,24 +312,15 @@ function clearBoxes() {
 
 		ele.value = "";
 		errorCount = 0;
-		//document.getElementById("mistakes").innerHTML = 0;
-
 	}
 }
 
 function getCoords(elem) {
-
-	var box = elem.getBoundingClientRect();
-
+	let box = elem.getBoundingClientRect();
 	return {
 		top: box.top + box.height / 2,
 		left: box.left + box.width / 2
 	};
-
-}
-
-function getAngle(elem) {
-
 }
 
 function doInput(ele) {
@@ -347,15 +330,14 @@ function doInput(ele) {
 }
 
 function checkAll() {
-	for (var i = 0; i < vorArray.length; i++) {
+	for (let i = 0; i < vorArray.length; i++) {
 		ele = document.getElementById(vorArray[i]);
 		checkBoxes(ele);
-
 	}
 }
 
 function toggleSectors() {
-	var sectors = document.getElementById("sectors");
+	let sectors = document.getElementById("sectors");
 	if (sectors.style.display === "none") {
 		sectors.style.display = "block";
 	}
@@ -364,24 +346,16 @@ function toggleSectors() {
 	}
 }
 
-
 function checkBoxes(ele) {
-	var id = ele.id.toUpperCase();
+	let id = ele.id.toUpperCase();
 	ele.value = ele.value.toUpperCase();
-	var input = ele.value.toUpperCase();
-	var degrees = id.substring(id.indexOf("_") + 1, id.length);
-	//				ele.style.transform = "rotate(-"+(90-degrees)+"deg)";	
+	let input = ele.value.toUpperCase();
+	let degrees = id.substring(id.indexOf("_") + 1, id.length);
 
 	if (degrees.substring(0, input.length) == input) {
 		ele.style.color = "black";
 	}
 	else {
-		/*
-						var key = event.keyCode || event.charCode;
-					if (key != 8 && key != 46 && (ele.value.length == 1 || ele.style.color == "black")) {
-							errorCount++;    
-					}			
-		*/
 		ele.style.color = "red";
 		ele.style.background = "rgba(255,255,0, .5)";
 
@@ -391,9 +365,4 @@ function checkBoxes(ele) {
 		ele.style.color = "#055a00";
 	}
 	console.log(errorCount);
-	//				document.getElementById("mistakes").innerHTML = errorCount;
-
-
-
-
 }	
