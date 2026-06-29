@@ -1,0 +1,13 @@
+{
+  "name": "aerocenter.site",
+  "private": true,
+  "scripts": {
+    "lint": "eslint map/ scripts/ tests/ playwright.config.js",
+    "test": "node scripts/validate.js && eslint map/ scripts/ tests/ playwright.config.js && playwright test"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.45.0",
+    "eslint": "^10.6.0"
+  }
+}
