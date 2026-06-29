@@ -16,8 +16,22 @@ jobs:
     - name: 🔍 JS syntax check
       run: node --check map/src.js && node --check map/quizItems.js
 
-    - name: 🧪 Validate data and cache-busters
-      run: node scripts/validate.js
+    - name: 📦 Install dependencies
+      run: npm install
+
+    - name: 🌐 Install Playwright browsers
+      run: npx playwright install --with-deps chromium
+
+    - name: 🧪 Run tests
+      run: npm test
+
+    - name: 📋 Upload Playwright report on failure
+      if: failure()
+      uses: actions/upload-artifact@v4
+      with:
+        name: playwright-report
+        path: playwright-report/
+        retention-days: 14
 
   web-deploy:
     name: 🎉 Deploy
