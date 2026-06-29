@@ -1,13 +1,32 @@
 on: push
 name: 🚀 Deploy website on push
 jobs:
-  web-deploy:
-    name: 🎉 Deploy
+  test:
+    name: ✅ Test
     runs-on: ubuntu-latest
     steps:
     - name: 🚚 Get latest code
       uses: actions/checkout@v3
-    
+
+    - name: 🟢 Setup Node
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: 🔍 JS syntax check
+      run: node --check map/src.js && node --check map/quizItems.js
+
+    - name: 🧪 Validate data and cache-busters
+      run: node scripts/validate.js
+
+  web-deploy:
+    name: 🎉 Deploy
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v3
+
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
