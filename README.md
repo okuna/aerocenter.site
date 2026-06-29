@@ -18,7 +18,7 @@ If you want to create a new text box on the map, you need to use an SVG editor l
 
 From there, create a new shape or path on the map. Using the object inspector, note the `id` of the shape or path you created.
 
-Next, add a new entry to the `mapQuizItems` variable in `map/src.js`. Each entry is an object with three fields:
+Next, add a new entry to the `mapQuizItems` array in `map/quizItems.js`. Each entry is an object with three fields:
 
     { id: "rect3800", answer: "5000", type: "boundary" }
 
@@ -34,13 +34,14 @@ Next, add a new entry to the `mapQuizItems` variable in `map/src.js`. Each entry
 
 So the entry `{ id: "rect3800", answer: "5000", type: "boundary" }` means, "find the object on the map with id `rect3800` and put a boundary text box on top of it with the correct answer of 5000."
 
-Finally update the `?id=` query parameter on the `src.js` script tag in `map/index.html`:
+Finally update the `?id=` query parameter on both script tags in `map/index.html`:
 
-    		<script src="src.js?id=202405141">
+    		<script src="quizItems.js?id=202405141"></script>
+    		<script src="src.js?id=202405141"></script>
 
-You need to change the number after `?id=` to a new value. It can be anything, but using the current date makes sense. This is just to force the user's browser to download your new changes to `src.js` rather than using a cached value.
+You need to change the number after `?id=` to a new value (use the same value on both tags). It can be anything, but using the current date makes sense. This is just to force the user's browser to download your new changes rather than using a cached value.
 
-Once you've done these steps, test your changes and submit a pull request (PR)! Your PR should have three files changed: (1) map.svg, (2) the array in src.js, and (3) the number after `?id=` in index.html. Please attach a screenshot to the PR of what your changes look like. Once I review and accept your PR, your changes will be automatically deployed onto the live site. Thank you for helping to keep Aerocenter Site up to date! 
+Once you've done these steps, test your changes and submit a pull request (PR)! Your PR should have three files changed: (1) map.svg, (2) the array in quizItems.js, and (3) the `?id=` values in index.html. Please attach a screenshot to the PR of what your changes look like. Once I review and accept your PR, your changes will be automatically deployed onto the live site. Thank you for helping to keep Aerocenter Site up to date! 
 
 # Clock
 
