@@ -1,4 +1,4 @@
-const vorArray = [
+const mapQuizItems = [
 	{ id: "vorMHZ", answer: "MHZ",   type: "label" },
 	{ id: "vorMHZ", answer: "005",   type: "vorDegree" },
 	{ id: "vorMHZ", answer: "049",   type: "vorDegree" },
@@ -197,7 +197,7 @@ function setAutocorrect() {
 function renderAnswerInputs() {
 	const radius = 50;
 
-	for (const item of vorArray) {
+	for (const item of mapQuizItems) {
 		const vorElement = document.getElementById(item.id);
 		if (!vorElement) continue;
 		const coords = getCoords(vorElement);
@@ -252,7 +252,7 @@ function renderAnswerInputs() {
 }
 
 function fillBoxes() {
-	for (const item of vorArray) {
+	for (const item of mapQuizItems) {
 		const ele = document.getElementById(inputId(item));
 		ele.style.color = "black";
 		ele.disabled = false;
@@ -262,7 +262,7 @@ function fillBoxes() {
 }
 
 function hintBoxes() {
-	for (const item of vorArray) {
+	for (const item of mapQuizItems) {
 		const ele = document.getElementById(inputId(item));
 		if (ele.value === "") {
 			ele.defaultValue = item.answer.substring(0, 1);
@@ -272,7 +272,7 @@ function hintBoxes() {
 }
 
 function clearBoxes() {
-	for (const item of vorArray) {
+	for (const item of mapQuizItems) {
 		const ele = document.getElementById(inputId(item));
 		ele.defaultValue = "";
 		ele.style.color = "black";
@@ -297,7 +297,7 @@ function doInput(ele) {
 }
 
 function checkAll() {
-	for (const item of vorArray) {
+	for (const item of mapQuizItems) {
 		checkBoxes(document.getElementById(inputId(item)));
 	}
 }
