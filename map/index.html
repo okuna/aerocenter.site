@@ -103,7 +103,7 @@
 	</style>
 </head>
 
-<body onload="addInput()">
+<body>
 
 	<div class="button">
 		<a href="/"><button>Back to AeroCenter Site</button></a>
@@ -203,12 +203,18 @@
 		</div>
 	</div>
 
-	<?php
-	echo file_get_contents("map.svg");
-	?>
+	<div id="mapContainer"></div>
 	<div id="labels">
 	</div>
 	<script src="src.js?id=20250724">
+	</script>
+	<script>
+		fetch('map.svg')
+			.then(response => response.text())
+			.then(svgText => {
+				document.getElementById('mapContainer').innerHTML = svgText;
+				addInput();
+			});
 	</script>
 </body>
 
