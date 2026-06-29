@@ -27,6 +27,13 @@ jobs:
     - name: 🚚 Get latest code
       uses: actions/checkout@v3
 
+    - name: 🔖 Bump cache-busters with commit SHA
+      run: |
+        SHORT=${GITHUB_SHA::8}
+        sed -i "s|src\.js?id=[^\"]*|src.js?id=$SHORT|g; s|quizItems\.js?id=[^\"]*|quizItems.js?id=$SHORT|g" map/index.html
+        echo "Bumped map/index.html cache-busters to $SHORT"
+        grep "?id=" map/index.html | grep -v "googletag"
+
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:

@@ -34,14 +34,9 @@ Next, add a new entry to the `mapQuizItems` array in `map/quizItems.js`. Each en
 
 So the entry `{ id: "rect3800", answer: "5000", type: "boundary" }` means, "find the object on the map with id `rect3800` and put a boundary text box on top of it with the correct answer of 5000."
 
-Finally update the `?id=` query parameter on both script tags in `map/index.html`:
+You don't need to update the `?id=` cache-busters on the script tags in `map/index.html` — the deploy workflow rewrites them to the commit SHA automatically. (If you're testing locally, do a hard reload — Cmd+Shift+R / Ctrl+Shift+R — to bypass your browser cache.)
 
-    		<script src="quizItems.js?id=202405141"></script>
-    		<script src="src.js?id=202405141"></script>
-
-You need to change the number after `?id=` to a new value (use the same value on both tags). It can be anything, but using the current date makes sense. This is just to force the user's browser to download your new changes rather than using a cached value.
-
-Once you've done these steps, test your changes and submit a pull request (PR)! Your PR should have three files changed: (1) map.svg, (2) the array in quizItems.js, and (3) the `?id=` values in index.html. Please attach a screenshot to the PR of what your changes look like. Once I review and accept your PR, your changes will be automatically deployed onto the live site. Thank you for helping to keep Aerocenter Site up to date! 
+Once you've done these steps, test your changes and submit a pull request (PR)! Your PR should have two files changed: (1) map.svg and (2) the array in quizItems.js. Please attach a screenshot to the PR of what your changes look like. Once I review and accept your PR, your changes will be automatically deployed onto the live site. Thank you for helping to keep Aerocenter Site up to date! 
 
 # Clock
 

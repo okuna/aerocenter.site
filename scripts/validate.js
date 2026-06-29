@@ -51,21 +51,6 @@ try {
 	fail(`mapQuizItems failed to parse: ${err.message}`);
 }
 
-// 2. Cache-buster ?id= values match between script tags in index.html
-try {
-	const html = fs.readFileSync(path.join(ROOT, 'map/index.html'), 'utf8');
-	const ids = [...html.matchAll(/<script src="[^"]+\?id=([^"]+)"/g)].map(m => m[1]);
-	if (ids.length < 2) {
-		fail(`expected at least 2 script tags with ?id=, found ${ids.length}`);
-	} else if (new Set(ids).size > 1) {
-		fail(`script ?id= values differ: ${[...new Set(ids)].join(', ')}`);
-	} else {
-		pass(`cache-buster ?id=${ids[0]} consistent across ${ids.length} script tags`);
-	}
-} catch (err) {
-	fail(`cache-buster check failed: ${err.message}`);
-}
-
 console.log();
 if (failures > 0) {
 	console.error(`${failures} check(s) failed.`);
