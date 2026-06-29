@@ -213,7 +213,7 @@
 			.then(response => response.text())
 			.then(svgText => {
 				document.getElementById('mapContainer').innerHTML = svgText;
-				addInput();
+				renderAnswerInputs();
 			});
 	</script>
 </body>

@@ -194,7 +194,7 @@ function setAutocorrect() {
 	}
 }
 
-function addInput() {
+function renderAnswerInputs() {
 	const radius = 50;
 
 	for (const item of vorArray) {
