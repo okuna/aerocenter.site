@@ -48,7 +48,7 @@ The table of text below the clock is represents METAR weather data for airports 
 
 # iOS App
 
-The map and clock are also available as a native iOS app in the [`ios/`](/ios) directory. The clock is a native SwiftUI port, and the map runs the same quiz code as the website bundled into a `WKWebView`. See [`ios/README.md`](/ios/README.md) for details. 
+The map and clock are also available as a fully native SwiftUI iOS app in the [`ios/`](/ios) directory. The clock logic is ported to Swift, and the map quiz renders natively from geometry extracted out of the SVG at build time. See [`ios/README.md`](/ios/README.md) for details. 
 
 # Grid
 

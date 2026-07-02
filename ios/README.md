@@ -26,26 +26,35 @@ The app is a SwiftUI `TabView` with two tabs:
 - The website loads NoSleep.js to keep the screen on; the app disables the
   idle timer while the clock tab is visible instead.
 
-### Map (bundled web app)
+### Map (native)
 
-The map quiz is a 1400×1200 SVG with over a hundred dynamically positioned
-`<input>` overlays (see the main README), so rebuilding it natively would
-mean forking the quiz logic. Instead the app renders the same code the
-website runs, bundled as a single self-contained page
-(`AeroCenter/Resources/map.html`) in a `WKWebView`, which provides the
-pinch-zoom and text entry the site already relies on. Google Analytics and
-the "Back to AeroCenter Site" button are stripped; everything else (Fill
-Answers, Hint, Check Answers, Autocorrect, Toggle Airspace) is unchanged.
+`AeroCenter/Map/` is a fully native port of the map quiz — no WebKit. The
+website positions its 174 quiz `<input>` overlays at runtime from the SVG's
+element geometry (see the main README); the app does that measurement once
+at **build time** instead:
 
-`map.html` is **generated** — don't edit it by hand. After changing
-`map/map.svg`, `map/quizItems.js`, `map/src.js`, or `map/index.html`,
-regenerate it with:
+- `scripts/build-ios-map.js` opens the map in headless Chromium, computes
+  every input's position/rotation/alignment with the same placement rules as
+  `map/src.js`, extracts the airspace sector overlay text, and writes
+  `AeroCenter/Resources/mapData.json`. It also rasterizes `map/map.svg` to
+  `AeroCenter/Resources/map.png` at 2x.
+- `MapQuizView` renders the raster inside a `UIScrollView`-backed pinch-zoom
+  view with a `TextField` positioned over it for each quiz item, and
+  `MapQuizModel` ports the quiz logic from `map/src.js` (prefix matching,
+  red/yellow wrong-answer highlighting, locking correct answers in green).
+- The toolbar has the same actions as the website: Fill Answers, Reset,
+  Toggle Airspace, Hint!, Check Answers, and an Autocorrect toggle that
+  grades on every keystroke.
+
+`mapData.json` and `map.png` are **generated** — don't edit them by hand.
+After changing `map/map.svg`, `map/quizItems.js`, `map/src.js`, or the
+sector overlay in `map/index.html`, regenerate them with:
 
     npm run build:ios-map
 
-(The SVG and scripts are inlined into one file because `fetch()` and
-cross-file references don't work reliably from `file://` pages inside
-`WKWebView`.)
+(Requires the Playwright Chromium from `npx playwright install chromium`;
+set `CHROMIUM_EXECUTABLE` to use a different Chromium binary.) `npm test`
+fails if `mapData.json` drifts from the map sources.
 
 ## Project format
 

@@ -1,0 +1,1774 @@
+{
+	"width": 1400,
+	"height": 1200,
+	"items": [
+		{
+			"key": "vorMHZ_MHZ",
+			"answer": "MHZ",
+			"type": "label",
+			"x": 716.05,
+			"y": 653.79,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "vorMHZ_005",
+			"answer": "005",
+			"type": "vorDegree",
+			"x": 720.4,
+			"y": 618.98,
+			"rotation": -85,
+			"align": "leading"
+		},
+		{
+			"key": "vorMHZ_049",
+			"answer": "049",
+			"type": "vorDegree",
+			"x": 753.78,
+			"y": 635.99,
+			"rotation": -41,
+			"align": "leading"
+		},
+		{
+			"key": "vorMHZ_091",
+			"answer": "091",
+			"type": "vorDegree",
+			"x": 766.04,
+			"y": 669.66,
+			"rotation": 1,
+			"align": "leading"
+		},
+		{
+			"key": "vorMHZ_106",
+			"answer": "106",
+			"type": "vorDegree",
+			"x": 764.11,
+			"y": 682.57,
+			"rotation": 16,
+			"align": "leading"
+		},
+		{
+			"key": "vorMHZ_129",
+			"answer": "129",
+			"type": "vorDegree",
+			"x": 754.9,
+			"y": 700.26,
+			"rotation": 39,
+			"align": "leading"
+		},
+		{
+			"key": "vorMHZ_164",
+			"answer": "164",
+			"type": "vorDegree",
+			"x": 729.83,
+			"y": 716.85,
+			"rotation": 74,
+			"align": "leading"
+		},
+		{
+			"key": "vorMHZ_179",
+			"answer": "179",
+			"type": "vorDegree",
+			"x": 716.92,
+			"y": 718.78,
+			"rotation": 89,
+			"align": "leading"
+		},
+		{
+			"key": "vorMHZ_194",
+			"answer": "194",
+			"type": "vorDegree",
+			"x": 703.95,
+			"y": 717.3,
+			"rotation": -76,
+			"align": "trailing"
+		},
+		{
+			"key": "vorMHZ_223",
+			"answer": "223",
+			"type": "vorDegree",
+			"x": 681.95,
+			"y": 705.36,
+			"rotation": -47,
+			"align": "trailing"
+		},
+		{
+			"key": "vorMHZ_251",
+			"answer": "251",
+			"type": "vorDegree",
+			"x": 668.77,
+			"y": 685.07,
+			"rotation": -19,
+			"align": "trailing"
+		},
+		{
+			"key": "vorMHZ_266",
+			"answer": "266",
+			"type": "vorDegree",
+			"x": 666.17,
+			"y": 672.28,
+			"rotation": -4,
+			"align": "trailing"
+		},
+		{
+			"key": "vorMHZ_281",
+			"answer": "281",
+			"type": "vorDegree",
+			"x": 666.96,
+			"y": 659.25,
+			"rotation": 11,
+			"align": "trailing"
+		},
+		{
+			"key": "vorMHZ_300",
+			"answer": "300",
+			"type": "vorDegree",
+			"x": 672.74,
+			"y": 643.79,
+			"rotation": 30,
+			"align": "trailing"
+		},
+		{
+			"key": "vorMHZ_320",
+			"answer": "320",
+			"type": "vorDegree",
+			"x": 683.91,
+			"y": 630.49,
+			"rotation": 50,
+			"align": "trailing"
+		},
+		{
+			"key": "vorMHZ_335",
+			"answer": "335",
+			"type": "vorDegree",
+			"x": 694.91,
+			"y": 623.47,
+			"rotation": 65,
+			"align": "trailing"
+		},
+		{
+			"key": "vorMHZ_350",
+			"answer": "350",
+			"type": "vorDegree",
+			"x": 707.36,
+			"y": 619.55,
+			"rotation": 80,
+			"align": "trailing"
+		},
+		{
+			"key": "vorMLU_MLU",
+			"answer": "MLU",
+			"type": "label",
+			"x": 66.62,
+			"y": 638.5,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "vorMLU_072",
+			"answer": "072",
+			"type": "vorDegree",
+			"x": 114.18,
+			"y": 638.05,
+			"rotation": -18,
+			"align": "leading"
+		},
+		{
+			"key": "vorMLU_087",
+			"answer": "087",
+			"type": "vorDegree",
+			"x": 116.56,
+			"y": 650.89,
+			"rotation": -3,
+			"align": "leading"
+		},
+		{
+			"key": "vorMLU_102",
+			"answer": "102",
+			"type": "vorDegree",
+			"x": 115.53,
+			"y": 663.9,
+			"rotation": 12,
+			"align": "leading"
+		},
+		{
+			"key": "vorSQS_SQS",
+			"answer": "SQS",
+			"type": "label",
+			"x": 677.81,
+			"y": 293.17,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "vorSQS_007",
+			"answer": "007",
+			"type": "vorDegree",
+			"x": 683.9,
+			"y": 258.54,
+			"rotation": -83,
+			"align": "leading"
+		},
+		{
+			"key": "vorSQS_023",
+			"answer": "023",
+			"type": "vorDegree",
+			"x": 697.35,
+			"y": 262.14,
+			"rotation": -67,
+			"align": "leading"
+		},
+		{
+			"key": "vorSQS_086",
+			"answer": "086",
+			"type": "vorDegree",
+			"x": 727.69,
+			"y": 304.68,
+			"rotation": -4,
+			"align": "leading"
+		},
+		{
+			"key": "vorSQS_156",
+			"answer": "156",
+			"type": "vorDegree",
+			"x": 698.15,
+			"y": 353.84,
+			"rotation": 66,
+			"align": "leading"
+		},
+		{
+			"key": "vorSQS_171",
+			"answer": "171",
+			"type": "vorDegree",
+			"x": 685.63,
+			"y": 357.55,
+			"rotation": 81,
+			"align": "leading"
+		},
+		{
+			"key": "vorSQS_186",
+			"answer": "186",
+			"type": "vorDegree",
+			"x": 672.58,
+			"y": 357.89,
+			"rotation": -84,
+			"align": "trailing"
+		},
+		{
+			"key": "vorSQS_256",
+			"answer": "256",
+			"type": "vorDegree",
+			"x": 629.3,
+			"y": 320.26,
+			"rotation": -14,
+			"align": "trailing"
+		},
+		{
+			"key": "vorSQS_273",
+			"answer": "273",
+			"type": "vorDegree",
+			"x": 627.88,
+			"y": 305.55,
+			"rotation": 3,
+			"align": "trailing"
+		},
+		{
+			"key": "vorSQS_341",
+			"answer": "341",
+			"type": "vorDegree",
+			"x": 661.53,
+			"y": 260.89,
+			"rotation": 71,
+			"align": "trailing"
+		},
+		{
+			"key": "vorIGB_IGB",
+			"answer": "IGB",
+			"type": "label",
+			"x": 1285.16,
+			"y": 279.5,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "vorIGB_231",
+			"answer": "231",
+			"type": "vorDegree",
+			"x": 1246.3,
+			"y": 325.97,
+			"rotation": -39,
+			"align": "trailing"
+		},
+		{
+			"key": "vorIGB_266",
+			"answer": "266",
+			"type": "vorDegree",
+			"x": 1235.28,
+			"y": 297.99,
+			"rotation": -4,
+			"align": "trailing"
+		},
+		{
+			"key": "vorMEI_MEI",
+			"answer": "MEI",
+			"type": "label",
+			"x": 1196.28,
+			"y": 704.42,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "vorMEI_272",
+			"answer": "272",
+			"type": "vorDegree",
+			"x": 1146.32,
+			"y": 717.67,
+			"rotation": 2,
+			"align": "trailing"
+		},
+		{
+			"key": "vorMEI_257",
+			"answer": "257",
+			"type": "vorDegree",
+			"x": 1147.57,
+			"y": 730.66,
+			"rotation": -13,
+			"align": "trailing"
+		},
+		{
+			"key": "vorMCB_MCB",
+			"answer": "MCB",
+			"type": "label",
+			"x": 689.08,
+			"y": 1059.69,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "vorMCB_001",
+			"answer": "001",
+			"type": "vorDegree",
+			"x": 689.95,
+			"y": 1024.7,
+			"rotation": -89,
+			"align": "leading"
+		},
+		{
+			"key": "vorMCB_016",
+			"answer": "016",
+			"type": "vorDegree",
+			"x": 702.86,
+			"y": 1026.63,
+			"rotation": -74,
+			"align": "leading"
+		},
+		{
+			"key": "vorMCB_345",
+			"answer": "345",
+			"type": "vorDegree",
+			"x": 676.14,
+			"y": 1026.39,
+			"rotation": 75,
+			"align": "trailing"
+		},
+		{
+			"key": "vorGLH_GLH",
+			"answer": "GLH",
+			"type": "label",
+			"x": 431.96,
+			"y": 261.62,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "vorGLH_092",
+			"answer": "092",
+			"type": "vorDegree",
+			"x": 481.92,
+			"y": 278.37,
+			"rotation": 2,
+			"align": "leading"
+		},
+		{
+			"key": "vorGLH_143",
+			"answer": "143",
+			"type": "vorDegree",
+			"x": 462.05,
+			"y": 316.55,
+			"rotation": 53,
+			"align": "leading"
+		},
+		{
+			"key": "vorHEZ_HEZ",
+			"answer": "HEZ",
+			"type": "label",
+			"x": 313.71,
+			"y": 986.21,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "vorHEZ_026",
+			"answer": "026",
+			"type": "vorDegree",
+			"x": 335.63,
+			"y": 956.27,
+			"rotation": -64,
+			"align": "leading"
+		},
+		{
+			"key": "vorHEZ_044",
+			"answer": "044",
+			"type": "vorDegree",
+			"x": 348.44,
+			"y": 965.24,
+			"rotation": -46,
+			"align": "leading"
+		},
+		{
+			"key": "ubaby_UBABY",
+			"answer": "UBABY",
+			"type": "label",
+			"x": 744.32,
+			"y": 145.93,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "deske_DESKE",
+			"answer": "DESKE",
+			"type": "label",
+			"x": 562.28,
+			"y": 447.28,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "yazoo_YAZOO",
+			"answer": "YAZOO",
+			"type": "label",
+			"x": 640.86,
+			"y": 474.19,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "kgwo_KGWO",
+			"answer": "KGWO",
+			"type": "label",
+			"x": 732.35,
+			"y": 273.72,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "hater_HATER",
+			"answer": "HATER",
+			"type": "label",
+			"x": 391.46,
+			"y": 562.47,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "arguw_ARGUW",
+			"answer": "ARGUW",
+			"type": "label",
+			"x": 722.34,
+			"y": 409.97,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "stuee_STUEE",
+			"answer": "STUEE",
+			"type": "label",
+			"x": 191.05,
+			"y": 640.13,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "dinky_DINKY",
+			"answer": "DINKY",
+			"type": "label",
+			"x": 279.44,
+			"y": 641.14,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "hedud_HEDUD",
+			"answer": "HEDUD",
+			"type": "label",
+			"x": 555.92,
+			"y": 648.76,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "dorts_DORTS",
+			"answer": "DORTS",
+			"type": "label",
+			"x": 386.39,
+			"y": 723.52,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "barne_BARNE",
+			"answer": "BARNE",
+			"type": "label",
+			"x": 498.14,
+			"y": 829.69,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "hazal_HAZAL",
+			"answer": "HAZAL",
+			"type": "label",
+			"x": 631.46,
+			"y": 874.47,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "ricks_RICKS",
+			"answer": "RICKS",
+			"type": "label",
+			"x": 762.25,
+			"y": 882.56,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "mizze_MIZZE",
+			"answer": "MIZZE",
+			"type": "label",
+			"x": 1005.63,
+			"y": 904.21,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "zamma_ZAMMA",
+			"answer": "ZAMMA",
+			"type": "label",
+			"x": 984.58,
+			"y": 478.97,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "boosi_BOOSI",
+			"answer": "BOOSI",
+			"type": "label",
+			"x": 698.76,
+			"y": 554.11,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "kjan_KJAN",
+			"answer": "KJAN",
+			"type": "label",
+			"x": 749.98,
+			"y": 758.94,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "khks_KHKS",
+			"answer": "KHKS",
+			"type": "label",
+			"x": 692.51,
+			"y": 776.98,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "kjvw_KJVW",
+			"answer": "KJVW",
+			"type": "label",
+			"x": 642.82,
+			"y": 750.34,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "kvks_KVKS",
+			"answer": "KVKS",
+			"type": "label",
+			"x": 448.8,
+			"y": 754.34,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "ble_BLE",
+			"answer": "BLE",
+			"type": "label",
+			"x": 332.24,
+			"y": 540.35,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "0m8_0M8",
+			"answer": "0M8",
+			"type": "label",
+			"x": 357.59,
+			"y": 525.21,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "ktvr_KTVR",
+			"answer": "KTVR",
+			"type": "label",
+			"x": 414.28,
+			"y": 698.48,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "v427-14_14",
+			"answer": "14",
+			"type": "boundary",
+			"x": 144.8,
+			"y": 611.06,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "v18-15_15",
+			"answer": "15",
+			"type": "boundary",
+			"x": 162.48,
+			"y": 668.11,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "mluv417-16_16",
+			"answer": "16",
+			"type": "boundary",
+			"x": 170.78,
+			"y": 703.61,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "v427-31_31",
+			"answer": "31",
+			"type": "boundary",
+			"x": 266.95,
+			"y": 621.29,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "v18-31_31",
+			"answer": "31",
+			"type": "boundary",
+			"x": 263.77,
+			"y": 672.78,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "v417-31_31",
+			"answer": "31",
+			"type": "boundary",
+			"x": 254.94,
+			"y": 719.81,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "v245-20_20",
+			"answer": "20",
+			"type": "boundary",
+			"x": 428.52,
+			"y": 924.64,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "v417-20_20",
+			"answer": "20",
+			"type": "boundary",
+			"x": 576.66,
+			"y": 717.11,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "v18-19_19",
+			"answer": "19",
+			"type": "boundary",
+			"x": 590.8,
+			"y": 678.57,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "v427-18_18",
+			"answer": "18",
+			"type": "boundary",
+			"x": 606.71,
+			"y": 621.65,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "path3236_20",
+			"answer": "20",
+			"type": "boundary",
+			"x": 618.53,
+			"y": 584.3,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "path5096_26",
+			"answer": "26",
+			"type": "boundary",
+			"x": 615.02,
+			"y": 785.14,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "path3214_21",
+			"answer": "21",
+			"type": "boundary",
+			"x": 634.02,
+			"y": 985.64,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "path3216_21",
+			"answer": "21",
+			"type": "boundary",
+			"x": 707.52,
+			"y": 991.64,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "path3220_33",
+			"answer": "33",
+			"type": "boundary",
+			"x": 666.02,
+			"y": 844.14,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "path3222_35",
+			"answer": "35",
+			"type": "boundary",
+			"x": 723.02,
+			"y": 850.64,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "path3224_35",
+			"answer": "35",
+			"type": "boundary",
+			"x": 771.42,
+			"y": 841.28,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "path3226_16",
+			"answer": "16",
+			"type": "boundary",
+			"x": 785.52,
+			"y": 749.64,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "path3228_12",
+			"answer": "12",
+			"type": "boundary",
+			"x": 786.94,
+			"y": 708.9,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "path3230_12",
+			"answer": "12",
+			"type": "boundary",
+			"x": 782.49,
+			"y": 655.65,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "path3232_14",
+			"answer": "14",
+			"type": "boundary",
+			"x": 777.82,
+			"y": 603.78,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "path3234_17",
+			"answer": "17",
+			"type": "boundary",
+			"x": 751.02,
+			"y": 583.14,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "path3238_17",
+			"answer": "17",
+			"type": "boundary",
+			"x": 661.27,
+			"y": 577.63,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "path3240_17",
+			"answer": "17",
+			"type": "boundary",
+			"x": 716.25,
+			"y": 576.94,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "path3242_24",
+			"answer": "24",
+			"type": "boundary",
+			"x": 649.15,
+			"y": 159.13,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "path3244_23",
+			"answer": "23",
+			"type": "boundary",
+			"x": 685.65,
+			"y": 159.13,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "path3246_25",
+			"answer": "25",
+			"type": "boundary",
+			"x": 769.57,
+			"y": 167.74,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "path3248_13",
+			"answer": "13",
+			"type": "boundary",
+			"x": 611.18,
+			"y": 281.1,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "path3250_14",
+			"answer": "14",
+			"type": "boundary",
+			"x": 765.57,
+			"y": 287.74,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "path3252_26",
+			"answer": "26",
+			"type": "boundary",
+			"x": 487.57,
+			"y": 387.74,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "path3218_21",
+			"answer": "21",
+			"type": "boundary",
+			"x": 746.52,
+			"y": 999.64,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "path4503_V9",
+			"answer": "V9",
+			"type": "airway",
+			"x": 702.53,
+			"y": 858.11,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "path4479_V9-11",
+			"answer": "V9-11",
+			"type": "airway",
+			"x": 695.53,
+			"y": 474.47,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "path311_V9",
+			"answer": "V9",
+			"type": "airway",
+			"x": 625.15,
+			"y": 129.91,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "path4495_V11",
+			"answer": "V11",
+			"type": "airway",
+			"x": 877.55,
+			"y": 792.66,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "path315_V11",
+			"answer": "V11",
+			"type": "airway",
+			"x": 722.22,
+			"y": 196.65,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "path4465_V18",
+			"answer": "V18",
+			"type": "airway",
+			"x": 415.97,
+			"y": 644.93,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "path4830_V74",
+			"answer": "V74",
+			"type": "airway",
+			"x": 623.85,
+			"y": 536.31,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "path4489_V245",
+			"answer": "V245",
+			"type": "airway",
+			"x": 862.09,
+			"y": 553.46,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "path4511_V245",
+			"answer": "V245",
+			"type": "airway",
+			"x": 421.85,
+			"y": 892.28,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "v417_V417",
+			"answer": "V417",
+			"type": "airway",
+			"x": 953.09,
+			"y": 733.02,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "path4469_V417",
+			"answer": "V417",
+			"type": "airway",
+			"x": 528.55,
+			"y": 699.11,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "path4471_V417",
+			"answer": "V417",
+			"type": "airway",
+			"x": 249.37,
+			"y": 687.24,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "path4461_V427",
+			"answer": "V427",
+			"type": "airway",
+			"x": 529.75,
+			"y": 603.7,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "path4459_V427",
+			"answer": "V427",
+			"type": "airway",
+			"x": 250.05,
+			"y": 594.1,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "path4505_V555",
+			"answer": "V555",
+			"type": "airway",
+			"x": 744.7,
+			"y": 790.2,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "path4483_V555",
+			"answer": "V555",
+			"type": "airway",
+			"x": 733.81,
+			"y": 510.69,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "path4499_V557",
+			"answer": "V557",
+			"type": "airway",
+			"x": 666.65,
+			"y": 787.37,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "path4475_V557",
+			"answer": "V557",
+			"type": "airway",
+			"x": 656.72,
+			"y": 405.43,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "path313_V535",
+			"answer": "V535",
+			"type": "airway",
+			"x": 707.61,
+			"y": 127.66,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "path2789_V278",
+			"answer": "V278",
+			"type": "airway",
+			"x": 556.39,
+			"y": 274.79,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "path4485_V278",
+			"answer": "V278",
+			"type": "airway",
+			"x": 980.96,
+			"y": 287.15,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "path4491_V18",
+			"answer": "V18",
+			"type": "airway",
+			"x": 956.93,
+			"y": 679.2,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "rect12239_75",
+			"answer": "75",
+			"type": "boundary",
+			"x": 631.2,
+			"y": 930.52,
+			"rotation": 71.72,
+			"align": "center"
+		},
+		{
+			"key": "rect12241_72",
+			"answer": "72",
+			"type": "boundary",
+			"x": 706.15,
+			"y": 940.42,
+			"rotation": -84.11,
+			"align": "center"
+		},
+		{
+			"key": "rect12243_75",
+			"answer": "75",
+			"type": "boundary",
+			"x": 759.89,
+			"y": 929.11,
+			"rotation": -63.73,
+			"align": "center"
+		},
+		{
+			"key": "rect12245_120",
+			"answer": "120",
+			"type": "boundary",
+			"x": 938.69,
+			"y": 878.44,
+			"rotation": 38.62,
+			"align": "center"
+		},
+		{
+			"key": "rect12247_72",
+			"answer": "72",
+			"type": "boundary",
+			"x": 889.69,
+			"y": 745.44,
+			"rotation": 20.67,
+			"align": "center"
+		},
+		{
+			"key": "rect12249_70",
+			"answer": "70",
+			"type": "boundary",
+			"x": 1073.58,
+			"y": 719.06,
+			"rotation": 6.59,
+			"align": "center"
+		},
+		{
+			"key": "rect12251_102",
+			"answer": "102",
+			"type": "boundary",
+			"x": 956.32,
+			"y": 522.35,
+			"rotation": -32.41,
+			"align": "center"
+		},
+		{
+			"key": "rect12253_60",
+			"answer": "60",
+			"type": "boundary",
+			"x": 745.72,
+			"y": 541.81,
+			"rotation": -78.78,
+			"align": "center"
+		},
+		{
+			"key": "rect12255_58",
+			"answer": "58",
+			"type": "boundary",
+			"x": 705.3,
+			"y": 529.7,
+			"rotation": -93.54,
+			"align": "center"
+		},
+		{
+			"key": "rect12257_60",
+			"answer": "60",
+			"type": "boundary",
+			"x": 642.41,
+			"y": 518.42,
+			"rotation": 67.89,
+			"align": "center"
+		},
+		{
+			"key": "rect12259_74",
+			"answer": "74",
+			"type": "boundary",
+			"x": 531.1,
+			"y": 434.34,
+			"rotation": 53.77,
+			"align": "center"
+		},
+		{
+			"key": "rect12233_98",
+			"answer": "98",
+			"type": "boundary",
+			"x": 454.78,
+			"y": 608.79,
+			"rotation": 15.98,
+			"align": "center"
+		},
+		{
+			"key": "rect12231_95",
+			"answer": "95",
+			"type": "boundary",
+			"x": 475.28,
+			"y": 671.02,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "rect12235_98",
+			"answer": "98",
+			"type": "boundary",
+			"x": 485.54,
+			"y": 732.53,
+			"rotation": -9.63,
+			"align": "center"
+		},
+		{
+			"key": "rect12237_79",
+			"answer": "79",
+			"type": "boundary",
+			"x": 564.73,
+			"y": 817.39,
+			"rotation": -38.5,
+			"align": "center"
+		},
+		{
+			"key": "rect12261_36",
+			"answer": "36",
+			"type": "boundary",
+			"x": 516.48,
+			"y": 277.01,
+			"rotation": 10.94,
+			"align": "center"
+		},
+		{
+			"key": "rect12269_69",
+			"answer": "69",
+			"type": "boundary",
+			"x": 595.1,
+			"y": 80.84,
+			"rotation": 72.38,
+			"align": "center"
+		},
+		{
+			"key": "rect12267_92",
+			"answer": "92",
+			"type": "boundary",
+			"x": 733.6,
+			"y": 73.34,
+			"rotation": -77.15,
+			"align": "center"
+		},
+		{
+			"key": "rect12265_87",
+			"answer": "87",
+			"type": "boundary",
+			"x": 796.6,
+			"y": 80.84,
+			"rotation": -64.01,
+			"align": "center"
+		},
+		{
+			"key": "rect12263_88",
+			"answer": "88",
+			"type": "boundary",
+			"x": 1095.52,
+			"y": 309.93,
+			"rotation": -0.51,
+			"align": "center"
+		},
+		{
+			"key": "path4990_TKH",
+			"answer": "TKH",
+			"type": "label",
+			"x": 397.04,
+			"y": 751.9,
+			"rotation": 0,
+			"align": "center"
+		},
+		{
+			"key": "rect13117_19",
+			"answer": "19",
+			"type": "boundary",
+			"x": 138.93,
+			"y": 642.87,
+			"rotation": -0.88,
+			"align": "center"
+		},
+		{
+			"key": "rect13131_12",
+			"answer": "12",
+			"type": "boundary",
+			"x": 216.94,
+			"y": 647.97,
+			"rotation": -0.88,
+			"align": "center"
+		},
+		{
+			"key": "rect13133_49",
+			"answer": "49",
+			"type": "boundary",
+			"x": 203.44,
+			"y": 609.97,
+			"rotation": -15.99,
+			"align": "center"
+		},
+		{
+			"key": "rect13135_49",
+			"answer": "49",
+			"type": "boundary",
+			"x": 218.44,
+			"y": 682.47,
+			"rotation": 14.19,
+			"align": "center"
+		},
+		{
+			"key": "rect13137_41",
+			"answer": "41",
+			"type": "boundary",
+			"x": 475.27,
+			"y": 649.54,
+			"rotation": -1.69,
+			"align": "center"
+		},
+		{
+			"key": "rect3745_23",
+			"answer": "23",
+			"type": "boundary",
+			"x": 610.33,
+			"y": 656.61,
+			"rotation": 3.87,
+			"align": "center"
+		},
+		{
+			"key": "rect13139_49",
+			"answer": "49",
+			"type": "boundary",
+			"x": 461.34,
+			"y": 585.24,
+			"rotation": 19.78,
+			"align": "center"
+		},
+		{
+			"key": "rect13141_49",
+			"answer": "49",
+			"type": "boundary",
+			"x": 480.96,
+			"y": 709.2,
+			"rotation": -10.25,
+			"align": "center"
+		},
+		{
+			"key": "rect13143_26",
+			"answer": "26",
+			"type": "boundary",
+			"x": 457.48,
+			"y": 861.43,
+			"rotation": -35.83,
+			"align": "center"
+		},
+		{
+			"key": "rect13145_53",
+			"answer": "53",
+			"type": "boundary",
+			"x": 549.77,
+			"y": 796.54,
+			"rotation": -35.83,
+			"align": "center"
+		},
+		{
+			"key": "rect13147_37",
+			"answer": "37",
+			"type": "boundary",
+			"x": 653.82,
+			"y": 923.01,
+			"rotation": 71.36,
+			"align": "center"
+		},
+		{
+			"key": "rect13149_38",
+			"answer": "38",
+			"type": "boundary",
+			"x": 643.32,
+			"y": 826.01,
+			"rotation": -59.89,
+			"align": "center"
+		},
+		{
+			"key": "rect13151_37",
+			"answer": "37",
+			"type": "boundary",
+			"x": 741.57,
+			"y": 914.2,
+			"rotation": -59.11,
+			"align": "center"
+		},
+		{
+			"key": "rect13153_38",
+			"answer": "38",
+			"type": "boundary",
+			"x": 756.44,
+			"y": 808.46,
+			"rotation": 74.18,
+			"align": "center"
+		},
+		{
+			"key": "rect13155_58",
+			"answer": "58",
+			"type": "boundary",
+			"x": 955.44,
+			"y": 858.96,
+			"rotation": 40.75,
+			"align": "center"
+		},
+		{
+			"key": "rect13157_62",
+			"answer": "62",
+			"type": "boundary",
+			"x": 1046.94,
+			"y": 941.96,
+			"rotation": 40.75,
+			"align": "center"
+		},
+		{
+			"key": "rect13159_46",
+			"answer": "46",
+			"type": "boundary",
+			"x": 944.44,
+			"y": 501.96,
+			"rotation": -29.59,
+			"align": "center"
+		},
+		{
+			"key": "rect13161_56",
+			"answer": "56",
+			"type": "boundary",
+			"x": 1126.94,
+			"y": 389.46,
+			"rotation": -29.59,
+			"align": "center"
+		},
+		{
+			"key": "rect13163_44",
+			"answer": "44",
+			"type": "boundary",
+			"x": 725.87,
+			"y": 537.85,
+			"rotation": -77.86,
+			"align": "center"
+		},
+		{
+			"key": "rect13165_30",
+			"answer": "30",
+			"type": "boundary",
+			"x": 660.55,
+			"y": 508.42,
+			"rotation": 64.96,
+			"align": "center"
+		},
+		{
+			"key": "rect13167_30",
+			"answer": "30",
+			"type": "boundary",
+			"x": 653.25,
+			"y": 384.84,
+			"rotation": -67.91,
+			"align": "center"
+		},
+		{
+			"key": "rect13169_16",
+			"answer": "16",
+			"type": "boundary",
+			"x": 700.71,
+			"y": 598.42,
+			"rotation": -107.83,
+			"align": "center"
+		},
+		{
+			"key": "rect13171_42",
+			"answer": "42",
+			"type": "boundary",
+			"x": 676.64,
+			"y": 415.39,
+			"rotation": -95.83,
+			"align": "center"
+		},
+		{
+			"key": "rect13173_16",
+			"answer": "16",
+			"type": "boundary",
+			"x": 713.93,
+			"y": 372.67,
+			"rotation": 67.55,
+			"align": "center"
+		},
+		{
+			"key": "rect13177_26",
+			"answer": "26",
+			"type": "boundary",
+			"x": 597.85,
+			"y": 491.83,
+			"rotation": 51.7,
+			"align": "center"
+		},
+		{
+			"key": "rect13179_48",
+			"answer": "48",
+			"type": "boundary",
+			"x": 550.44,
+			"y": 421.77,
+			"rotation": 51.7,
+			"align": "center"
+		},
+		{
+			"key": "rect13181_23",
+			"answer": "23",
+			"type": "boundary",
+			"x": 705.44,
+			"y": 227.27,
+			"rotation": -58.69,
+			"align": "center"
+		},
+		{
+			"key": "rect13183_64",
+			"answer": "64",
+			"type": "boundary",
+			"x": 780.92,
+			"y": 72.27,
+			"rotation": -58.69,
+			"align": "center"
+		},
+		{
+			"key": "rect3763_42",
+			"answer": "42",
+			"type": "boundary",
+			"x": 340.42,
+			"y": 904.79,
+			"rotation": -52.88,
+			"align": "center"
+		},
+		{
+			"key": "rect3800_5000",
+			"answer": "5000",
+			"type": "boundary",
+			"x": 556.73,
+			"y": 681.75,
+			"rotation": -1.91,
+			"align": "center"
+		}
+	],
+	"sectors": [
+		{
+			"x": 427,
+			"y": 462,
+			"color": "black",
+			"underlineFirst": false,
+			"lines": [
+				"66",
+				"JAN LO",
+				"125.0 - 325.0",
+				"45",
+				"VKS HI",
+				"130.25 - 330.25"
+			]
+		},
+		{
+			"x": 252,
+			"y": 372,
+			"color": "black",
+			"underlineFirst": false,
+			"lines": [
+				"67",
+				"GLH LO",
+				"126.0 - 326.0"
+			]
+		},
+		{
+			"x": 477,
+			"y": 52,
+			"color": "black",
+			"underlineFirst": false,
+			"lines": [
+				"15",
+				"HEE LO",
+				"127.0 - 327.0"
+			]
+		},
+		{
+			"x": 842,
+			"y": 142,
+			"color": "black",
+			"underlineFirst": false,
+			"lines": [
+				"12",
+				"CBM LO",
+				"128.0 - 328.0"
+			]
+		},
+		{
+			"x": 1092,
+			"y": 527,
+			"color": "black",
+			"underlineFirst": false,
+			"lines": [
+				"65",
+				"EWA LO",
+				"129.0 - 329.0"
+			]
+		},
+		{
+			"x": 27,
+			"y": 492,
+			"color": "black",
+			"underlineFirst": false,
+			"lines": [
+				"F30",
+				"MLU LO",
+				"135.1 - 335.1"
+			]
+		},
+		{
+			"x": 72,
+			"y": 942,
+			"color": "black",
+			"underlineFirst": false,
+			"lines": [
+				"H40",
+				"POE LO",
+				"134.1 - 334.1"
+			]
+		},
+		{
+			"x": 462,
+			"y": 1022,
+			"color": "black",
+			"underlineFirst": false,
+			"lines": [
+				"H27",
+				"PCU LO",
+				"133.1 - 333.1"
+			]
+		},
+		{
+			"x": 842,
+			"y": 1022,
+			"color": "black",
+			"underlineFirst": false,
+			"lines": [
+				"H65",
+				"MCB HI",
+				"133.25 - 333.25"
+			]
+		},
+		{
+			"x": 42,
+			"y": 752,
+			"color": "green",
+			"underlineFirst": false,
+			"lines": [
+				"MLU APCH",
+				"SFC-060",
+				"118.2 - 258.2"
+			]
+		},
+		{
+			"x": 807,
+			"y": 802,
+			"color": "green",
+			"underlineFirst": false,
+			"lines": [
+				"JAN APCH",
+				"SFC-050",
+				"119.2 - 259.2"
+			]
+		},
+		{
+			"x": 42,
+			"y": 717,
+			"color": "black",
+			"underlineFirst": false,
+			"lines": [
+				"ZFW"
+			]
+		},
+		{
+			"x": 42,
+			"y": 727,
+			"color": "black",
+			"underlineFirst": false,
+			"lines": [
+				"ZHU"
+			]
+		},
+		{
+			"x": 1159,
+			"y": 977,
+			"color": "black",
+			"underlineFirst": false,
+			"lines": [
+				"ZAE"
+			]
+		},
+		{
+			"x": 1159,
+			"y": 992,
+			"color": "black",
+			"underlineFirst": false,
+			"lines": [
+				"ZHU"
+			]
+		},
+		{
+			"x": 742,
+			"y": 232,
+			"color": "green",
+			"underlineFirst": false,
+			"lines": [
+				"120.2",
+				"260.2"
+			]
+		},
+		{
+			"x": 792,
+			"y": 352,
+			"color": "red",
+			"underlineFirst": true,
+			"lines": [
+				"Meridian 1 West",
+				"8000 MSL to but not including FL180"
+			]
+		},
+		{
+			"x": 792,
+			"y": 222,
+			"color": "red",
+			"underlineFirst": true,
+			"lines": [
+				"Columbus 3 MOA",
+				"8000 MSL to but not including FL180"
+			]
+		},
+		{
+			"x": 812,
+			"y": 892,
+			"color": "red",
+			"underlineFirst": true,
+			"lines": [
+				"Meridian 2 West",
+				"8000 MSL to but not including FL180"
+			]
+		}
+	]
+}

@@ -7,7 +7,7 @@ struct ContentView: View {
                 .tabItem {
                     Label("Clock", systemImage: "clock")
                 }
-            MapView()
+            MapQuizView()
                 .tabItem {
                     Label("Map", systemImage: "map")
                 }
