@@ -2,8 +2,9 @@
   "name": "aerocenter.site",
   "private": true,
   "scripts": {
+    "build:ios-map": "node scripts/build-ios-map.js",
     "lint": "eslint map/ scripts/ tests/ playwright.config.js",
-    "test": "node scripts/validate.js && eslint map/ scripts/ tests/ playwright.config.js && playwright test"
+    "test": "node scripts/validate.js && node scripts/build-ios-map.js --check && eslint map/ scripts/ tests/ playwright.config.js && playwright test"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

@@ -55,3 +55,8 @@ jobs:
         username: aeronrwz
         password: ${{ secrets.ftp_password }}
         server-dir: public_html/
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
+          ios/**

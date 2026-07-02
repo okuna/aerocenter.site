@@ -44,7 +44,11 @@ Once you've done these steps, test your changes and submit a pull request (PR)! 
 
 A large part of training involved rehearsing ATC scenarios against a clock. In order to practice, some students would resort to resetting their phone's system time to align with the scenario clock. This was messy and problematic, especially when attempting to pause a scenario. I developed this clock app with the goals of making it easy to set and pause. 
 
-The table of text below the clock is represents METAR weather data for airports within the Aerocenter airspace. The altimeter values randomly update each time the clock's hour changes. 
+The table of text below the clock is represents METAR weather data for airports within the Aerocenter airspace. The altimeter values randomly update each time the clock's hour changes.
+
+# iOS App
+
+The map and clock are also available as a native iOS app in the [`ios/`](/ios) directory. The clock is a native SwiftUI port, and the map runs the same quiz code as the website bundled into a `WKWebView`. See [`ios/README.md`](/ios/README.md) for details. 
 
 # Grid
 
