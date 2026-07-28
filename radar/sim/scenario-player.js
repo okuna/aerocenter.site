@@ -187,6 +187,22 @@
 					history: [],
 				});
 			}
+			// Aircraft already due at the scenario's start time have to be live
+			// before the first step, or the opening snapshot is empty and the
+			// scope shows nothing until a whole scan interval elapses -- 12
+			// seconds of blank screen at 1x, which reads as a broken load.
+			this.activateDue();
+		}
+
+		/** Flip on any aircraft whose activation time has arrived. */
+		activateDue() {
+			const started = [];
+			for (const [gufi, st] of this.flights) {
+				if (st.active || this.clock < st.plan.activateSeconds) continue;
+				st.active = true;
+				started.push(this.toFlight(gufi, st));
+			}
+			return started;
 		}
 
 		onMessage(fn) {
@@ -204,17 +220,14 @@
 		step(seconds) {
 			const dt = seconds == null ? SCAN_SECONDS : seconds;
 			this.clock += dt;
-			const updated = [];
+			// Newly-activated aircraft report their start position this tick and
+			// begin moving on the next one.
+			const updated = this.activateDue();
+			const justStarted = new Set(updated.map(f => f.gufi));
 
 			for (const [gufi, st] of this.flights) {
 				const p = st.plan;
-
-				if (!st.active) {
-					if (this.clock < p.activateSeconds) continue;
-					st.active = true;
-					updated.push(this.toFlight(gufi, st));
-					continue;
-				}
+				if (!st.active || justStarted.has(gufi)) continue;
 
 				const leg = p.legs[st.legIndex];
 				if (!leg) continue;

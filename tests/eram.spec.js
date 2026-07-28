@@ -41,6 +41,20 @@ test.describe('ERAM scope', () => {
 		expect(planned).toBe(25);
 	});
 
+	test('shows traffic immediately, without waiting a scan interval', async ({ page }) => {
+		// At 1x a scan is 12s. Aircraft used to activate only inside step(), so
+		// the opening snapshot was empty and the scope sat blank for a full
+		// interval after load — indistinguishable from a broken scenario.
+		await page.goto('/radar/eram/?home=1');   // default rate, no speed-up
+		await page.waitForFunction(() => window.simPlayer != null, null, { timeout: 20_000 });
+
+		expect(await page.evaluate(() => window.simPlayer.snapshot().length)).toBeGreaterThan(0);
+		await expect.poll(
+			() => page.evaluate(() => document.querySelectorAll('.leaflet-marker-icon').length),
+			{ timeout: 10_000 },   // comfortably under one 12s scan
+		).toBeGreaterThan(0);
+	});
+
 	test('renders sector boundaries from the generated KML', async ({ page }) => {
 		await page.goto(SCOPE);
 		// Boundaries arrive as KML (not GeoJSON) and are keyed by ARTCC plus an
