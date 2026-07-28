@@ -1,0 +1,21 @@
+{
+	"note": "Affine fit of radar/map.svg pixel space to WGS84, by least squares over drawn features present in radar/fixes.json.",
+	"generatedBy": "scripts/build-airspace.js",
+	"controlPoints": 28,
+	"lonFromPixel": {
+		"c0": -92.15232751138574,
+		"cx": 0.0030318550651768834,
+		"cy": -0.0003100195119310394
+	},
+	"latFromPixel": {
+		"c0": 34.40479674016392,
+		"cx": -0.00015662369398832142,
+		"cy": -0.0026383658968718578
+	},
+	"pixelsPerNauticalMile": 6.31704,
+	"residualsNm": {
+		"mean": 2.784,
+		"worst": 6.653,
+		"worstIdent": "khks"
+	}
+}

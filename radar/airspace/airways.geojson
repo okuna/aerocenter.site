@@ -1,0 +1,845 @@
+{
+	"type": "FeatureCollection",
+	"features": [
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-91.212493,
+						32.301181
+					],
+					[
+						-92.004147,
+						32.5172
+					]
+				]
+			},
+			"properties": {
+				"id": "path4471",
+				"kind": "airway"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-90.287489,
+						33.476924
+					],
+					[
+						-88.579617,
+						33.499016
+					]
+				]
+			},
+			"properties": {
+				"id": "path4485",
+				"kind": "airway"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-88.579617,
+						33.499016
+					],
+					[
+						-90.196326,
+						32.516163
+					]
+				]
+			},
+			"properties": {
+				"id": "path4489",
+				"kind": "airway"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-90.196326,
+						32.516163
+					],
+					[
+						-88.869434,
+						32.424294
+					]
+				]
+			},
+			"properties": {
+				"id": "path4491",
+				"kind": "airway"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-90.196326,
+						32.516163
+					],
+					[
+						-89.527591,
+						32.265156
+					],
+					[
+						-89.519277,
+						32.262553
+					],
+					[
+						-88.869434,
+						32.424294
+					]
+				]
+			},
+			"properties": {
+				"id": "path4493",
+				"kind": "airway"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-90.287489,
+						33.476924
+					],
+					[
+						-90.985798,
+						33.503425
+					]
+				]
+			},
+			"properties": {
+				"id": "path305",
+				"kind": "airway"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-90.287489,
+						33.476924
+					],
+					[
+						-90.53138,
+						34.425424
+					]
+				]
+			},
+			"properties": {
+				"id": "path311",
+				"kind": "airway"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-90.287489,
+						33.476924
+					],
+					[
+						-90.059328,
+						34.39547
+					]
+				]
+			},
+			"properties": {
+				"id": "path313",
+				"kind": "airway"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-90.287489,
+						33.476924
+					],
+					[
+						-89.595258,
+						34.380817
+					]
+				]
+			},
+			"properties": {
+				"id": "path317",
+				"kind": "airway"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-90.925719,
+						33.445694
+					],
+					[
+						-90.196326,
+						32.516163
+					]
+				]
+			},
+			"properties": {
+				"id": "path4828",
+				"kind": "airway"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-90.196326,
+						32.516163
+					],
+					[
+						-89.41813,
+						31.851302
+					]
+				]
+			},
+			"properties": {
+				"id": "path4495",
+				"kind": "airway"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-89.365281,
+						31.80086
+					],
+					[
+						-88.437598,
+						31.038402
+					]
+				]
+			},
+			"properties": {
+				"id": "path4497",
+				"kind": "airway"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-90.411915,
+						31.844008
+					],
+					[
+						-90.305875,
+						31.316152
+					]
+				]
+			},
+			"properties": {
+				"id": "path4501",
+				"kind": "airway"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-90.196326,
+						32.516163
+					],
+					[
+						-90.305875,
+						31.316152
+					]
+				]
+			},
+			"properties": {
+				"id": "path4503",
+				"kind": "airway"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-90.085222,
+						31.829486
+					],
+					[
+						-90.292984,
+						31.315043
+					]
+				]
+			},
+			"properties": {
+				"id": "path4507",
+				"kind": "airway"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-90.196326,
+						32.516163
+					],
+					[
+						-90.409479,
+						31.88936
+					]
+				]
+			},
+			"properties": {
+				"id": "path4499",
+				"kind": "airway"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-90.196326,
+						32.516163
+					],
+					[
+						-90.08395,
+						31.876897
+					]
+				]
+			},
+			"properties": {
+				"id": "path4505",
+				"kind": "airway"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-90.196326,
+						32.516163
+					],
+					[
+						-91.255554,
+						31.657212
+					]
+				]
+			},
+			"properties": {
+				"id": "path4509",
+				"kind": "airway"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-90.196326,
+						32.516163
+					],
+					[
+						-91.105643,
+						32.304245
+					]
+				]
+			},
+			"properties": {
+				"id": "path4469",
+				"kind": "airway"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-90.321041,
+						33.403097
+					],
+					[
+						-90.425915,
+						33.005561
+					],
+					[
+						-90.423419,
+						32.99824
+					],
+					[
+						-90.196326,
+						32.516163
+					]
+				]
+			},
+			"properties": {
+				"id": "path4475",
+				"kind": "airway"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-90.196326,
+						32.516163
+					],
+					[
+						-90.272906,
+						33.403309
+					]
+				]
+			},
+			"properties": {
+				"id": "path4479",
+				"kind": "airway"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-90.222088,
+						33.427498
+					],
+					[
+						-90.106859,
+						33.190852
+					]
+				]
+			},
+			"properties": {
+				"id": "path4481",
+				"kind": "airway"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-90.0847,
+						33.134691
+					],
+					[
+						-90.055072,
+						33.019764
+					],
+					[
+						-90.054467,
+						33.012068
+					],
+					[
+						-90.196326,
+						32.516163
+					]
+				]
+			},
+			"properties": {
+				"id": "path4483",
+				"kind": "airway"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-90.196326,
+						32.516163
+					],
+					[
+						-91.093844,
+						32.698665
+					]
+				]
+			},
+			"properties": {
+				"id": "path4461",
+				"kind": "airway"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-92.004147,
+						32.5172
+					],
+					[
+						-91.18371,
+						32.702464
+					]
+				]
+			},
+			"properties": {
+				"id": "path4459",
+				"kind": "airway"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-90.305875,
+						31.316152
+					],
+					[
+						-91.250205,
+						31.592643
+					]
+				]
+			},
+			"properties": {
+				"id": "path1156",
+				"kind": "airway"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-90.292984,
+						31.315043
+					],
+					[
+						-89.263207,
+						31.411803
+					]
+				]
+			},
+			"properties": {
+				"id": "path1158",
+				"kind": "airway"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-91.370603,
+						31.666968
+					],
+					[
+						-92.004147,
+						32.5172
+					]
+				]
+			},
+			"properties": {
+				"id": "path1160",
+				"kind": "airway"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-92.004147,
+						32.5172
+					],
+					[
+						-91.055677,
+						33.446612
+					]
+				]
+			},
+			"properties": {
+				"id": "path1162",
+				"kind": "airway"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-88.869434,
+						32.424294
+					],
+					[
+						-89.160511,
+						31.662577
+					],
+					[
+						-89.180548,
+						31.617286
+					],
+					[
+						-89.263207,
+						31.411803
+					]
+				]
+			},
+			"properties": {
+				"id": "path1168",
+				"kind": "airway"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-88.566744,
+						33.504544
+					],
+					[
+						-87.786754,
+						33.52435
+					]
+				]
+			},
+			"properties": {
+				"id": "path1176",
+				"kind": "airway"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-91.608513,
+						33.621757
+					],
+					[
+						-90.985798,
+						33.503425
+					]
+				]
+			},
+			"properties": {
+				"id": "path1178",
+				"kind": "airway"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-91.48336,
+						34.210749
+					],
+					[
+						-90.985798,
+						33.503425
+					]
+				]
+			},
+			"properties": {
+				"id": "path1180",
+				"kind": "airway"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-92.004147,
+						32.5172
+					],
+					[
+						-92.450334,
+						33.044787
+					]
+				]
+			},
+			"properties": {
+				"id": "path1186",
+				"kind": "airway"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-87.972982,
+						32.850982
+					],
+					[
+						-88.869434,
+						32.424294
+					]
+				]
+			},
+			"properties": {
+				"id": "path1200",
+				"kind": "airway"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-87.968732,
+						32.264144
+					],
+					[
+						-88.869434,
+						32.424294
+					]
+				]
+			},
+			"properties": {
+				"id": "path1202",
+				"kind": "airway"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-89.18271,
+						31.418636
+					],
+					[
+						-88.152534,
+						31.390394
+					]
+				]
+			},
+			"properties": {
+				"id": "path1204",
+				"kind": "airway"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-92.407913,
+						33.634569
+					],
+					[
+						-91.735227,
+						33.628336
+					]
+				]
+			},
+			"properties": {
+				"id": "path1220",
+				"kind": "airway"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-90.196326,
+						32.516163
+					],
+					[
+						-92.004147,
+						32.5172
+					]
+				]
+			},
+			"properties": {
+				"id": "path2029",
+				"kind": "airway"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-90.292984,
+						31.315043
+					],
+					[
+						-89.384221,
+						31.822383
+					],
+					[
+						-89.377704,
+						31.827982
+					],
+					[
+						-88.869434,
+						32.424294
+					]
+				]
+			},
+			"properties": {
+				"id": "path1119",
+				"kind": "airway"
+			}
+		}
+	]
+}

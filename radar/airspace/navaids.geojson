@@ -1,0 +1,751 @@
+{
+	"type": "FeatureCollection",
+	"features": [
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-91.228825,
+					32.804193
+				]
+			},
+			"properties": {
+				"ident": "0M8",
+				"type": "airport",
+				"surveyed": true,
+				"lat": 32.82590103,
+				"lon": -91.18769836
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-90.000398,
+					33.523238
+				]
+			},
+			"properties": {
+				"ident": "KGWO",
+				"type": "airport",
+				"surveyed": true,
+				"lat": 33.49430084,
+				"lon": -90.08470154
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-91.05672,
+					32.371541
+				]
+			},
+			"properties": {
+				"ident": "KTVR",
+				"type": "airport",
+				"surveyed": true,
+				"lat": 32.35160065,
+				"lon": -91.02770233
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-90.920086,
+					32.22654
+				]
+			},
+			"properties": {
+				"ident": "KVKS",
+				"type": "airport",
+				"surveyed": true,
+				"lat": 32.23929977,
+				"lon": -90.92839813
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-90.407902,
+					32.271599
+				]
+			},
+			"properties": {
+				"ident": "KJVW",
+				"type": "airport",
+				"surveyed": false
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-90.115095,
+					32.323223
+				]
+			},
+			"properties": {
+				"ident": "KJAN",
+				"type": "airport",
+				"surveyed": true,
+				"lat": 32.31119919,
+				"lon": -90.07589722
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-90.263352,
+					32.229209
+				]
+			},
+			"properties": {
+				"ident": "KHKS",
+				"type": "airport",
+				"surveyed": true,
+				"lat": 32.33449936,
+				"lon": -90.22219849
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-91.704969,
+					33.682399
+				]
+			},
+			"properties": {
+				"ident": "KLLQ",
+				"type": "airport",
+				"surveyed": true,
+				"lat": 33.6385994,
+				"lon": -91.75099945
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-91.665755,
+					33.633428
+				]
+			},
+			"properties": {
+				"ident": "MON",
+				"type": "vor",
+				"surveyed": true,
+				"lat": 33.56209946,
+				"lon": -91.71569824
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-89.101768,
+					31.647381
+				]
+			},
+			"properties": {
+				"ident": "KLUL",
+				"type": "airport",
+				"surveyed": true,
+				"lat": 31.67259979,
+				"lon": -89.17220306
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-89.191535,
+					31.342325
+				]
+			},
+			"properties": {
+				"ident": "KHBG",
+				"type": "airport",
+				"surveyed": true,
+				"lat": 31.26479912,
+				"lon": -89.25279999
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-88.587809,
+					33.399808
+				]
+			},
+			"properties": {
+				"ident": "KGTR",
+				"type": "airport",
+				"surveyed": true,
+				"lat": 33.45029831,
+				"lon": -88.59140015
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-88.766276,
+					33.451498
+				]
+			},
+			"properties": {
+				"ident": "KSTF",
+				"type": "airport",
+				"surveyed": true,
+				"lat": 33.43310165,
+				"lon": -88.84860229
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-88.445054,
+					33.433576
+				]
+			},
+			"properties": {
+				"ident": "KUBS",
+				"type": "airport",
+				"surveyed": true,
+				"lat": 33.4654007,
+				"lon": -88.38030243
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-91.229055,
+					32.803535
+				]
+			},
+			"properties": {
+				"ident": "BLE",
+				"type": "fix",
+				"surveyed": true,
+				"lat": 32.83069992,
+				"lon": -91.19010162
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-90.920306,
+					32.226591
+				]
+			},
+			"properties": {
+				"ident": "VKS",
+				"type": "fix",
+				"surveyed": true,
+				"lat": 32.23289871,
+				"lon": -90.92649841
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-90.534237,
+					33.170052
+				]
+			},
+			"properties": {
+				"ident": "1M2",
+				"type": "airport",
+				"surveyed": true,
+				"lat": 33.14519882,
+				"lon": -90.51529694
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-91.135315,
+					32.71042
+				]
+			},
+			"properties": {
+				"ident": "HATER",
+				"type": "fix",
+				"surveyed": false
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-91.157731,
+					32.301888
+				]
+			},
+			"properties": {
+				"ident": "DORTS",
+				"type": "fix",
+				"surveyed": false
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-90.411496,
+					31.871925
+				]
+			},
+			"properties": {
+				"ident": "HAZAL",
+				"type": "fix",
+				"surveyed": false
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-90.081525,
+					31.856921
+				]
+			},
+			"properties": {
+				"ident": "RICKS",
+				"type": "fix",
+				"surveyed": false
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-89.390006,
+					33.007672
+				]
+			},
+			"properties": {
+				"ident": "ZAMMA",
+				"type": "fix",
+				"surveyed": false
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-90.421441,
+					33.008234
+				]
+			},
+			"properties": {
+				"ident": "YAZOO",
+				"type": "fix",
+				"surveyed": false
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-90.451914,
+					32.844791
+				]
+			},
+			"properties": {
+				"ident": "CLAYS",
+				"type": "fix",
+				"surveyed": false
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-90.219488,
+					32.798738
+				]
+			},
+			"properties": {
+				"ident": "BERRA",
+				"type": "fix",
+				"surveyed": false
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-90.098743,
+					33.160132
+				]
+			},
+			"properties": {
+				"ident": "ARGUW",
+				"type": "fix",
+				"surveyed": false
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-89.899736,
+					33.984412
+				]
+			},
+			"properties": {
+				"ident": "UBABY",
+				"type": "fix",
+				"surveyed": false
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-89.172402,
+					31.641931
+				]
+			},
+			"properties": {
+				"ident": "SOSOE",
+				"type": "fix",
+				"surveyed": false
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-88.892004,
+					31.412537
+				]
+			},
+			"properties": {
+				"ident": "PICAN",
+				"type": "fix",
+				"surveyed": false
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-92.008934,
+					32.517109
+				]
+			},
+			"properties": {
+				"ident": "MLU",
+				"type": "vor",
+				"surveyed": true,
+				"lat": 32.51689911,
+				"lon": -92.03600311
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-90.195947,
+					32.51621
+				]
+			},
+			"properties": {
+				"ident": "JAN",
+				"type": "vor",
+				"surveyed": true,
+				"lat": 32.50749969,
+				"lon": -90.16770172
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-88.86646,
+					32.4288
+				]
+			},
+			"properties": {
+				"ident": "MEI",
+				"type": "vor",
+				"surveyed": true,
+				"lat": 32.37850189,
+				"lon": -88.8042984
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-90.302267,
+					31.312689
+				]
+			},
+			"properties": {
+				"ident": "MCB",
+				"type": "vor",
+				"surveyed": true,
+				"lat": 31.30450058,
+				"lon": -90.2582016
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-89.26719,
+					31.411488
+				]
+			},
+			"properties": {
+				"ident": "LBY",
+				"type": "vor",
+				"surveyed": true,
+				"lat": 31.41869926,
+				"lon": -89.33760071
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-88.571651,
+					33.50297
+				]
+			},
+			"properties": {
+				"ident": "IGB",
+				"type": "vor",
+				"surveyed": true,
+				"lat": 33.48550034,
+				"lon": -88.51360321
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-90.285467,
+					33.479131
+				]
+			},
+			"properties": {
+				"ident": "SQS",
+				"type": "vor",
+				"surveyed": true,
+				"lat": 33.46390152,
+				"lon": -90.27729797
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-90.987706,
+					33.501362
+				]
+			},
+			"properties": {
+				"ident": "GLH",
+				"type": "vor",
+				"surveyed": true,
+				"lat": 33.52349854,
+				"lon": -90.98290253
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-91.329538,
+					31.614911
+				]
+			},
+			"properties": {
+				"ident": "HEZ",
+				"type": "vor",
+				"surveyed": true,
+				"lat": 31.6182003,
+				"lon": -91.29959869
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-90.599419,
+					33.027115
+				]
+			},
+			"properties": {
+				"ident": "JELMI",
+				"type": "fix",
+				"surveyed": false
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-90.70461,
+					32.51374
+				]
+			},
+			"properties": {
+				"ident": "SIGNS",
+				"type": "fix",
+				"surveyed": false
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-89.391922,
+					31.824479
+				]
+			},
+			"properties": {
+				"ident": "MIZZE",
+				"type": "fix",
+				"surveyed": false
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-90.990963,
+					33.449209
+				]
+			},
+			"properties": {
+				"ident": "KGLH",
+				"type": "airport",
+				"surveyed": true,
+				"lat": 33.48289871,
+				"lon": -90.98560333
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-90.691868,
+					33.469074
+				]
+			},
+			"properties": {
+				"ident": "KIDL",
+				"type": "airport",
+				"surveyed": true,
+				"lat": 33.485699,
+				"lon": -90.678902
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-91.298678,
+					33.312807
+				]
+			},
+			"properties": {
+				"ident": "M32",
+				"type": "airport",
+				"surveyed": true,
+				"lat": 33.34600067,
+				"lon": -91.31569672
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-91.631784,
+					32.514992
+				]
+			},
+			"properties": {
+				"ident": "RINKY",
+				"type": "fix",
+				"surveyed": false
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-90.232321,
+					32.112799
+				]
+			},
+			"properties": {
+				"ident": "ROMAR",
+				"type": "fix",
+				"surveyed": false
+			}
+		}
+	]
+}
