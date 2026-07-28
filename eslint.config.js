@@ -92,6 +92,10 @@ module.exports = [
 				window: 'readonly',
 				mapQuizItems: 'readonly',
 				checkBoxes: 'readonly',
+				// globals inside eram.js, read from page.evaluate()
+				kmlSectors: 'readonly',
+				myFacility: 'readonly',
+				boundaryBrightness: 'readonly',
 			},
 		},
 	},

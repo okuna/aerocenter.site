@@ -41,6 +41,35 @@ test.describe('ERAM scope', () => {
 		expect(planned).toBe(25);
 	});
 
+	test('renders sector boundaries from the generated KML', async ({ page }) => {
+		await page.goto(SCOPE);
+		// Boundaries arrive as KML (not GeoJSON) and are keyed by ARTCC plus an
+		// altitude category parsed out of the FolderPath — a mismatch in either
+		// silently yields zero sectors, which is how this broke the first time.
+		await page.waitForFunction(
+			() => typeof kmlSectors !== 'undefined' && kmlSectors.length > 0,
+			null, { timeout: 20_000 });
+
+		const state = await page.evaluate(() => ({
+			sectors: kmlSectors.length,
+			artccs: [...new Set(kmlSectors.map(s => s.artcc))],
+			categories: [...new Set(kmlSectors.map(s => s.category))],
+			facility: myFacility,
+			brightness: boundaryBrightness,
+		}));
+		expect(state.artccs).toEqual([state.facility]);
+		// The category must be one eram.js knows, or no slider controls it.
+		expect(['Ultra High', 'High Altitude', 'Low Altitude', 'Approach Control'])
+			.toContain(state.categories[0]);
+		// ...and that category must be turned up, or the layer renders invisibly.
+		expect(state.brightness[state.categories[0]]).toBeGreaterThan(0);
+
+		await expect.poll(
+			() => page.evaluate(() => document.querySelectorAll('path.bnd-path').length),
+			{ timeout: 15_000 },
+		).toBeGreaterThanOrEqual(state.sectors);
+	});
+
 	test('tracks advance and carry the fields the scope reads', async ({ page }) => {
 		await page.goto(SCOPE);
 		await page.waitForFunction(() => window.simPlayer && window.simPlayer.snapshot().length > 0,

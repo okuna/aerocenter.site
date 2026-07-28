@@ -50,8 +50,16 @@
 			settings.mapCenter = { lat: HOME.lat, lng: HOME.lng };
 			settings.mapZoom = HOME.zoom;
 		}
-		// Show the boundaries and airways we actually have data for.
-		settings.boundaryBrightness = settings.boundaryBrightness || { uhi: 0, hi: 60, lo: 60, app: 0 };
+		// Show the layers we actually have data for. The boundary keys are the
+		// category names eram.js uses (BOUNDARY_CATS), not the slider ids —
+		// 'Low Altitude' in particular defaults to 0, which would hide every
+		// aerocenter sector boundary.
+		settings.boundaryBrightness = settings.boundaryBrightness || {
+			'Ultra High': 0,
+			'High Altitude': 0,
+			'Low Altitude': 70,
+			'Approach Control': 0,
+		};
 		settings.nasrBrightness = settings.nasrBrightness
 			|| { jroutes: 0, vroutes: 45, vors: 60, airports: 45, centerlines: 0, proc: 0 };
 		localStorage.setItem(STORAGE_KEY, JSON.stringify(settings));
@@ -70,6 +78,42 @@
 		status: 200,
 		headers: { 'Content-Type': 'application/json' },
 	});
+
+	// Sector boundaries reach the scope as KML, not GeoJSON. loadKml() reads a
+	// <Placemark> per sector and takes the ARTCC and altitude category out of a
+	// FolderPath key inside an HTML table in <description>:
+	//
+	//     .../<ARTCC>/<category> (<count>)/<sectorId>
+	//
+	// where category is one of eram.js's BOUNDARY_CATS and selects which of the
+	// UHI/HI/LO/APP sliders controls the layer.
+	//
+	// The drawn chart carries no sector identity — radar/map.svg has no text at
+	// all, so a path cannot be tied back to sector 66, 45, F30 and so on. Every
+	// boundary is therefore published under one category, named by its source
+	// path id. The lines are correct; only the per-sector labelling is absent.
+	const KML_CATEGORY = 'Low Altitude';
+
+	function sectorKml(geo) {
+		const escape = s => String(s).replace(/[<>&]/g, c => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;' }[c]));
+		const placemarks = geo.features.map(f => {
+			const id = escape(f.properties.id || 'SECTOR');
+			// KML coordinates are lon,lat — the same order GeoJSON stores them.
+			const coords = f.geometry.coordinates.map(([lon, lat]) => `${lon},${lat}`).join(' ');
+			const folderPath = `Sectors/${FACILITY}/${KML_CATEGORY} (${geo.features.length})/${id}`;
+			return `<Placemark><name>${id}</name>`
+				+ `<description><![CDATA[<table>`
+				+ `<tr><td>FolderPath</td><td>${folderPath}</td></tr>`
+				+ `<tr><td>ALT</td><td>SFC-FL230</td></tr>`
+				+ `</table>]]></description>`
+				+ `<LineString><coordinates>${coords}</coordinates></LineString></Placemark>`;
+		}).join('\n');
+		return new Response(
+			`<?xml version="1.0" encoding="UTF-8"?>\n`
+			+ `<kml xmlns="http://www.opengis.net/kml/2.2"><Document>\n${placemarks}\n</Document></kml>`,
+			{ status: 200, headers: { 'Content-Type': 'application/vnd.google-earth.kml+xml' } },
+		);
+	}
 
 	async function serve(pathname, search) {
 		switch (pathname) {
@@ -116,6 +160,9 @@
 					points: f.geometry.coordinates.map(([lon, lat]) => [lat, lon]),
 				})));
 			}
+
+			case '/api/kml/AllSectors.kml':
+				return sectorKml(await loadJson(`${DATA}/boundaries.geojson`));
 
 			case '/api/handoff-codes':
 				return json({ default: {} });
