@@ -74,9 +74,11 @@ function main() {
 	if (!eramScript.test(html)) throw new Error('could not find the eram.js script tag to inject before');
 	html = html.replace(
 		eramScript,
-		'<script src="../sim/scenario-player.js"></script>\n'
+		'<script src="../sim/scenario-format.js"></script>\n'
+		+ '<script src="../sim/scenario-player.js"></script>\n'
 		+ '<script src="sim-bridge.js"></script>\n'
-		+ '<script src="vendor/eram/eram.js"></script>',
+		+ '<script src="vendor/eram/eram.js"></script>\n'
+		+ '<script defer src="scenario-loader.js"></script>',
 	);
 
 	// Point the home link back at the site root.

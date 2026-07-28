@@ -177,51 +177,100 @@
 	SimWebSocket.CLOSED = 3;
 
 	let player = null;
-	let pending = [];
+	let currentRate = rate;
+	const sockets = [];
+	let world = null;   // { navaids, fixes } — loaded once, reused across scenarios
 
 	SimWebSocket.attach = function (socket) {
-		pending.push(socket);
-		if (player) wire(socket);
-	};
-
-	function wire(socket) {
+		sockets.push(socket);
 		socket.readyState = 1;
 		// Let the caller finish assigning handlers before firing anything.
 		setTimeout(() => {
 			if (socket.onopen) socket.onopen({});
-			const deliver = msg => {
-				if (socket.readyState === 1 && socket.onmessage) {
-					socket.onmessage({ data: JSON.stringify(msg) });
-				}
-			};
-			deliver({ type: 'snapshot', data: player.snapshot() });
-			player.onMessage(deliver);
-			player.start(12000 / rate);
-			window.simPlayer = player;
+			if (player) send(socket, { type: 'snapshot', data: player.snapshot() });
 		}, 0);
+	};
+
+	function send(socket, msg) {
+		if (socket.readyState === 1 && socket.onmessage) {
+			socket.onmessage({ data: JSON.stringify(msg) });
+		}
 	}
 
-	Promise.all([
-		nativeFetch(`${DATA}/navaids.geojson`).then(r => r.json()),
-		nativeFetch(`${SCENARIOS}/${scenarioId}.json`).then(r => r.json()),
-		nativeFetch('../fixes.json').then(r => r.text()),
-	]).then(([navaids, scenario, fixesSrc]) => {
-		// radar/fixes.json is JS, not JSON: it assigns `fixes_json = [...]`.
-		const ctx = {};
-		new Function('c', `${fixesSrc}; c.f = fixes_json;`)(ctx);
+	function broadcast(msg) {
+		for (const s of sockets) send(s, msg);
+	}
+
+	/**
+	 * Swap in a scenario. Any tracks from the previous one are explicitly
+	 * removed first — the scope keys flights by gufi and would otherwise keep
+	 * showing them as stale targets forever.
+	 */
+	function activate(scenario) {
+		if (player) {
+			player.stop();
+			for (const f of player.snapshot()) broadcast({ type: 'remove', data: { gufi: f.gufi } });
+		}
 		player = new window.ScenarioPlayer({
 			scenario,
-			navaids,
-			fixes: ctx.f,
+			navaids: world.navaids,
+			fixes: world.fixes,
 			facility: FACILITY,
-			rate,
+			rate: currentRate,
 		});
+		player.onMessage(broadcast);
+		broadcast({ type: 'snapshot', data: player.snapshot() });
+		player.start(12000 / currentRate);
+		window.simPlayer = player;
+
 		if (player.unresolved.length) {
 			console.warn('[sim] unresolved fixes for:', player.unresolved.join(', '));
 		}
 		console.info(`[sim] ${scenario.name}: ${player.plan.length} aircraft, facility ${FACILITY}`);
-		for (const s of pending) wire(s);
-		pending = [];
+		window.dispatchEvent(new CustomEvent('sim:loaded', { detail: { scenario, player } }));
+		return player;
+	}
+
+	// Public surface for the loader UI.
+	const simBridge = {
+		get player() { return player; },
+		get rate() { return currentRate; },
+		get ready() { return world !== null; },
+		activate,
+		listScenarios: () => nativeFetch(`${SCENARIOS}/index.json`).then(r => r.json()),
+		loadById(id) {
+			return nativeFetch(`${SCENARIOS}/${id}.json`)
+				.then(r => {
+					if (!r.ok) throw new Error(`no such scenario: ${id}`);
+					return r.json();
+				})
+				.then(activate);
+		},
+		loadScript(text, id) {
+			return activate(window.ScenarioFormat.parseScenarioScript(text, id));
+		},
+		restart() {
+			if (player) activate(player.scenario);
+		},
+		setRate(next) {
+			currentRate = Number(next) || 1;
+			if (player) { player.stop(); player.start(12000 / currentRate); }
+		},
+		pause() { if (player) player.stop(); },
+		resume() { if (player) player.start(12000 / currentRate); },
+	};
+	window.simBridge = simBridge;
+
+	Promise.all([
+		nativeFetch(`${DATA}/navaids.geojson`).then(r => r.json()),
+		nativeFetch('../fixes.json').then(r => r.text()),
+	]).then(([navaids, fixesSrc]) => {
+		// radar/fixes.json is JS, not JSON: it assigns `fixes_json = [...]`.
+		const ctx = {};
+		new Function('c', `${fixesSrc}; c.f = fixes_json;`)(ctx);
+		world = { navaids, fixes: ctx.f };
+		window.dispatchEvent(new CustomEvent('sim:ready'));
+		return simBridge.loadById(scenarioId);
 	}).catch(err => console.error('[sim] failed to start:', err));
 
 	window.WebSocket = SimWebSocket;

@@ -42,7 +42,7 @@ module.exports = [
 	{
 		// UMD module: runs in the browser via <script> and in Node via require()
 		// for scripts/validate.js.
-		files: ['radar/sim/**/*.js', 'radar/eram/sim-bridge.js'],
+		files: ['radar/sim/**/*.js', 'radar/eram/sim-bridge.js', 'radar/eram/scenario-loader.js'],
 		languageOptions: {
 			ecmaVersion: 2022,
 			sourceType: 'script',
@@ -57,6 +57,7 @@ module.exports = [
 				WebSocket: 'readonly',
 				Promise: 'readonly',
 				setTimeout: 'readonly',
+				CustomEvent: 'readonly',
 				module: 'writable',
 				setInterval: 'readonly',
 				clearInterval: 'readonly',

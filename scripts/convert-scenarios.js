@@ -18,63 +18,9 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..');
+const { parseScenarioScript } = require(path.join(ROOT, 'radar/sim/scenario-format.js'));
 const SRC = path.join(ROOT, 'radar/src-v1-2.js');
 const OUT = path.join(ROOT, 'radar/scenarios');
-
-// FP [callsign] [type] [code] [speed] [fix] [time] [altitude] [route]
-function parseFp(parts) {
-	const [, callsign, type, beacon, speed, start, time, altitude, route] = parts;
-	return {
-		callsign,
-		// "DH8C/A" and the odd "2/F117/I" both split on the LAST slash.
-		type: type.slice(0, type.lastIndexOf('/')) || type,
-		equipment: type.slice(type.lastIndexOf('/') + 1),
-		beacon,
-		speed: Number(speed),
-		start,
-		// Only the last 4 chars matter; the literal EXX00 means "now".
-		activate: time.slice(-4) === 'XX00' ? null : time.slice(-4),
-		altitude: Number(altitude) * 100,
-		route: route.split('.').filter(Boolean),
-	};
-}
-
-function parseScenario(text) {
-	const lines = text.split('\n').map(l => l.trim()).filter(Boolean);
-	const name = lines.shift();
-	const scenario = { name, startTime: '0000', aircraft: [] };
-	const byCallsign = new Map();
-
-	for (const line of lines) {
-		const parts = line.split(/\s+/).filter(Boolean);
-		switch (parts[0]) {
-			case 'TIME':
-				scenario.startTime = parts[1];
-				break;
-			case 'FP': {
-				const ac = parseFp(parts);
-				byCallsign.set(ac.callsign, ac);
-				scenario.aircraft.push(ac);
-				break;
-			}
-			case 'QZ': {
-				// QZ [altitude] [ACID] — assigned altitude, applied at load time.
-				const target = byCallsign.get(parts[2]);
-				if (!target) throw new Error(`QZ for unknown aircraft: ${parts[2]}`);
-				target.assignedAltitude = Number(parts[1]) * 100;
-				break;
-			}
-			default:
-				throw new Error(`unsupported scenario command: ${line}`);
-		}
-	}
-
-	// An aircraft with no QZ holds its filed altitude.
-	for (const ac of scenario.aircraft) {
-		if (ac.assignedAltitude == null) ac.assignedAltitude = ac.altitude;
-	}
-	return scenario;
-}
 
 function main() {
 	const src = fs.readFileSync(SRC, 'utf8');
@@ -89,9 +35,7 @@ function main() {
 	fs.mkdirSync(OUT, { recursive: true });
 	const index = [];
 	for (const { key, text } of found) {
-		const scenario = parseScenario(text);
-		scenario.id = key.toLowerCase();
-		scenario.source = text.trim();
+		const scenario = parseScenarioScript(text, key.toLowerCase());
 		const file = `${scenario.id}.json`;
 		fs.writeFileSync(path.join(OUT, file), `${JSON.stringify(scenario, null, '\t')}\n`);
 		index.push({ id: scenario.id, name: scenario.name, file, aircraft: scenario.aircraft.length });
