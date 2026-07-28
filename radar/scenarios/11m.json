@@ -1,0 +1,392 @@
+{
+	"name": "ERAM 11M",
+	"startTime": "0000",
+	"aircraft": [
+		{
+			"callsign": "ENY111",
+			"type": "DH8C",
+			"equipment": "A",
+			"beacon": "0006",
+			"speed": 220,
+			"start": "ZAMMA056041",
+			"activate": "0000",
+			"altitude": 12000,
+			"route": [
+				"JAN",
+				"AEX",
+				"KAEX"
+			],
+			"assignedAltitude": 12000
+		},
+		{
+			"callsign": "N26BB",
+			"type": "BE40",
+			"equipment": "I",
+			"beacon": "0014",
+			"speed": 288,
+			"start": "ZAMMA113027",
+			"activate": "0000",
+			"altitude": 10000,
+			"route": [
+				"SQS",
+				"UJM",
+				"KBVX"
+			],
+			"assignedAltitude": 10000
+		},
+		{
+			"callsign": "AWE452",
+			"type": "B737",
+			"equipment": "G",
+			"beacon": "0004",
+			"speed": 458,
+			"start": "MON212020",
+			"activate": "0001",
+			"altitude": 23000,
+			"route": [
+				"JAN",
+				"KTLH"
+			],
+			"assignedAltitude": 23000
+		},
+		{
+			"callsign": "ENY204",
+			"type": "TBM7",
+			"equipment": "G",
+			"beacon": "0007",
+			"speed": 170,
+			"start": "MON000000",
+			"activate": "0001",
+			"altitude": 11000,
+			"route": [
+				"MCB",
+				"KMJD"
+			],
+			"assignedAltitude": 11000
+		},
+		{
+			"callsign": "AWE26",
+			"type": "B737",
+			"equipment": "I",
+			"beacon": "0003",
+			"speed": 410,
+			"start": "MON249030",
+			"activate": "0003",
+			"altitude": 17000,
+			"route": [
+				"RMG",
+				"KCLT"
+			],
+			"assignedAltitude": 17000
+		},
+		{
+			"callsign": "N225YM",
+			"type": "C650",
+			"equipment": "G",
+			"beacon": "0012",
+			"speed": 316,
+			"start": "3231/9146",
+			"activate": "0004",
+			"altitude": 21000,
+			"route": [
+				"SIGNS",
+				"KJAN"
+			],
+			"assignedAltitude": 21000
+		},
+		{
+			"callsign": "SWA651",
+			"type": "B737",
+			"equipment": "G",
+			"beacon": "0026",
+			"speed": 458,
+			"start": "3152/9112",
+			"activate": "0005",
+			"altitude": 23000,
+			"route": [
+				"JAN",
+				"KSDF"
+			],
+			"assignedAltitude": 23000
+		},
+		{
+			"callsign": "N24CC",
+			"type": "C550",
+			"equipment": "G",
+			"beacon": "0625",
+			"speed": 300,
+			"start": "MON",
+			"activate": "0008",
+			"altitude": 21000,
+			"route": [
+				"SQS",
+				"VUZ",
+				"KPLR"
+			],
+			"assignedAltitude": 21000
+		},
+		{
+			"callsign": "AAL16",
+			"type": "MD88",
+			"equipment": "I",
+			"beacon": "0001",
+			"speed": 400,
+			"start": "3138/9016",
+			"activate": "0008",
+			"altitude": 17000,
+			"route": [
+				"SQS",
+				"STL",
+				"BDF",
+				"KORD"
+			],
+			"assignedAltitude": 17000
+		},
+		{
+			"callsign": "N2556E",
+			"type": "BE9L",
+			"equipment": "G",
+			"beacon": "0013",
+			"speed": 201,
+			"start": "3231/9146",
+			"activate": "0010",
+			"altitude": 17000,
+			"route": [
+				"JAN",
+				"SQS",
+				"MEM",
+				"KSUS"
+			],
+			"assignedAltitude": 17000
+		},
+		{
+			"callsign": "N619PL",
+			"type": "PA32",
+			"equipment": "G",
+			"beacon": "0021",
+			"speed": 155,
+			"start": "KGWO",
+			"activate": "0010",
+			"altitude": 0,
+			"route": [
+				"SQS",
+				"HLI",
+				"KPAH"
+			],
+			"assignedAltitude": 9000
+		},
+		{
+			"callsign": "N69872",
+			"type": "BE9L",
+			"equipment": "G",
+			"beacon": "0023",
+			"speed": 202,
+			"start": "3152/9109",
+			"activate": "0014",
+			"altitude": 5000,
+			"route": [
+				"SQS",
+				"KGWO"
+			],
+			"assignedAltitude": 5000
+		},
+		{
+			"callsign": "N441CA",
+			"type": "C441",
+			"equipment": "G",
+			"beacon": "0016",
+			"speed": 240,
+			"start": "ZAMMA032024",
+			"activate": "0015",
+			"altitude": 18000,
+			"route": [
+				"KCLL"
+			],
+			"assignedAltitude": 18000
+		},
+		{
+			"callsign": "FDX1216",
+			"type": "DH8D",
+			"equipment": "G",
+			"beacon": "0011",
+			"speed": 305,
+			"start": "SQS",
+			"activate": "0015",
+			"altitude": 12000,
+			"route": [
+				"JAN",
+				"KHEZ"
+			],
+			"assignedAltitude": 12000
+		},
+		{
+			"callsign": "N442RG",
+			"type": "C72R",
+			"equipment": "A",
+			"beacon": "0017",
+			"speed": 120,
+			"start": "KVKS",
+			"activate": "0015",
+			"altitude": 0,
+			"route": [
+				"SQS",
+				"HLI",
+				"KBNA"
+			],
+			"assignedAltitude": 6000
+		},
+		{
+			"callsign": "N89QP",
+			"type": "BE9",
+			"equipment": "L",
+			"beacon": "0315",
+			"speed": 250,
+			"start": "MLU072010",
+			"activate": "0016",
+			"altitude": 11000,
+			"route": [
+				"HATER",
+				"EWA",
+				"KORL"
+			],
+			"assignedAltitude": 11000
+		},
+		{
+			"callsign": "N552DC",
+			"type": "GLF2",
+			"equipment": "G",
+			"beacon": "0345",
+			"speed": 320,
+			"start": "JAN161024",
+			"activate": "0016",
+			"altitude": 22000,
+			"route": [
+				"CLL",
+				"KAMA"
+			],
+			"assignedAltitude": 22000
+		},
+		{
+			"callsign": "N5TU",
+			"type": "BE35",
+			"equipment": "G",
+			"beacon": "0020",
+			"speed": 165,
+			"start": "KGWO",
+			"activate": "0018",
+			"altitude": 0,
+			"route": [
+				"SQS",
+				"IGB",
+				"KUBS"
+			],
+			"assignedAltitude": 5000
+		},
+		{
+			"callsign": "N43MR",
+			"type": "C550",
+			"equipment": "A",
+			"beacon": "0015",
+			"speed": 330,
+			"start": "GLH",
+			"activate": "0019",
+			"altitude": 17000,
+			"route": [
+				"JAN",
+				"MIZZE",
+				"KHBG"
+			],
+			"assignedAltitude": 17000
+		},
+		{
+			"callsign": "N2387L",
+			"type": "PA34",
+			"equipment": "G",
+			"beacon": "0343",
+			"speed": 160,
+			"start": "MCB",
+			"activate": "0020",
+			"altitude": 7000,
+			"route": [
+				"JAN",
+				"KHKS"
+			],
+			"assignedAltitude": 7000
+		},
+		{
+			"callsign": "USX507",
+			"type": "FA20",
+			"equipment": "G",
+			"beacon": "0027",
+			"speed": 450,
+			"start": "PBF",
+			"activate": "0020",
+			"altitude": 23000,
+			"route": [
+				"KBIX"
+			],
+			"assignedAltitude": 23000
+		},
+		{
+			"callsign": "N986PL",
+			"type": "C402",
+			"equipment": "A",
+			"beacon": "0025",
+			"speed": 175,
+			"start": "SQS",
+			"activate": "0024",
+			"altitude": 13000,
+			"route": [
+				"KMSY"
+			],
+			"assignedAltitude": 13000
+		},
+		{
+			"callsign": "N825TR",
+			"type": "C750",
+			"equipment": "I",
+			"beacon": "0024",
+			"speed": 440,
+			"start": "04M311010",
+			"activate": "0026",
+			"altitude": 20000,
+			"route": [
+				"AEX",
+				"KSGR"
+			],
+			"assignedAltitude": 20000
+		},
+		{
+			"callsign": "BUSTR21",
+			"type": "2/F117",
+			"equipment": "I",
+			"beacon": "0005",
+			"speed": 460,
+			"start": "3148/9058",
+			"activate": "0035",
+			"altitude": 21000,
+			"route": [
+				"IGB",
+				"KADW"
+			],
+			"assignedAltitude": 21000
+		},
+		{
+			"callsign": "N658AB",
+			"type": "LJ45",
+			"equipment": "I",
+			"beacon": "0341",
+			"speed": 450,
+			"start": "JAN341038",
+			"activate": "0039",
+			"altitude": 24000,
+			"route": [
+				"EMG",
+				"KSTF"
+			],
+			"assignedAltitude": 24000
+		}
+	],
+	"id": "11m",
+	"source": "ERAM 11M\nTIME 0000\nFP ENY111 DH8C/A 0006 220 ZAMMA056041 E0000 120 JAN..AEX..KAEX\nFP N26BB BE40/I 0014 288 ZAMMA113027 E0000 100 SQS..UJM..KBVX\nFP AWE452 B737/G 0004 458 MON212020 E0001 230 JAN..KTLH\nFP ENY204 TBM7/G 0007 170 MON000000 E0001 110 MCB..KMJD\nFP AWE26 B737/I 0003 410 MON249030 E0003 170 RMG..KCLT\nFP N225YM C650/G 0012 316 3231/9146 E0004 210 SIGNS..KJAN\nFP SWA651 B737/G 0026 458 3152/9112 E0005 230 JAN..KSDF\nFP N24CC C550/G 0625 300 MON E0008 210 SQS..VUZ..KPLR\nFP AAL16 MD88/I 0001 400 3138/9016 E0008 170 SQS..STL..BDF..KORD\nFP N2556E BE9L/G 0013 201 3231/9146 E0010 170 JAN..SQS..MEM..KSUS\nFP N619PL PA32/G 0021 155 KGWO E0010 000 SQS..HLI..KPAH\nQZ 090 N619PL\nFP N69872 BE9L/G 0023 202 3152/9109 E0014 050 SQS..KGWO\nFP N441CA C441/G 0016 240 ZAMMA032024 E0015 180 KCLL\nFP FDX1216 DH8D/G 0011 305 SQS E0015 120 JAN..KHEZ\nFP N442RG C72R/A 0017 120 KVKS E0015 000 SQS..HLI..KBNA\nQZ 060 N442RG\nFP N89QP BE9/L 0315 250 MLU072010 E0016 110 HATER..EWA..KORL\nFP N552DC GLF2/G 0345 320 JAN161024 E0016 220 CLL..KAMA\nFP N5TU BE35/G 0020 165 KGWO E0018 000 SQS..IGB..KUBS\nQZ 050 N5TU\nFP N43MR C550/A 0015 330 GLH E0019 170 JAN..MIZZE..KHBG\nFP N2387L PA34/G 0343 160 MCB E0020 070 JAN..KHKS\nFP USX507 FA20/G 0027 450 PBF E0020 230 KBIX\nFP N986PL C402/A 0025 175 SQS E0024 130 KMSY\nFP N825TR C750/I 0024 440 04M311010 E0026 200 AEX..KSGR\nFP BUSTR21 2/F117/I 0005 460 3148/9058 E0035 210 IGB..KADW\nFP N658AB LJ45/I 0341 450 JAN341038 E0039 240 EMG..KSTF"
+}

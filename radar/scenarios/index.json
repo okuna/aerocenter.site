@@ -1,0 +1,14 @@
+[
+	{
+		"id": "11m",
+		"name": "ERAM 11M",
+		"file": "11m.json",
+		"aircraft": 25
+	},
+	{
+		"id": "po",
+		"name": "POINT OUTS",
+		"file": "po.json",
+		"aircraft": 8
+	}
+]

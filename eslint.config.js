@@ -38,6 +38,22 @@ module.exports = [
 		},
 	},
 	{
+		// UMD module: runs in the browser via <script> and in Node via require()
+		// for scripts/validate.js.
+		files: ['radar/sim/**/*.js'],
+		languageOptions: {
+			ecmaVersion: 2022,
+			sourceType: 'script',
+			globals: {
+				...browserGlobals,
+				self: 'readonly',
+				module: 'writable',
+				setInterval: 'readonly',
+				clearInterval: 'readonly',
+			},
+		},
+	},
+	{
 		files: ['scripts/**/*.js'],
 		languageOptions: {
 			ecmaVersion: 2022,

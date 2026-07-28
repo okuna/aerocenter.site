@@ -1,0 +1,125 @@
+{
+	"name": "POINT OUTS",
+	"startTime": "0000",
+	"aircraft": [
+		{
+			"callsign": "DAL42",
+			"type": "B777",
+			"equipment": "G",
+			"beacon": "0001",
+			"speed": 450,
+			"start": "RINKY087015",
+			"activate": null,
+			"altitude": 13000,
+			"route": [
+				"MLU",
+				"KMLU"
+			],
+			"assignedAltitude": 13000
+		},
+		{
+			"callsign": "AAL120",
+			"type": "B747",
+			"equipment": "G",
+			"beacon": "0002",
+			"speed": 450,
+			"start": "SQS",
+			"activate": null,
+			"altitude": 20000,
+			"route": [
+				"KHEZ"
+			],
+			"assignedAltitude": 20000
+		},
+		{
+			"callsign": "N123",
+			"type": "C172",
+			"equipment": "G",
+			"beacon": "0003",
+			"speed": 130,
+			"start": "ROMAR180015",
+			"activate": null,
+			"altitude": 13000,
+			"route": [
+				"KGPT"
+			],
+			"assignedAltitude": 13000
+		},
+		{
+			"callsign": "N808S",
+			"type": "C152",
+			"equipment": "G",
+			"beacon": "0004",
+			"speed": 400,
+			"start": "BLE",
+			"activate": null,
+			"altitude": 0,
+			"route": [
+				"SQS",
+				"KUOX"
+			],
+			"assignedAltitude": 4000
+		},
+		{
+			"callsign": "UAL111",
+			"type": "B727",
+			"equipment": "G",
+			"beacon": "0005",
+			"speed": 450,
+			"start": "KJAN",
+			"activate": null,
+			"altitude": 0,
+			"route": [
+				"MCB",
+				"KMSY"
+			],
+			"assignedAltitude": 23000
+		},
+		{
+			"callsign": "TIGER1",
+			"type": "F22",
+			"equipment": "G",
+			"beacon": "0006",
+			"speed": 450,
+			"start": "KGWO",
+			"activate": null,
+			"altitude": 0,
+			"route": [
+				"SQS",
+				"KSUS"
+			],
+			"assignedAltitude": 20000
+		},
+		{
+			"callsign": "QXE300",
+			"type": "B727",
+			"equipment": "G",
+			"beacon": "0007",
+			"speed": 450,
+			"start": "JELMI",
+			"activate": null,
+			"altitude": 15000,
+			"route": [
+				"KLIT"
+			],
+			"assignedAltitude": 23000
+		},
+		{
+			"callsign": "N552S",
+			"type": "C450",
+			"equipment": "G",
+			"beacon": "0008",
+			"speed": 200,
+			"start": "HATER090020",
+			"activate": null,
+			"altitude": 7000,
+			"route": [
+				"IGB",
+				"KGTR"
+			],
+			"assignedAltitude": 7000
+		}
+	],
+	"id": "po",
+	"source": "POINT OUTS\nTIME 0000\nFP DAL42 B777/G 0001 450 RINKY087015 EXX00 130 MLU..KMLU\nFP AAL120 B747/G 0002 450 SQS EXX00 200 KHEZ\nFP N123 C172/G 0003 130 ROMAR180015 EXX00 130 KGPT\nFP N808S C152/G 0004 400 BLE EXX00 000 SQS..KUOX\nQZ 040 N808S\nFP UAL111 B727/G 0005 450 KJAN EXX00 000 MCB..KMSY\nQZ 230 UAL111\nFP TIGER1 F22/G 0006 450 KGWO EXX00 000 SQS..KSUS\nQZ 200 TIGER1\nFP QXE300 B727/G 0007 450 JELMI EXX00 150 KLIT\nQZ 230 QXE300\nFP N552S C450/G 0008 200 HATER090020 EXX00 070 IGB..KGTR"
+}
