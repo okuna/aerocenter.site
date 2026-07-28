@@ -8,6 +8,8 @@ const browserGlobals = {
 };
 
 module.exports = [
+	// Vendored third-party code — see radar/eram/vendor/NOTICE.
+	{ ignores: ['radar/eram/vendor/**', 'node_modules/**'] },
 	js.configs.recommended,
 	{
 		// quizItems.js defines mapQuizItems as a top-level const consumed by src.js.
@@ -40,13 +42,21 @@ module.exports = [
 	{
 		// UMD module: runs in the browser via <script> and in Node via require()
 		// for scripts/validate.js.
-		files: ['radar/sim/**/*.js'],
+		files: ['radar/sim/**/*.js', 'radar/eram/sim-bridge.js'],
 		languageOptions: {
 			ecmaVersion: 2022,
 			sourceType: 'script',
 			globals: {
 				...browserGlobals,
 				self: 'readonly',
+				location: 'readonly',
+				localStorage: 'readonly',
+				URL: 'readonly',
+				URLSearchParams: 'readonly',
+				Response: 'readonly',
+				WebSocket: 'readonly',
+				Promise: 'readonly',
+				setTimeout: 'readonly',
 				module: 'writable',
 				setInterval: 'readonly',
 				clearInterval: 'readonly',
@@ -77,6 +87,8 @@ module.exports = [
 				module: 'readonly',
 				require: 'readonly',
 				document: 'readonly',
+				// page.evaluate() callbacks are serialized into the browser.
+				window: 'readonly',
 				mapQuizItems: 'readonly',
 				checkBoxes: 'readonly',
 			},

@@ -2,8 +2,8 @@
   "name": "aerocenter.site",
   "private": true,
   "scripts": {
-    "lint": "eslint map/ radar/sim/ scripts/ tests/ playwright.config.js",
-    "test": "node scripts/validate.js && eslint map/ radar/sim/ scripts/ tests/ playwright.config.js && playwright test"
+    "lint": "eslint map/ radar/sim/ radar/eram/sim-bridge.js scripts/ tests/ playwright.config.js",
+    "test": "node scripts/validate.js && eslint map/ radar/sim/ radar/eram/sim-bridge.js scripts/ tests/ playwright.config.js && playwright test"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

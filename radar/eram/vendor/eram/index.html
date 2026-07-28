@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>ERAM - Facility Selector</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75'>📡</text></svg>">
+<style>
+  body {
+    margin: 0;
+    background: #000;
+    color: #cccc44;
+    font-family: ui-monospace, "Cascadia Mono", Menlo, Consolas, monospace;
+    font-size: 13px;
+    display: flex; flex-direction: column; height: 100vh; overflow: hidden;
+  }
+  .subhead { padding: 6px 20px 8px; border-bottom: 1px solid #3a3a14; }
+  .subhead .sub { color: #b8b884; font-size: 11px; }
+  .layout {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    flex: 1; min-height: 0;
+  }
+  .col { overflow-y: auto; border-right: 1px solid #3a3a14; }
+  .col:last-child { border-right: none; }
+  .col h2 {
+    margin: 0;
+    padding: 8px 16px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: #b8b884;
+    border-bottom: 1px solid #3a3a14;
+    background: #050505;
+    position: sticky;
+    top: 0;
+  }
+  .row {
+    padding: 6px 16px;
+    border-bottom: 1px solid #1a1a08;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .row:hover { background: #1a1a05; }
+  .row.active { background: #3a3a0a; color: #fff; }
+  .row .id { color: #cccc44; font-weight: bold; }
+  .row .meta { color: #888835; font-size: 11px; }
+  .row .meta .live { color: #cccc44; }
+  .placeholder { padding: 16px; color: #888835; }
+  .empty { color: #666; font-style: italic; padding: 16px; }
+
+  .sectors-pane { padding: 12px 16px; }
+  .sectors-pane .hint { color: #888835; font-size: 11px; margin-bottom: 10px; }
+  .sec-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 4px 8px;
+    border: 1px solid #2a2a08;
+    background: #0c0c00;
+    cursor: pointer;
+    font-size: 12px;
+  }
+  .sec-row:hover { background: #1c1c00; }
+  .sec-row.on { background: #3a3a0a; color: #fff; border-color: #6a6a14; }
+  .sec-row .sid { font-weight: bold; }
+  .sec-row .scnt { color: #888835; font-size: 10px; }
+  .sec-row.on .scnt { color: #cccc88; }
+  .sec-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 6px;
+  }
+  .sec-actions { margin-bottom: 8px; display: flex; gap: 8px; }
+  .sec-actions button {
+    background: #1a1a05; color: #cccc44; border: 1px solid #3a3a14;
+    padding: 4px 10px; font-family: inherit; font-size: 11px; cursor: pointer;
+  }
+  .sec-actions button:hover { background: #2a2a08; }
+
+  .launch-bar {
+    position: fixed; bottom: 0; right: 0;
+    padding: 12px 20px;
+    background: rgba(0,0,0,0.95);
+    border-top: 1px solid #3a3a14;
+    border-left: 1px solid #3a3a14;
+    display: flex; gap: 10px; align-items: center;
+  }
+  .launch-bar .summary { color: #cccc44; font-size: 12px; margin-right: 12px; }
+  .btn {
+    background: #1a1a05; color: #cccc44; border: 1px solid #3a3a14;
+    padding: 8px 16px; font-family: inherit; font-size: 13px; cursor: pointer;
+    letter-spacing: 1px;
+  }
+  .btn:hover { background: #3a3a0a; color: #fff; }
+  .btn.primary { background: #3a3a0a; color: #fff; border-color: #6a6a14; }
+  .btn.primary:hover { background: #5a5a14; }
+  .btn:disabled { opacity: 0.4; cursor: not-allowed; }
+  .btn.primary:disabled:hover { background: #3a3a0a; color: #fff; }
+
+  /* ── Command Reference modal ─────────────────────────────────────────── */
+  .modal-back {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.92);
+    z-index: 100;
+    display: none;
+    flex-direction: column;
+    padding: 24px 32px;
+    overflow: hidden;
+  }
+  .modal-back.open { display: flex; }
+  .modal-head {
+    display: flex; align-items: center; gap: 16px;
+    padding-bottom: 10px; border-bottom: 1px solid #3a3a14;
+    margin-bottom: 12px;
+  }
+  .modal-head h2 { margin: 0; color: #cccc44; font-size: 16px; letter-spacing: 2px; }
+  .modal-head .source { color: #888835; font-size: 11px; }
+  .modal-head .filter {
+    margin-left: auto; display: flex; gap: 8px; align-items: center;
+  }
+  .modal-head input[type="text"] {
+    background: #1a1a05; color: #cccc44; border: 1px solid #3a3a14;
+    padding: 4px 8px; font-family: inherit; font-size: 12px; width: 200px;
+  }
+  .modal-head .legend { font-size: 11px; color: #888835; }
+  .modal-head .legend b.ok { color: #5ed05e; }
+  .modal-head .legend b.partial { color: #d0a040; }
+  .modal-head .legend b.no { color: #b85050; }
+  .modal-body { flex: 1; overflow-y: auto; }
+  .modal-body table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .modal-body th, .modal-body td {
+    text-align: left; padding: 5px 10px;
+    border-bottom: 1px solid #1a1a08;
+    vertical-align: top;
+  }
+  .modal-body th {
+    color: #b8b884; font-weight: normal; letter-spacing: 1px;
+    background: #050505; position: sticky; top: 0;
+    border-bottom: 1px solid #3a3a14;
+  }
+  .modal-body td.cmd { font-family: ui-monospace, monospace; color: #cccc44; white-space: nowrap; }
+  .modal-body td.desc { color: #b8b884; }
+  .modal-body td.status { white-space: nowrap; }
+  .modal-body td.status.ok { color: #5ed05e; }
+  .modal-body td.status.partial { color: #d0a040; }
+  .modal-body td.status.no { color: #b85050; }
+  .modal-body td.note { color: #888835; font-style: italic; font-size: 11px; }
+  .modal-body h3 {
+    margin: 18px 0 6px; padding-bottom: 4px;
+    color: #cccc44; font-size: 12px; letter-spacing: 2px;
+    border-bottom: 1px solid #3a3a14;
+  }
+  .modal-body tr.hide { display: none; }
+  .modal-close {
+    background: #1a1a05; color: #cccc44; border: 1px solid #3a3a14;
+    padding: 6px 14px; font-family: inherit; font-size: 12px; cursor: pointer;
+    letter-spacing: 1px;
+  }
+  .modal-close:hover { background: #3a3a0a; color: #fff; }
+</style>
+<link rel="stylesheet" href="/shared/common.css">
+<link rel="stylesheet" href="/shared/frame.css?v=4">
+</head>
+<body>
+<a class="nav-home" href="/">&larr; HOME</a>
+<header>
+  <h1>ERAM</h1>
+  <span class="sub" style="margin-left:16px; color:#666; font-size:11px;">En Route Automation Modernization</span>
+</header>
+<div class="subhead">
+  <div class="sub">Pick an ARTCC, then pick the sector(s) you're working. Live track counts refresh every 5s from <code>/api/sectors</code>. Click <b>LAUNCH</b> to open the scope, or <b>RESUME</b> to restore your last session unchanged.</div>
+</div>
+<div class="layout">
+  <div class="col">
+    <h2>ARTCC</h2>
+    <div id="facilities"><div class="placeholder">Loading…</div></div>
+  </div>
+  <div class="col sectors-pane">
+    <h2 style="margin:-12px -16px 12px; padding:8px 16px;">SECTORS</h2>
+    <div id="sectors-empty" class="empty">Select an ARTCC to see its active sectors.</div>
+    <div id="sectors-content" style="display:none;">
+      <div class="hint" id="sec-hint"></div>
+      <div class="sec-actions">
+        <button id="btn-all">ALL</button>
+        <button id="btn-none">NONE</button>
+        <button id="btn-handoff">ONLY ACTIVE</button>
+      </div>
+      <div class="sec-grid" id="sec-grid"></div>
+    </div>
+  </div>
+</div>
+
+<div class="launch-bar">
+  <span class="summary" id="summary">No selection</span>
+  <button class="btn" id="btn-cmdref" title="MCA command reference + implementation status vs CRC ERAM docs">COMMAND REF</button>
+  <button class="btn" id="btn-hocodes" title="Edit the shared facility handoff display codes (e.g. PCT → E from a ZDC scope)">HO CODES</button>
+  <button class="btn" id="btn-resume" title="Open ERAM with whatever facility + sectors you had selected last time">RESUME LAST SESSION</button>
+  <button class="btn primary" id="btn-launch" disabled>LAUNCH ▸</button>
+</div>
+
+<!-- ── Handoff Codes editor overlay ─────────────────────────────────────── -->
+<div class="modal-back" id="ho-modal">
+  <div class="modal-head">
+    <h2>HANDOFF DISPLAY CODES</h2>
+    <span class="source">shared via <code style="color:#cccc44;">/api/handoff-codes</code> — edits affect every scope</span>
+    <div class="filter">
+      <button class="modal-close" id="ho-save"   style="background:#3a3a0a; color:#fff;">SAVE</button>
+      <button class="modal-close" id="ho-reload" title="Discard local edits, reload from server">RELOAD</button>
+      <button class="modal-close" id="ho-close">CLOSE</button>
+    </div>
+  </div>
+  <div class="modal-body" id="ho-body">
+    <div style="color:#888835; font-size:11px; margin-bottom:12px;">
+      Maps facility IDs to single-character (or short) codes shown on data-block Field E during handoffs.
+      The <b>default</b> section applies to all scopes; per-facility sections override for that scope's
+      perspective (e.g. PCT shows as <b>E</b> when viewed from ZDC, but as <b>P</b> by default).
+      Sector strings are appended automatically — e.g. PCT/2L renders as <b>E2L</b> on a ZDC scope.
+    </div>
+    <div id="ho-sections"></div>
+    <button id="ho-add-section" style="margin-top:14px; background:#1a1a05; color:#cccc44; border:1px solid #3a3a14; padding:6px 12px; font-family:inherit; font-size:11px; cursor:pointer;">
+      + ADD SECTION (per-facility override)
+    </button>
+  </div>
+</div>
+
+<!-- ── Command Reference overlay ────────────────────────────────────────── -->
+<div class="modal-back" id="cmd-modal">
+  <div class="modal-head">
+    <h2>MCA COMMAND REFERENCE</h2>
+    <span class="source">vs <a href="/docs/crc-eram-reference-2026-06-29.md" style="color:#cccc44;">CRC ERAM 2026-06-29</a></span>
+    <div class="filter">
+      <input type="text" id="cmd-filter" placeholder="filter…" />
+      <span class="legend"><b class="ok">●</b> implemented &nbsp; <b class="partial">●</b> partial &nbsp; <b class="no">●</b> missing</span>
+      <button class="modal-close" id="cmd-close">CLOSE</button>
+    </div>
+  </div>
+  <div class="modal-body" id="cmd-body"></div>
+</div>
+
+<script>
+const $ = (id) => document.getElementById(id);
+// Must match SETTINGS_VERSION in eram.js or the scope discards what we
+// write as outdated.
+const SETTINGS_VERSION = 3;
+const STORAGE_KEY = 'eram-settings';
+
+let selectedFacility = null;
+let selectedSectors = new Set();
+let allFacilities = [];
+let facilityById = new Map();
+
+function readSaved() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return null;
+    const s = JSON.parse(raw);
+    if (!s.settingsVersion || s.settingsVersion < SETTINGS_VERSION) return null;
+    return s;
+  } catch { return null; }
+}
+
+function writeLaunchSettings(fac, sectors) {
+  // Merge with existing saved settings so we don't wipe sliders/colors/etc.
+  // If nothing's saved, seed minimal payload with settingsVersion so the
+  // scope's outdated-version check (eram.js:4881) doesn't immediately
+  // discard our facility+sectors.
+  let s = {};
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) s = JSON.parse(raw) || {};
+  } catch {}
+  s.settingsVersion = SETTINGS_VERSION;
+  s.facility = fac;
+  s.sectors = [...sectors];
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(s));
+}
+
+function updateSummary() {
+  const sumEl = $("summary"); const launchBtn = $("btn-launch");
+  if (!selectedFacility) {
+    sumEl.textContent = "No selection";
+    launchBtn.disabled = true; return;
+  }
+  const n = selectedSectors.size;
+  sumEl.innerHTML = `<b>${selectedFacility}</b> · ${n} sector${n === 1 ? "" : "s"}` +
+    (n ? ` <span style="color:#888835">(${[...selectedSectors].sort().join(" ")})</span>` : "");
+  launchBtn.disabled = false;
+}
+
+function pickFacility(fac) {
+  selectedFacility = fac.facility;
+  selectedSectors = new Set();
+  for (const el of document.querySelectorAll("#facilities .row"))
+    el.classList.toggle("active", el.dataset.id === fac.facility);
+  renderSectors(fac);
+  updateSummary();
+}
+
+function renderSectors(fac) {
+  $("sectors-empty").style.display = "none";
+  $("sectors-content").style.display = "block";
+  $("sec-hint").textContent = `${fac.facility} · ${fac.sectorCount} sector${fac.sectorCount === 1 ? "" : "s"} · ${fac.totalTracks} active tracks. Click sectors you're working. (None selected = facility-wide view, no Quick Look.)`;
+  const sorted = [...fac.sectors].sort((a, b) => a.id.localeCompare(b.id));
+  $("sec-grid").innerHTML = sorted.map(s => {
+    const handoffs = (s.handoffsIn || 0) + (s.handoffsOut || 0);
+    const ho = handoffs > 0 ? ` · ${handoffs}H` : "";
+    const active = (s.tracks > 0) || (handoffs > 0);
+    return `<div class="sec-row" data-sec="${s.id}" data-active="${active ? 1 : 0}">
+      <span class="sid">${s.id}</span>
+      <span class="scnt">${s.tracks}T${ho}</span>
+    </div>`;
+  }).join("");
+  for (const el of document.querySelectorAll(".sec-row")) {
+    el.onclick = () => {
+      const sid = el.dataset.sec;
+      if (selectedSectors.has(sid)) { selectedSectors.delete(sid); el.classList.remove("on"); }
+      else                          { selectedSectors.add(sid); el.classList.add("on"); }
+      updateSummary();
+    };
+  }
+}
+
+async function loadFacilities() {
+  try {
+    const data = await fetch("/api/sectors?rangeMin=60").then(r => r.json());
+    // ERAM is en-route only — filter to Z-prefixed ARTCC facilities.
+    allFacilities = (data.facilities || [])
+      .filter(f => (f.facility || "").startsWith("Z"))
+      .sort((a, b) => a.facility.localeCompare(b.facility));
+    facilityById.clear();
+    for (const f of allFacilities) facilityById.set(f.facility, f);
+    $("facilities").innerHTML = allFacilities.map(f =>
+      `<div class="row" data-id="${f.facility}">
+        <span class="id">${f.facility}</span>
+        <span class="meta"><span class="live">${f.totalTracks}T</span> · ${f.sectorCount} sec</span>
+      </div>`).join("");
+    for (const el of document.querySelectorAll("#facilities .row"))
+      el.onclick = () => pickFacility(facilityById.get(el.dataset.id));
+
+    // Re-render the sector grid for the live counts if a facility is picked.
+    if (selectedFacility && facilityById.has(selectedFacility)) {
+      const keep = new Set(selectedSectors);
+      renderSectors(facilityById.get(selectedFacility));
+      for (const sid of keep) {
+        const el = document.querySelector(`.sec-row[data-sec="${CSS.escape(sid)}"]`);
+        if (el) { el.classList.add("on"); selectedSectors.add(sid); }
+      }
+      updateSummary();
+    }
+  } catch (e) {
+    $("facilities").innerHTML = `<div class="placeholder">Error: ${e}</div>`;
+  }
+}
+
+// ── Buttons ────────────────────────────────────────────────────────────────
+$("btn-launch").onclick = () => {
+  if (!selectedFacility) return;
+  writeLaunchSettings(selectedFacility, selectedSectors);
+  // center=1 tells the scope to zoom to the freshly-picked ARTCC (a fresh LAUNCH),
+  // overriding the last-session map view. RESUME omits it to keep your saved view.
+  location.href = "/eram/scope?center=1";
+};
+
+$("btn-resume").onclick = () => {
+  // No write needed — existing localStorage drives the scope. If there's no
+  // saved session at all, fall through to the scope with defaults (button is
+  // disabled in that case below, but defense in depth).
+  location.href = "/eram/scope";
+};
+
+$("btn-all").onclick = () => {
+  if (!selectedFacility) return;
+  for (const el of document.querySelectorAll(".sec-row")) {
+    el.classList.add("on"); selectedSectors.add(el.dataset.sec);
+  }
+  updateSummary();
+};
+$("btn-none").onclick = () => {
+  selectedSectors.clear();
+  for (const el of document.querySelectorAll(".sec-row")) el.classList.remove("on");
+  updateSummary();
+};
+$("btn-handoff").onclick = () => {
+  // Pre-select sectors that have live tracks or handoffs in the past 60 min.
+  selectedSectors.clear();
+  for (const el of document.querySelectorAll(".sec-row")) {
+    if (el.dataset.active === "1") { el.classList.add("on"); selectedSectors.add(el.dataset.sec); }
+    else                            el.classList.remove("on");
+  }
+  updateSummary();
+};
+
+// Label the resume button with the saved facility/sector count so users see
+// what they'll get before clicking. Disable when nothing's saved.
+const saved = readSaved();
+if (saved && saved.facility) {
+  $("btn-resume").innerHTML = `RESUME ▸ <b>${saved.facility}</b>` +
+    (saved.sectors && saved.sectors.length ? ` <span style="color:#888835">(${saved.sectors.length})</span>` : "");
+} else {
+  $("btn-resume").disabled = true;
+  $("btn-resume").title = "No saved session yet — launch with a selection first.";
+}
+
+loadFacilities();
+setInterval(loadFacilities, 5000);
+
+// ── Command Reference ──────────────────────────────────────────────────────
+// Each entry mirrors CRC ERAM Reference §"ERAM Commands" + §"Implied
+// Commands". The status field reflects what tools/SwimServer/wwwroot/eram/
+// eram.js currently handles when the verb is typed into the MCA. Update
+// when adding/removing commands.
+//   ok      = fully implemented per CRC spec
+//   partial = some forms work, see note
+//   no      = recognized but rejected, or not handled at all
+const CMD_GROUPS = [
+  { name: "Implied Commands (no QN/QZ preface required)", cmds: [
+    { c: "<FLID>",                 d: "Toggles an unowned data block FDB↔LDB; accepts/recalls a pending handoff", s: "ok" },
+    { c: "//<FLID>",               d: "Toggles a track's VCI",                                                   s: "ok" },
+    { c: "<1-9> <FLID>",           d: "Positions a data block (numpad layout)",                                  s: "ok" },
+    { c: "/<0-3> <FLID>",          d: "Sets data block leader length",                                            s: "ok" },
+    { c: "<1-9>/<0-3> <FLID>",     d: "Positions data block + sets leader length",                               s: "ok" },
+  ]},
+  { name: "Altitude + Speed", cmds: [
+    { c: "QZ <alt> <FLID>",                 d: "Sets assigned altitude",                       s: "ok" },
+    { c: "QZ VFR[/<alt>] | OTP <FLID>",     d: "Assigns VFR (with optional altitude) or OTP",  s: "ok" },
+    { c: "QQ <alt> <FLID>",                 d: "Sets interim altitude",                        s: "ok" },
+    { c: "QQ (R|P|L)<alt> <FLID>",          d: "CERA / procedure / local interim altitude",    s: "ok" },
+    { c: "QR <alt> <FLID>",                 d: "Sets controller-entered reported altitude",    s: "ok" },
+    { c: "QQ <FLID>",                       d: "Clears interim/procedure altitude",            s: "ok" },
+    { c: "QS <hdg>|/<spd>|`<txt>|* <FLID>", d: "Edits HSF fourth-line (heading/speed/free text)", s: "ok" },
+  ]},
+  { name: "Tracks + Handoffs", cmds: [
+    { c: "QT <location> <ACID>",   d: "Starts a track",                                          s: "no",
+      n: "no QT — autotrack handles association from SWIM" },
+    { c: "QX <FLID>",              d: "Drops a track",                                           s: "ok" },
+    { c: "QH F <location> <FLID>", d: "Freezes a track",                                         s: "no" },
+    { c: "QF <FLID>",              d: "Flight plan readout in Response Area",                    s: "ok" },
+    { c: "QP <sector> <FLID>",     d: "Initiates a point-out",                                   s: "ok" },
+    { c: "QP A <sector> <FLID>",   d: "Acknowledges a point-out",                                s: "ok" },
+    { c: "QP <FLID>",              d: "FDB→LDB after point-out",                                 s: "ok" },
+    { c: "QP J <FLID>",            d: "Toggles standard DRI",                                    s: "ok" },
+    { c: "QP T <FLID>",            d: "Toggles reduced-separation DRI",                          s: "ok" },
+    { c: "QL <sector>…",           d: "Quick Look sectors (force FDB)",                          s: "ok" },
+    { c: "NK <apt> ON|OFF",        d: "TMU arrival force: FDB up for all arrivals to <apt>",     s: "ok",
+      n: "not a CRC/vNAS command — models the real-ERAM TMU force-FDB-by-destination function" },
+    { c: "RF <FLID> <facility>",   d: "Forces flight-plan transfer to facility",                 s: "no" },
+  ]},
+  { name: "Beacon Codes", cmds: [
+    { c: "QB <ACID>",                d: "Requests a beacon code",                                s: "no",
+      n: "code already comes via SWIM" },
+    { c: "QB <code> <ACID>",         d: "Assigns a beacon code",                                 s: "no" },
+    { c: "QB <code1> <code2> …",     d: "Toggles codes in Beacon Code View",                     s: "ok" },
+    { c: "QB <equipment> <FLID>",    d: "Assigns an equipment suffix",                           s: "partial",
+      n: "form recognized, persisted client-side only" },
+    { c: "QB [/v|/r|/t] <FLID>",     d: "Assigns a voice type",                                  s: "partial",
+      n: "client-side only" },
+  ]},
+  { name: "Route + Display", cmds: [
+    { c: "QU <minutes> <FLID>",   d: "Displays a route for N minutes",                           s: "ok" },
+    { c: "QU <FLID>",             d: "Clears displayed route",                                   s: "ok" },
+    { c: "QU <fix> <FLID>",       d: "Amends route direct to a fix",                             s: "no" },
+    { c: "QU /M <FLID>",          d: "Shows full filed route",                                   s: "ok" },
+    { c: "AM …",                  d: "Amends a flight plan",                                     s: "no" },
+    { c: "DM <ACID>",             d: "Activates a flight plan",                                  s: "no" },
+    { c: "VP <type> <route> <FLID>", d: "Creates a VFR flight plan",                             s: "no" },
+    { c: "MR",                    d: "Lists available GeoMaps in Response Area",                 s: "no" },
+    { c: "MR <GeoMap>",           d: "Switches to a GeoMap",                                     s: "no",
+      n: "single base map only" },
+  ]},
+  { name: "Tools (Range/Bearing/Speed/CRR)", cmds: [
+    { c: "LA <loc1> <loc2>",      d: "Range/bearing between two locations",                      s: "ok" },
+    { c: "LB <fix> <loc>",        d: "Range/bearing from fix to location",                       s: "ok" },
+    { c: "LC <fix>/<time> <FLID>",d: "Speed adjustment to hit fix at zulu time",                 s: "ok" },
+    { c: "LF <label> <FLID>",     d: "Adds/removes aircraft from a CRR group",                   s: "ok" },
+    { c: "QN | QZ",               d: "Implied-command preface (no-op verbs)",                    s: "ok",
+      n: "preface optional — implied commands work either way" },
+  ]},
+  { name: "Filters + Views", cmds: [
+    { c: "QD <lo>B<hi>",          d: "Sets altitude limits filter (hundreds of feet)",           s: "ok",
+      n: "new — see commit 26cc584" },
+    { c: "QD CLR | QD *",         d: "Clears altitude limits filter",                            s: "ok",
+      n: "extension beyond CRC, for convenience" },
+    { c: "QD <station>",          d: "Toggles altimeter setting (Altim Set view)",               s: "ok",
+      n: "shares the AR <station> toggle path" },
+    { c: "QD (bare)",             d: "Clear Response Area",                                      s: "ok",
+      n: "extension beyond CRC" },
+    { c: "AR <station>",          d: "Toggles display of an altimeter setting",                  s: "ok" },
+    { c: "WR <station>",          d: "Toggles weather station report display",                   s: "ok" },
+    { c: "WR R <station>",        d: "Shows most recent METAR in Response Area",                 s: "ok" },
+  ]},
+];
+
+const $cmdBody = document.getElementById('cmd-body');
+function renderCmdRef() {
+  const html = CMD_GROUPS.map(g => {
+    const rows = g.cmds.map(c => {
+      const label = c.s === 'ok' ? 'IMPL' : c.s === 'partial' ? 'PART' : 'MISS';
+      const note = c.n ? `<div class="note">${c.n}</div>` : '';
+      return `<tr data-search="${(c.c + ' ' + c.d + ' ' + (c.n || '')).toLowerCase()}">
+        <td class="cmd">${c.c}</td>
+        <td class="desc">${c.d}${note}</td>
+        <td class="status ${c.s}">● ${label}</td>
+      </tr>`;
+    }).join('');
+    return `<h3>${g.name}</h3>
+      <table><thead><tr><th style="width:30%">Command</th><th>Description</th><th style="width:90px">Status</th></tr></thead>
+      <tbody>${rows}</tbody></table>`;
+  }).join('');
+  // Footer with rollup stats.
+  let ok = 0, partial = 0, no = 0;
+  for (const g of CMD_GROUPS) for (const c of g.cmds) {
+    if (c.s === 'ok') ok++; else if (c.s === 'partial') partial++; else no++;
+  }
+  const total = ok + partial + no;
+  const footer = `<div style="margin-top:18px; padding-top:10px; border-top:1px solid #3a3a14; color:#888835; font-size:11px;">
+    <b style="color:#5ed05e">${ok}</b> implemented · <b style="color:#d0a040">${partial}</b> partial · <b style="color:#b85050">${no}</b> missing · <b style="color:#cccc44">${total}</b> total.
+    Click a command in MCA via the scope to try it. Status updated 2026-06-29.
+  </div>`;
+  $cmdBody.innerHTML = html + footer;
+}
+renderCmdRef();
+
+const $cmdModal = document.getElementById('cmd-modal');
+document.getElementById('btn-cmdref').onclick = () => $cmdModal.classList.add('open');
+document.getElementById('cmd-close').onclick = () => $cmdModal.classList.remove('open');
+$cmdModal.addEventListener('click', (e) => { if (e.target === $cmdModal) $cmdModal.classList.remove('open'); });
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && $cmdModal.classList.contains('open')) $cmdModal.classList.remove('open');
+});
+
+document.getElementById('cmd-filter').addEventListener('input', (e) => {
+  const q = e.target.value.toLowerCase().trim();
+  for (const tr of $cmdBody.querySelectorAll('tbody tr')) {
+    tr.classList.toggle('hide', q.length > 0 && !tr.dataset.search.includes(q));
+  }
+});
+
+// ── Handoff Codes editor ───────────────────────────────────────────────────
+// In-memory model mirrors the JSON file shape: { default: { FAC: code },
+// FAC1: { OTHERFAC: code }, ... }. _comment is preserved if present.
+let hoModel = { default: {} };
+const $hoModal = document.getElementById('ho-modal');
+const $hoSections = document.getElementById('ho-sections');
+
+function renderHoEditor() {
+  // Sort sections: default first, then alphabetical.
+  const sections = Object.keys(hoModel)
+    .filter(k => !k.startsWith('_'))
+    .sort((a, b) => (a === 'default' ? -1 : b === 'default' ? 1 : a.localeCompare(b)));
+  $hoSections.innerHTML = sections.map(sec => {
+    const isDefault = sec === 'default';
+    const rows = Object.entries(hoModel[sec])
+      .sort((a, b) => a[0].localeCompare(b[0]))
+      .map(([fac, code]) => `
+        <tr>
+          <td><input type="text" class="ho-fac" data-section="${sec}" data-orig="${fac}" value="${fac}" maxlength="6" style="width:80px; text-transform:uppercase; background:#1a1a05; color:#cccc44; border:1px solid #3a3a14; padding:3px 6px; font-family:inherit; font-size:12px;"></td>
+          <td><input type="text" class="ho-code" data-section="${sec}" data-fac="${fac}" value="${code}" maxlength="4" style="width:60px; text-transform:uppercase; background:#1a1a05; color:#cccc44; border:1px solid #3a3a14; padding:3px 6px; font-family:inherit; font-size:12px;"></td>
+          <td><button class="ho-del-row" data-section="${sec}" data-fac="${fac}" style="background:#2a0a0a; color:#b85050; border:1px solid #5a1414; padding:2px 8px; font-family:inherit; font-size:11px; cursor:pointer;">DEL</button></td>
+        </tr>`).join('');
+    const sectionHead = isDefault
+      ? `<h3 style="margin-top:18px;">DEFAULT (applies to every scope)</h3>`
+      : `<h3 style="margin-top:18px; display:flex; align-items:center; gap:10px;">
+           SECTION <b style="color:#cccc44">${sec}</b>
+           <span style="color:#888835; font-size:11px; font-weight:normal; letter-spacing:0;">— overrides shown only when myFacility = ${sec}</span>
+           <button class="ho-del-section" data-section="${sec}" style="margin-left:auto; background:#2a0a0a; color:#b85050; border:1px solid #5a1414; padding:2px 10px; font-family:inherit; font-size:11px; cursor:pointer; letter-spacing:0;">DELETE SECTION</button>
+         </h3>`;
+    return `${sectionHead}
+      <table>
+        <thead><tr><th style="width:120px">FACILITY</th><th style="width:80px">CODE</th><th></th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+      <button class="ho-add-row" data-section="${sec}" style="margin-top:6px; background:#1a1a05; color:#cccc44; border:1px solid #3a3a14; padding:4px 10px; font-family:inherit; font-size:11px; cursor:pointer;">+ ADD ROW</button>`;
+  }).join('');
+
+  // Row edits: rebuild that section's map so a renamed key is moved cleanly.
+  $hoSections.querySelectorAll('.ho-fac, .ho-code').forEach(inp => {
+    inp.addEventListener('change', (e) => {
+      const sec = e.target.dataset.section;
+      rebuildSectionFromInputs(sec);
+    });
+  });
+  $hoSections.querySelectorAll('.ho-add-row').forEach(b => {
+    b.addEventListener('click', (e) => {
+      const sec = e.target.dataset.section;
+      // Add an empty row; user fills in. Use a unique placeholder key.
+      let i = 1;
+      while (hoModel[sec][`NEW${i}`] != null) i++;
+      hoModel[sec][`NEW${i}`] = '';
+      renderHoEditor();
+    });
+  });
+  $hoSections.querySelectorAll('.ho-del-row').forEach(b => {
+    b.addEventListener('click', (e) => {
+      const sec = e.target.dataset.section;
+      const fac = e.target.dataset.fac;
+      delete hoModel[sec][fac];
+      renderHoEditor();
+    });
+  });
+  $hoSections.querySelectorAll('.ho-del-section').forEach(b => {
+    b.addEventListener('click', (e) => {
+      const sec = e.target.dataset.section;
+      if (sec === 'default') return alert("Can't delete the default section.");
+      if (!confirm(`Delete section "${sec}" and all its overrides?`)) return;
+      delete hoModel[sec];
+      renderHoEditor();
+    });
+  });
+}
+
+function rebuildSectionFromInputs(sec) {
+  const out = {};
+  $hoSections.querySelectorAll(`.ho-fac[data-section="${sec}"]`).forEach(facInp => {
+    const facKey = facInp.value.trim().toUpperCase();
+    if (!facKey) return;   // skip empty
+    const codeInp = $hoSections.querySelector(`.ho-code[data-section="${sec}"][data-fac="${facInp.dataset.orig}"]`);
+    const code = codeInp ? codeInp.value.trim().toUpperCase() : '';
+    if (!code) return;     // skip empty
+    out[facKey] = code;
+  });
+  hoModel[sec] = out;
+  renderHoEditor();
+}
+
+async function loadHoCodes() {
+  try {
+    const resp = await fetch('/api/handoff-codes', { cache: 'no-store' });
+    hoModel = await resp.json();
+    if (!hoModel.default) hoModel.default = {};
+    renderHoEditor();
+  } catch (e) {
+    $hoSections.innerHTML = `<div style="color:#b85050;">Failed to load: ${e}</div>`;
+  }
+}
+
+async function saveHoCodes() {
+  // Drop sections that have no entries (other than default which always
+  // exists) to keep the on-disk file tidy.
+  const clean = {};
+  if (hoModel._comment) clean._comment = hoModel._comment;
+  for (const [sec, map] of Object.entries(hoModel)) {
+    if (sec.startsWith('_')) continue;
+    if (sec !== 'default' && Object.keys(map).length === 0) continue;
+    clean[sec] = map;
+  }
+  try {
+    const resp = await fetch('/api/handoff-codes', {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(clean, null, 2)
+    });
+    if (!resp.ok) {
+      const err = await resp.text();
+      alert('Save failed: ' + err);
+      return;
+    }
+    const btn = document.getElementById('ho-save');
+    const orig = btn.textContent;
+    btn.textContent = 'SAVED ✓';
+    setTimeout(() => { btn.textContent = orig; }, 1500);
+  } catch (e) {
+    alert('Save failed: ' + e);
+  }
+}
+
+document.getElementById('btn-hocodes').onclick = () => { loadHoCodes(); $hoModal.classList.add('open'); };
+document.getElementById('ho-close').onclick   = () => $hoModal.classList.remove('open');
+document.getElementById('ho-reload').onclick  = () => loadHoCodes();
+document.getElementById('ho-save').onclick    = () => saveHoCodes();
+document.getElementById('ho-add-section').onclick = () => {
+  const sec = prompt('New section facility ID (e.g. ZDC, ZNY):');
+  if (!sec) return;
+  const key = sec.trim().toUpperCase();
+  if (!/^[A-Z][A-Z0-9]{1,5}$/.test(key)) { alert('Invalid facility ID.'); return; }
+  if (hoModel[key]) { alert('Section already exists.'); return; }
+  hoModel[key] = {};
+  renderHoEditor();
+};
+$hoModal.addEventListener('click', (e) => { if (e.target === $hoModal) $hoModal.classList.remove('open'); });
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && $hoModal.classList.contains('open')) $hoModal.classList.remove('open');
+});
+</script>
+<script src="/shared/frame.js?v=3"></script>
+</body>
+</html>
