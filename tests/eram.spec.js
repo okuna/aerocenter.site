@@ -139,6 +139,32 @@ test.describe('Scenario loader', () => {
 		}), { timeout: 15_000 }).toBe(0);
 	});
 
+	test('keeps the editor loaded so RUN SCRIPT is never a dead end', async ({ page }) => {
+		// An empty box made RUN SCRIPT answer "Nothing to run", which reads as a
+		// broken button when you have just loaded a scenario.
+		await expect.poll(() => page.inputValue('#scn-script'), { timeout: 10_000 }).not.toBe('');
+		expect(await page.inputValue('#scn-script')).toContain('FP ');
+
+		await page.selectOption('#scn-select', 'po');
+		await page.click('#scn-load');
+		await page.waitForFunction(() => window.simPlayer.scenario.id === 'po', null, { timeout: 10_000 });
+		await expect.poll(() => page.inputValue('#scn-script'), { timeout: 10_000 })
+			.toContain('POINT OUTS');
+
+		// Running it back unedited must succeed rather than complain.
+		await page.click('#scn-run');
+		await expect(page.locator('#scn-status')).not.toHaveText(/Nothing to run/);
+	});
+
+	test('does not clobber an edited script when a scenario loads', async ({ page }) => {
+		await expect.poll(() => page.inputValue('#scn-script'), { timeout: 10_000 }).not.toBe('');
+		const mine = 'MINE\nTIME 0100\nFP AAL1 B738/G 1234 400 JAN E0100 300 JAN..SQS..KGWO';
+		await page.fill('#scn-script', mine);
+		await page.click('#scn-run');
+		await page.waitForFunction(() => window.simPlayer.scenario.name === 'MINE', null, { timeout: 10_000 });
+		expect(await page.inputValue('#scn-script')).toBe(mine);
+	});
+
 	test('runs a pasted script and reports a bad line without stopping the sim', async ({ page }) => {
 		await page.fill('#scn-script', [
 			'MY TEST',

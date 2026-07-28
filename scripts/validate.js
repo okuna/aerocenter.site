@@ -138,6 +138,48 @@ try {
 	fail(`scenarios failed to validate: ${err.message}`);
 }
 
+// 4. The generated ERAM page is in sync with its assets
+//
+// The site deploys over FTP, overwriting files at the same URLs, so a browser
+// will serve a stale script unless the URL changes. That is how a fresh
+// scenario-loader.js once ran against a cached scenario-player.js. Every local
+// asset must carry ?v=<hash of its contents>, which also catches editing a
+// script without re-running scripts/build-eram-page.js.
+try {
+	const crypto = require('crypto');
+	const pagePath = path.join(ROOT, 'radar/eram/index.html');
+	const page = fs.readFileSync(pagePath, 'utf8');
+	const pageDir = path.dirname(pagePath);
+	let assetErrors = 0;
+	let checked = 0;
+
+	for (const m of page.matchAll(/(?:src|href)="([^"?:]+\.(?:js|css))(\?v=([a-f0-9]+))?"/g)) {
+		const [, rel, , hash] = m;
+		const file = path.resolve(pageDir, rel);
+		if (!fs.existsSync(file)) {
+			fail(`eram page references a missing asset: ${rel}`);
+			assetErrors++;
+			continue;
+		}
+		const want = crypto.createHash('sha1').update(fs.readFileSync(file)).digest('hex').slice(0, 8);
+		if (!hash) {
+			fail(`eram page asset has no cache-buster: ${rel}`);
+			assetErrors++;
+		} else if (hash !== want) {
+			fail(`eram page is stale for ${rel} (has ${hash}, expected ${want}) — re-run scripts/build-eram-page.js`);
+			assetErrors++;
+		}
+		checked++;
+	}
+	if (checked === 0) {
+		fail('eram page references no local assets — the build likely failed');
+		assetErrors++;
+	}
+	if (assetErrors === 0) pass(`eram page: ${checked} assets, all cache-busted and current`);
+} catch (err) {
+	fail(`eram page failed to validate: ${err.message}`);
+}
+
 console.log();
 if (failures > 0) {
 	console.error(`${failures} check(s) failed.`);

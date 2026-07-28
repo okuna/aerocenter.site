@@ -13,6 +13,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 
 const ROOT = path.resolve(__dirname, '..');
 const VENDOR = path.join(ROOT, 'radar/eram/vendor');
@@ -84,10 +85,27 @@ function main() {
 	// Point the home link back at the site root.
 	html = html.replace(/href="\/"/g, 'href="../../"');
 
+	// Cache-bust every local asset with a hash of its contents.
+	//
+	// The site deploys over FTP, overwriting files at the same URLs, so without
+	// this a browser will happily keep a stale copy. That is not hypothetical:
+	// it shipped a fresh scenario-loader.js against a cached scenario-player.js,
+	// which reported "0/25 up" because the old player had no activateDue().
+	// Hashing means the URL changes if and only if the file does.
+	const PAGE_DIR = path.dirname(OUT);
+	let busted = 0;
+	html = html.replace(/(src|href)="([^"?:]+\.(?:js|css|ttf))"/g, (match, attr, rel) => {
+		const file = path.resolve(PAGE_DIR, rel);
+		if (!fs.existsSync(file)) return match;
+		const hash = crypto.createHash('sha1').update(fs.readFileSync(file)).digest('hex').slice(0, 8);
+		busted++;
+		return `${attr}="${rel}?v=${hash}"`;
+	});
+
 	fs.writeFileSync(OUT, BANNER + html);
 
 	const leftover = [...html.matchAll(/(?:src|href)="(\/[^"]*)"/g)].map(m => m[1]);
-	console.log(`wrote ${path.relative(ROOT, OUT)} (${fs.statSync(OUT).size} bytes)`);
+	console.log(`wrote ${path.relative(ROOT, OUT)} (${fs.statSync(OUT).size} bytes), ${busted} assets cache-busted`);
 	if (leftover.length) {
 		console.log(`note: ${leftover.length} absolute path(s) left for the bridge to serve: ${[...new Set(leftover)].join(', ')}`);
 	}
