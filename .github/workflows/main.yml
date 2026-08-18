@@ -55,3 +55,11 @@ jobs:
         username: aeronrwz
         password: ${{ secrets.ftp_password }}
         server-dir: public_html/
+
+    - name: Deploy to okuna.github.io
+      uses: peaceiris/actions-gh-pages@v4
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_repo: okuna/okuna.github.io
+        publish_branch: main
+        publish_dir: .
