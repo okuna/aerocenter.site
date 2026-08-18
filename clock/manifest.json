@@ -1,0 +1,15 @@
+{
+  "name": "Clock",
+  "theme_color": "#9e9e9e",
+  "background_color": "#9E9E9E",
+  "start_url": "index.php",
+  "display": "standalone",
+  "icons":[
+	  {
+		  "src":"apple-touch-icon.png",
+		  "sizes": "500x500",
+		  "type": "image/png"
+	  }
+  ]
+}
+
