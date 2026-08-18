@@ -61,5 +61,5 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_repo: okuna/okuna.github.io
-        publish_branch: main
+        publish_branch: master
         publish_dir: .
